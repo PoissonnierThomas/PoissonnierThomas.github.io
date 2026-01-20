@@ -11044,3 +11044,21 @@ html {
 .copyright {
   background-color: #1a252f;
 }
+
+.section-subtitle {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #2c3e50;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.contact-item a {
+    color: #2c3e50;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: #1abc9c;
+}
