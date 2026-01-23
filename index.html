@@ -73,7 +73,7 @@
         <header class="masthead bg-primary text-white text-center">
             <div class="container d-flex align-items-center flex-column">
                 <!-- Masthead Avatar Image-->
-                <img class="masthead-avatar mb-5" src="assets/img/software.svg" alt="Icon of a PC of a software engineer" />
+                <img class="masthead-avatar mb-5" src="assets/Photo_CV.jpg" alt="Photo de Thomas Poissonnier" style="border-radius: 50%; border: 5px solid white; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" />
                 <!--<a href="https://www.flaticon.com/free-icons/software" title="software icons">Software icons created by GOWI - Flaticon</a>-->
                 <!-- Masthead Heading-->
                 <h1 class="masthead-heading text-uppercase mb-0">Thomas Poissonnier</h1>
@@ -238,6 +238,22 @@
                         <div>
                             <span class="badge bg-light text-dark border me-1 mb-1">HTML/CSS/JavaScript</span>
                             <span class="badge bg-light text-dark border me-1 mb-1">BDD</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Portfolio Item 8 : Keyp -->
+            <div class="col-md-6 col-lg-4 mb-5">
+                <div class="card h-100 shadow-sm border-0 portfolio-card" data-bs-toggle="modal" data-bs-target="#portfolioModal8" style="cursor: pointer; transition: transform 0.3s ease;">
+                    <img class="card-img-top" src="assets/img/portfolio/Keyp/Menu.png" alt="Weather Rugby">
+                    <div class="card-body">
+                        <h5 class="card-title text-secondary">Keyp</h5>
+                        <p class="card-text small text-muted mb-3">Gestionnaire de mots de passe</p>
+                        <div>
+                            <span class="badge bg-light text-dark border me-1 mb-1">Java</span>
+                            <span class="badge bg-light text-dark border me-1 mb-1">Interface Graphique</span>
+                            <span class="badge bg-light text-dark border me-1 mb-1">Cryptographie</span>
                         </div>
                     </div>
                 </div>
@@ -1110,6 +1126,52 @@
                 </div>
             </div>
         </div>
+        <!-- Portfolio Modal 8 : Keyp -->
+            <div class="portfolio-modal modal fade" id="portfolioModal8" tabindex="-1" aria-labelledby="portfolioModal8" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                        <div class="modal-body text-center pb-5">
+                            <div class="container">
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-8">
+                                        <!-- Portfolio Modal - Title-->
+                                        <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Keyp - Gestionnaire de mots de passe</h2>
+                                        <!-- Icon Divider-->
+                                        <div class="divider-custom">
+                                            <div class="divider-custom-line"></div>
+                                            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                            <div class="divider-custom-line"></div>
+                                        </div>
+                                        <!-- Portfolio Modal - Image-->
+                                        <img class="img-fluid rounded mb-5" src="assets/img/portfolio/Keyp/Menu.png" alt="Menu de l'application" />
+                                        <img class="img-fluid rounded mb-5" src="assets/img/portfolio/Keyp/Connexion.png" alt="Menu de l'application" />
+                                        
+                                        <!-- Portfolio Modal - Text-->
+                                        <p class="mb-4">Ce projet Java avec JavaFX est un gestionnaire de mots de passe sécurisé développé en deuxième année de BUT Informatique. L'application permet de stocker et gérer des identifiants chiffrés avec un système d'expiration et d'alertes automatiques.
+                                            <br><br>Techniquement, j'ai implémenté trois algorithmes de chiffrement (AES, DES, Blowfish) interchangeables grâce au <b>pattern Strategy</b>, une architecture <b>MVC</b> avec séparation claire des responsabilités, et un système de persistance avec le <b>pattern DAO</b>. L'interface JavaFX propose un tableau dynamique avec code couleur selon l'urgence des expirations.
+                                            <br><br>J'ai pu développer mes compétences en <b>design patterns</b>, <b>cryptographie appliquée (javax.crypto, SHA-256)</b> et <b>architecture logicielle</b>.
+                                            <br><br>Vous trouverez ci-dessous le code source complet du projet avec sa documentation JavaDoc.</p>
+                                        
+                                        <!-- Boutons de téléchargement -->
+                                        <div class="text-center mt-4">
+                                            <a class="btn btn-xl" href="assets/img/portfolio/Keyp/Keyp.zip" download="assets/img/portfolio/Keyp/Keyp_.zip">
+                                                <i class="fas fa-download me-2"></i>    
+                                                Code source
+                                            </a>
+                                        </div>
+                                        
+                                        <button class="btn btn-primary" data-bs-dismiss="modal">
+                                            <i class="fas fa-xmark fa-fw"></i>
+                                            Close Window
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
