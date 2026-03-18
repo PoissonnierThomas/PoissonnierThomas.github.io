@@ -1,11 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="Portfolio de Thomas Poissonnier, étudiant à l'IUT d'Arles en BUT INFO" />
+        <meta name="description" content="Portfolio de Thomas Poissonnier, étudiant à l'IUT d'Arles en BUT INFO — Développeur logiciel, gestion de projets, bases de données." />
         <meta name="author" content="Thomas Poissonnier" />
-        <title>Thomas Poissonnier</title>
+        <title>Thomas Poissonnier — Portfolio</title>
+        <!-- Open Graph -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://poissonnierthomas.github.io/" />
+        <meta property="og:title" content="Thomas Poissonnier — Portfolio" />
+        <meta property="og:description" content="Développeur logiciel polyvalent — C++, Java, Web, gestion de projets. Étudiant en BUT Informatique à l'IUT d'Arles." />
+        <meta property="og:image" content="https://poissonnierthomas.github.io/assets/Photo_CV.jpg" />
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Thomas Poissonnier — Portfolio" />
+        <meta name="twitter:description" content="Développeur logiciel polyvalent — C++, Java, Web, gestion de projets." />
+        <meta name="twitter:image" content="https://poissonnierthomas.github.io/assets/Photo_CV.jpg" />
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/software.ico" />
         <!-- Font Awesome icons (free version)-->
@@ -13,7 +24,9 @@
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS (includes Bootstrap)-->
+        <!-- Bootstrap CSS-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <!-- Core theme CSS-->
         <link href="css/styles.css" rel="stylesheet" />
     </head>
     <body id="page-top">
@@ -76,7 +89,7 @@
                 <img class="masthead-avatar mb-5" src="assets/Photo_CV.jpg" alt="Photo de Thomas Poissonnier" style="border-radius: 50%; border: 5px solid white; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" />
                 <!-- Masthead Heading-->
                 <h1 class="masthead-heading text-uppercase mb-0">Thomas Poissonnier</h1>
-                <h2>Pourquoi vous voudrez travailler avec lui ?</h2>
+                <h2>Pourquoi travailler avec moi ?</h2>
                 <!-- Icon Divider-->
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
@@ -247,11 +260,13 @@
                     <img class="card-img-top" src="assets/img/portfolio/Keyp/Menu.png" alt="Keyp Image">
                     <div class="card-body">
                         <h5 class="card-title text-secondary">Keyp</h5>
-                        <p class="card-text small text-muted mb-3">Gestionnaire de mots de passe</p>
+                        <p class="card-text small text-muted mb-3">Gestionnaire de mots de passe sécurisé — cryptographie AES/DES/Blowfish, architecture MVC + Design Patterns</p>
                         <div>
-                            <span class="badge bg-light text-dark border me-1 mb-1">Java</span>
-                            <span class="badge bg-light text-dark border me-1 mb-1">Interface Graphique</span>
-                            <span class="badge bg-light text-dark border me-1 mb-1">Cryptographie</span>
+                            <span class="badge bg-secondary text-white me-1 mb-1">Java</span>
+                            <span class="badge bg-secondary text-white me-1 mb-1">JavaFX</span>
+                            <span class="badge bg-secondary text-white me-1 mb-1">AES / DES / Blowfish</span>
+                            <span class="badge bg-secondary text-white me-1 mb-1">MVC</span>
+                            <span class="badge bg-secondary text-white me-1 mb-1">Design Patterns</span>
                         </div>
                     </div>
                 </div>
@@ -773,7 +788,7 @@
                                         <i class="fas fa-phone text-primary fs-5 me-3"></i>
                                         <div>
                                             <small class="text-muted d-block">Téléphone</small>
-                                            <a href="tel:+33768087088">07 68 08 70 88</a>
+                                            <span id="phone-display" class="text-muted" style="cursor:pointer; text-decoration:underline dotted;" data-p="0768087088" onclick="var el=this; el.textContent='0'+el.dataset.p.slice(0,2)+' '+el.dataset.p.slice(2,4)+' '+el.dataset.p.slice(4,6)+' '+el.dataset.p.slice(6,8)+' '+el.dataset.p.slice(8,10); el.removeAttribute('onclick'); el.style.cursor='default'; el.style.textDecoration='none'; el.style.color='';">Afficher le numéro</span>
                                         </div>
                                     </div>
                                 </div>
@@ -977,6 +992,10 @@
                                         <a class="btn btn-xl" href="assets/img/portfolio/Calculatrice/Calculatrice_POISSONNIER.zip" download="assets/img/portfolio/Calculatrice/Calculatrice_POISSONNIER.zip">
                                             <i class="fas fa-download me-2"></i>
                                             Dossier zip
+                                        </a>
+                                        <a class="btn btn-xl ms-2" href="https://github.com/PoissonnierThomas/Calculateur_Trajets" target="_blank" rel="noopener">
+                                            <i class="fab fa-github me-2"></i>
+                                            GitHub
                                         </a>
                                     </div>
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
