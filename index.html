@@ -102,19 +102,47 @@
             <div class="container">
                 <span class="section-label" data-i18n="profile.heading">Profil</span>
                 <h2 class="page-section-heading" data-i18n="profile.heading.full">Mon Profil</h2>
-                <div class="row g-5">
-                    <div class="col-lg-4 profile-col">
-                        <h4 data-i18n="profile.background.heading">Mon Parcours</h4>
-                        <p data-i18n="profile.background.line1">2019/2022 : Baccalauréat Général au lycée Ismaël Dauphin, Cavaillon</p>
-                        <p data-i18n="profile.background.line2">2022 : Un semestre en classe préparatoire PTSI à LaMartinière Monplaisir, Lyon</p>
-                        <p data-i18n="profile.background.line3">2023 : Un semestre à l'Université d'Avignon en licence d'Informatique</p>
-                        <p data-i18n="profile.background.line4">2023/2027 : BUT Informatique à l'IUT d'Aix-Marseille site d'Arles</p>
+
+                <!-- Timeline horizontale -->
+                <div class="profile-timeline mb-5">
+                    <div class="profile-timeline-track"></div>
+                    <div class="profile-timeline-items">
+                        <div class="profile-timeline-item">
+                            <div class="profile-timeline-dot"></div>
+                            <span class="profile-timeline-year">2019</span>
+                            <p class="profile-timeline-text" data-i18n="profile.background.line1">Bac Général — Lycée Ismaël Dauphin, Cavaillon</p>
+                        </div>
+                        <div class="profile-timeline-item">
+                            <div class="profile-timeline-dot"></div>
+                            <span class="profile-timeline-year">2022</span>
+                            <p class="profile-timeline-text" data-i18n="profile.background.line2">PTSI — LaMartinière Monplaisir, Lyon</p>
+                        </div>
+                        <div class="profile-timeline-item">
+                            <div class="profile-timeline-dot"></div>
+                            <span class="profile-timeline-year">2023</span>
+                            <p class="profile-timeline-text" data-i18n="profile.background.line3">Licence Informatique — Université d'Avignon</p>
+                        </div>
+                        <div class="profile-timeline-item profile-timeline-item--active">
+                            <div class="profile-timeline-dot"></div>
+                            <span class="profile-timeline-year">2023 – 2027</span>
+                            <p class="profile-timeline-text" data-i18n="profile.background.line4">BUT Informatique — IUT d'Arles</p>
+                        </div>
+                        <div class="profile-timeline-item profile-timeline-item--active">
+                            <div class="profile-timeline-dot profile-timeline-dot--sub"></div>
+                            <span class="profile-timeline-year">2026</span>
+                            <p class="profile-timeline-text" data-i18n="profile.background.line5">Stage — CBA Informatique libérale</p>
+                            <small class="profile-timeline-context" data-i18n="profile.background.line5.context">dans le cadre du BUT</small>
+                        </div>
                     </div>
-                    <div class="col-lg-4 profile-col">
+                </div>
+
+                <!-- Apport + Progression -->
+                <div class="row g-4">
+                    <div class="col-lg-6 profile-col">
                         <h4 data-i18n="profile.strengths.heading">Ce que je peux vous apporter</h4>
                         <p data-i18n="profile.strengths.text">Un profil jeune et polyvalent qui sait travailler de manière autonome. Avec de bonnes capacités d'apprentissage, je suis capable de m'adapter à de nombreuses situations.</p>
                     </div>
-                    <div class="col-lg-4 profile-col">
+                    <div class="col-lg-6 profile-col">
                         <h4 data-i18n="profile.improvements.heading">Mes axes de progression</h4>
                         <p data-i18n="profile.improvements.text">Il m'arrive souvent de ne pas assez me faire confiance, de vérifier une information que je connais déjà ou de mettre en doute un travail que je sais faire. Aussi, si vous cherchez un profil avec un sens aigu de l'esthétisme, ce n'est clairement pas mon profil.</p>
                     </div>
@@ -689,22 +717,27 @@
         <!-- About Section-->
         <section class="page-section" id="about">
             <div class="container">
-                <span class="section-label">CV</span>
-                <h2 class="page-section-heading" data-i18n="cv.section.heading">Mon CV</h2>
-                <!-- About Section Content-->
-                <div class="row">
-                    <div class="ms-auto text-center"><p class="lead" data-i18n="cv.intro">Le lien pour ouvrir mon CV dans votre naviguateur :</p></div>
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-5 text-center">
+                        <a href="assets/img/CV_POISSONNIER_Thomas.pdf" target="_blank">
+                            <img src="assets/img/CV_POISSONNIER_Thomas.png" alt="CV Thomas Poissonnier" class="cv-preview" />
+                        </a>
                     </div>
-                <!-- About Section Button-->
-                <div class="text-center mt-4">
-                    <a class="btn btn-xl btn-outline-light" href="assets/img/CV_POISSONNIER_Thomas.png" data-i18n-href="cv.href.png" target="_blank" download="assets/img/CV_POISSONNIER_Thomas.png">
-                        <i class="fas fa-download me-2"></i>
-                        <span data-i18n="cv.btn.png">PNG</span>
-                    </a>
-                    <a class="btn btn-xl btn-outline-light" href="assets/img/CV_POISSONNIER_Thomas.pdf" data-i18n-href="cv.href.pdf" target="_blank" download="assets/img/CV_POISSONNIER_Thomas.pdf">
-                        <i class="fas fa-download me-2"></i>
-                        <span data-i18n="cv.btn.pdf">PDF</span>
-                    </a>
+                    <div class="col-lg-7">
+                        <span class="section-label">CV</span>
+                        <h2 class="page-section-heading" data-i18n="cv.section.heading">Mon CV</h2>
+                        <p class="cv-intro" data-i18n="cv.intro">Téléchargez ou consultez mon CV directement dans votre navigateur.</p>
+                        <div class="d-flex gap-3 flex-wrap mt-4">
+                            <a class="btn btn-accent" href="assets/img/CV_POISSONNIER_Thomas.pdf" data-i18n-href="cv.href.pdf" target="_blank" download>
+                                <i class="fas fa-download"></i>
+                                <span data-i18n="cv.btn.pdf">PDF</span>
+                            </a>
+                            <a class="btn btn-ghost" href="assets/img/CV_POISSONNIER_Thomas.png" data-i18n-href="cv.href.png" target="_blank" download>
+                                <i class="fas fa-download"></i>
+                                <span data-i18n="cv.btn.png">PNG</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -714,17 +747,27 @@
                 <span class="section-label" data-i18n="interests.section.label">En dehors du code</span>
                 <h2 class="page-section-heading" data-i18n="interests.section.heading">Mes centres d'intérêt</h2>
 
-                <div class="row">
-                    <div class="col-lg-8 mx-auto text-start">
-                        <p class="lead mb-4" data-i18n="interests.intro">En dehors de l'informatique, voici les activités qui rythment mon quotidien :</p>
-
-                        <ul class="lead" style="list-style: none; padding-left: 0;">
-                            <li class="mb-3"><i class="fas fa-basketball-ball text-primary me-3"></i><strong data-i18n="interest.sports.title">Sports collectifs :</strong> <span data-i18n="interest.sports.description">Ancien footballeur reconverti au basket, je joue aujourd'hui et entraîne une équipe de jeunes. Je suis actuellement une formation pour obtenir mon brevet fédéral d'entraînement de catégorie jeune, une expérience enrichissante qui développe mes compétences pédagogiques et mon esprit d'équipe.</span></li>
-                            <li class="mb-3"><i class="fas fa-mountain text-primary me-3"></i><strong data-i18n="interest.outdoors.title">Activités de plein air :</strong> <span data-i18n="interest.outdoors.description">Amateur de trekking et de randonnée, j'apprécie partager ces moments avec des amis et découvrir de nouveaux horizons.</span></li>
-                            <li class="mb-3"><i class="fas fa-book text-primary me-3"></i><strong data-i18n="interest.reading.title">Lecture :</strong> <span data-i18n="interest.reading.description">Passionné de science-fiction (Asimov, Philip K. Dick) et de mythologie, qu'elle soit classique ou revisitée dans des œuvres contemporaines comme celles de Rick Riordan.</span></li>
-                        </ul>
-
-                        <p class="lead mt-4"><em data-i18n="interests.closing">Ces passions cultivent mon esprit d'équipe, ma persévérance et ma curiosité intellectuelle.</em></p>
+                <div class="row g-4">
+                    <div class="col-lg-4">
+                        <div class="interest-card">
+                            <div class="interest-icon"><i class="fas fa-basketball-ball"></i></div>
+                            <h5 data-i18n="interest.sports.title">Sports collectifs</h5>
+                            <p data-i18n="interest.sports.description">Ancien footballeur reconverti au basket, je joue aujourd'hui et entraîne une équipe de jeunes. Je suis actuellement une formation pour obtenir mon brevet fédéral d'entraînement de catégorie jeune, une expérience enrichissante qui développe mes compétences pédagogiques et mon esprit d'équipe.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="interest-card">
+                            <div class="interest-icon"><i class="fas fa-mountain"></i></div>
+                            <h5 data-i18n="interest.outdoors.title">Activités de plein air</h5>
+                            <p data-i18n="interest.outdoors.description">Amateur de trekking et de randonnée, j'apprécie partager ces moments avec des amis et découvrir de nouveaux horizons.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="interest-card">
+                            <div class="interest-icon"><i class="fas fa-book"></i></div>
+                            <h5 data-i18n="interest.reading.title">Lecture</h5>
+                            <p data-i18n="interest.reading.description">Passionné de science-fiction (Asimov, Philip K. Dick) et de mythologie, qu'elle soit classique ou revisitée dans des œuvres contemporaines comme celles de Rick Riordan.</p>
+                        </div>
                     </div>
                 </div>
             </div>

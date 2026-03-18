@@ -28,10 +28,24 @@
   --bs-border-color:     #374151;
   --bs-font-sans-serif:  "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --bs-border-width:     1px;
+
+  /* Écrase les variables Bootstrap des composants */
+  --bs-card-bg:          #1f2937;
+  --bs-card-border-color: rgba(129, 140, 248, 0.15);
+  --bs-modal-bg:         #1f2937;
+  --bs-modal-color:      #f9fafb;
 }
 
 body {
   background-color: var(--bg);
+  color: var(--text);
+}
+
+/* Bootstrap 5.2 définit --bs-card-bg sur .card, pas sur :root — override direct */
+.card {
+  --bs-card-bg: #1f2937;
+  background-color: #1f2937 !important;
+  border-color: rgba(129, 140, 248, 0.15) !important;
   color: var(--text);
 }
 
@@ -179,8 +193,11 @@ body {
 .masthead-avatar {
   width: 19rem;
   border-radius: 1.25rem;
-  border: 1px solid var(--border);
-  box-shadow: 0 30px 70px rgba(0,0,0,0.5), 0 0 0 1px var(--border);
+  border: 3px solid var(--accent);
+  box-shadow:
+    0 30px 70px rgba(0,0,0,0.5),
+    0 0 0 6px rgba(129, 140, 248, 0.12),
+    0 0 30px rgba(129, 140, 248, 0.18);
   filter: grayscale(10%);
   display: block;
   margin: 0 auto;
@@ -294,6 +311,7 @@ body {
    ============================================================ */
 .page-section {
   padding: 6rem 0;
+  border-top: 1px solid var(--border);
 }
 
 .section-label {
@@ -328,6 +346,99 @@ body {
 }
 
 #profil h2 { color: var(--text) !important; }
+
+/* Timeline horizontale */
+.profile-timeline {
+  position: relative;
+  padding: 2rem 0 3rem;
+}
+
+.profile-timeline-track {
+  position: absolute;
+  top: 2.85rem;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), var(--accent), transparent);
+  opacity: 0.35;
+}
+
+.profile-timeline-items {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  position: relative;
+}
+
+.profile-timeline-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 0.5rem;
+}
+
+.profile-timeline-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background-color: var(--surface-2);
+  border: 2px solid var(--accent);
+  margin-bottom: 0.875rem;
+  flex-shrink: 0;
+  opacity: 0.6;
+}
+
+/* Point du stage : losange pour le distinguer */
+.profile-timeline-dot--sub {
+  border-radius: 3px;
+  transform: rotate(45deg);
+  width: 0.65rem;
+  height: 0.65rem;
+}
+
+.profile-timeline-item--active .profile-timeline-dot {
+  background-color: var(--accent);
+  opacity: 1;
+  box-shadow: 0 0 10px rgba(129, 140, 248, 0.5);
+}
+
+.profile-timeline-year {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+
+.profile-timeline-item--active .profile-timeline-year {
+  color: var(--accent);
+}
+
+.profile-timeline-text {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.profile-timeline-context {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--accent);
+  opacity: 0.7;
+  font-style: italic;
+  margin-top: 0.3rem;
+}
+
+@media (max-width: 767px) {
+  .profile-timeline-items {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .profile-timeline-track { display: none; }
+}
 
 #profil .profile-col {
   border-left: 2px solid var(--border);
@@ -415,10 +526,18 @@ body {
   font-weight: 500;
 }
 
+/* Neutralise text-dark Bootstrap sur les badges des cards */
+.portfolio-card .badge.text-dark,
+.portfolio-card .badge.bg-light {
+  color: var(--accent) !important;
+  background-color: var(--surface-2) !important;
+}
+
 /* ============================================================
    Compétences (dans #portfolio)
    ============================================================ */
 #portfolio .card {
+  --bs-card-bg: var(--surface);
   background-color: var(--surface) !important;
   border: 1px solid var(--border) !important;
   color: var(--text) !important;
@@ -432,12 +551,17 @@ body {
 #portfolio .text-muted         { color: var(--text-muted) !important; }
 #portfolio .text-primary       { color: var(--accent) !important; }
 
+/* Badges niveau dans les cartes compétences */
 #portfolio .badge.bg-info      { background-color: #164e63 !important; color: #a5f3fc !important; }
 #portfolio .badge.bg-warning   { background-color: #422006 !important; color: #fde68a !important; }
 #portfolio .badge.bg-success   { background-color: #052e16 !important; color: #86efac !important; }
 #portfolio .badge.bg-primary   { background-color: var(--accent) !important; color: #0f0f1a !important; }
 
+/* Neutralise text-dark Bootstrap sur tous les badges de la section */
+#portfolio .badge.text-dark    { color: inherit !important; }
+
 #portfolio .card.bg-light {
+  --bs-card-bg: var(--surface-2);
   background-color: var(--surface-2) !important;
 }
 
@@ -452,8 +576,8 @@ body {
   margin-bottom: 1.5rem;
 }
 
-#portfolio .bg-primary.text-white.rounded-circle,
-#portfolio .bg-secondary.text-white.rounded-circle {
+#portfolio .bg-primary.rounded-circle,
+#portfolio .bg-secondary.rounded-circle {
   background-color: var(--surface-2) !important;
   color: var(--accent) !important;
 }
@@ -463,17 +587,63 @@ body {
 /* ============================================================
    CV
    ============================================================ */
-#about {
-  background-color: var(--surface);
+#about h2      { color: var(--text) !important; }
+#about .cv-intro { color: var(--text-muted); font-size: 1rem; line-height: 1.7; }
+
+.cv-preview {
+  width: 100%;
+  max-width: 22rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: block;
+  margin: 0 auto;
 }
 
-#about h2    { color: var(--text) !important; }
-#about .lead { color: var(--text-muted) !important; }
-#about p     { color: var(--text-muted) !important; }
+.cv-preview:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 28px 60px rgba(0,0,0,0.5);
+}
 
 /* ============================================================
    Centres d'intérêt
    ============================================================ */
+.interest-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 2rem 1.75rem;
+  height: 100%;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.interest-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+}
+
+.interest-icon {
+  font-size: 1.5rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.interest-card h5 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+}
+
+.interest-card p {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin: 0;
+}
+
 #Interet {
   background-color: var(--bg);
 }
