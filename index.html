@@ -40,19 +40,15 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#profil">Profil</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">Recueil de compétences</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#profil" data-i18n="nav.profil">Profil</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio" data-i18n="nav.portfolio">Recueil de compétences</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">CV</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#Interet">Centres d'intérêt</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#Interet" data-i18n="nav.interests">Centres d'intérêt</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contact</a></li>
                         <li class="nav-item mx-0 mx-lg-1">
                             <div class="language-selector">
-                                <a href="index.html" class="nav-link py-3 px-0 px-lg-3 rounded" title="Version française">
-                                    🇫🇷 FR
-                                </a>
-                                <a href="index-en.html" class="nav-link py-3 px-0 px-lg-3 rounded" title="English version">
-                                    🇬🇧 EN
-                                </a>
+                                <button class="nav-link py-3 px-0 px-lg-3 rounded border-0 bg-transparent" data-lang="fr" title="Version française">🇫🇷 FR</button>
+                                <button class="nav-link py-3 px-0 px-lg-3 rounded border-0 bg-transparent" data-lang="en" title="English version">🇬🇧 EN</button>
                             </div>
                             <style>
                             .language-selector {
@@ -86,10 +82,10 @@
         <header class="masthead bg-primary text-white text-center">
             <div class="container d-flex align-items-center flex-column">
                 <!-- Masthead Avatar Image-->
-                <img class="masthead-avatar mb-5" src="assets/Photo_CV.jpg" alt="Photo de Thomas Poissonnier" style="border-radius: 50%; border: 5px solid white; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" />
+                <img class="masthead-avatar mb-5" src="assets/Photo_CV.jpg" alt="Photo de Thomas Poissonnier" data-i18n-attr="alt:masthead.photo.alt" style="border-radius: 50%; border: 5px solid white; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" />
                 <!-- Masthead Heading-->
                 <h1 class="masthead-heading text-uppercase mb-0">Thomas Poissonnier</h1>
-                <h2>Pourquoi travailler avec moi ?</h2>
+                <h2 data-i18n="masthead.tagline">Pourquoi travailler avec moi ?</h2>
                 <!-- Icon Divider-->
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
@@ -97,13 +93,13 @@
                     <div class="divider-custom-line"></div>
                 </div>
                 <!-- Masthead Subheading-->
-                <p class="masthead-subheading font-weight-light mb-0">Développeur logiciel - Gestionnaire de projets- Gestionnaire de base de données</p>
+                <p class="masthead-subheading font-weight-light mb-0" data-i18n="masthead.subtitle">Développeur logiciel - Gestionnaire de projets- Gestionnaire de base de données</p>
             </div>
         </header>
         <!-- Profil Section -->
         <section class="masthead page-section bg-secondary text-white text-center" id="profil">
             <div class="container">
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0 text-white">Mon Profil</h2>
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0 text-white" data-i18n="profile.heading">Mon Profil</h2>
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
                     <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
@@ -111,19 +107,19 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-4 ms-auto">
-                        <h4 style="font-weight: 700; font-size: 1.3rem; margin-bottom: 1rem;">Mon Parcours</h4>
-                        <p class="lead text-start">2019/2022 : Baccalauréat Général au lycée Ismaël Dauphin, Cavaillon</p>
-                        <p class="lead text-start">2022 : Un semestre en classe préparatoire PTSI (Physique, Technologie, Sciences de l'Ingénieur) à LaMartinière Monplaisir, Lyon</p>
-                        <p class="lead text-start">2023 : Un semestre à l'Université d'Avignon en licence d'Informatique</p> 
-                        <p class="lead text-start">2023/2027 : BUT Informatique à l'IUT d'Aix-Marseille site d'Arles</p> 
+                        <h4 style="font-weight: 700; font-size: 1.3rem; margin-bottom: 1rem;" data-i18n="profile.background.heading">Mon Parcours</h4>
+                        <p class="lead text-start" data-i18n="profile.background.line1">2019/2022 : Baccalauréat Général au lycée Ismaël Dauphin, Cavaillon</p>
+                        <p class="lead text-start" data-i18n="profile.background.line2">2022 : Un semestre en classe préparatoire PTSI (Physique, Technologie, Sciences de l'Ingénieur) à LaMartinière Monplaisir, Lyon</p>
+                        <p class="lead text-start" data-i18n="profile.background.line3">2023 : Un semestre à l'Université d'Avignon en licence d'Informatique</p>
+                        <p class="lead text-start" data-i18n="profile.background.line4">2023/2027 : BUT Informatique à l'IUT d'Aix-Marseille site d'Arles</p>
                     </div>
                     <div class="col-lg-4 me-auto">
-                        <h4 style="font-weight: 700; font-size: 1.3rem; margin-bottom: 1rem;">Ce que je peux vous apporter</h4>
-                        <p class="lead text-start">Un profil jeune et polyvalent qui sait travailler de manière autonome. Avec de bonnes capacités d'apprentissage, je suis capable de m'adapter à de nombreuses situations.</p>
+                        <h4 style="font-weight: 700; font-size: 1.3rem; margin-bottom: 1rem;" data-i18n="profile.strengths.heading">Ce que je peux vous apporter</h4>
+                        <p class="lead text-start" data-i18n="profile.strengths.text">Un profil jeune et polyvalent qui sait travailler de manière autonome. Avec de bonnes capacités d'apprentissage, je suis capable de m'adapter à de nombreuses situations.</p>
                     </div>
                     <div class="col-lg-4 me-auto">
-                        <h4 style="font-weight: 700; font-size: 1.3rem; margin-bottom: 1rem;">Mes axes de progression</h4>
-                        <p class="lead text-start">Il m'arrive souvent de ne pas assez me faire confiance, de vérifier une information que je connais déjà ou de mettre en doute un travail que je sais faire. Aussi, si vous cherchez un profil avec un sens aigu de l'esthétisme, ce n'est clairement pas mon profil.</p>
+                        <h4 style="font-weight: 700; font-size: 1.3rem; margin-bottom: 1rem;" data-i18n="profile.improvements.heading">Mes axes de progression</h4>
+                        <p class="lead text-start" data-i18n="profile.improvements.text">Il m'arrive souvent de ne pas assez me faire confiance, de vérifier une information que je connais déjà ou de mettre en doute un travail que je sais faire. Aussi, si vous cherchez un profil avec un sens aigu de l'esthétisme, ce n'est clairement pas mon profil.</p>
                     </div>
                 </div>
             </div>
@@ -133,7 +129,7 @@
 <section class="page-section portfolio" id="portfolio">
     <div class="container">
         <!-- Portfolio Section Heading-->
-        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Recueil de Compétences</h2>
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0" data-i18n="portfolio.section.heading">Recueil de Compétences</h2>
         <!-- Icon Divider-->
         <div class="divider-custom">
             <div class="divider-custom-line"></div>
@@ -147,120 +143,120 @@
                 <div class="card h-100 shadow-sm border-0 portfolio-card" data-bs-toggle="modal" data-bs-target="#portfolioModal1" style="cursor: pointer; transition: transform 0.3s ease;">
                     <img class="card-img-top" src="assets/img/portfolio/Une_Journal/Une_Journal.png" alt="Une de journal réalisé par Thomas Poissonnier">
                     <div class="card-body">
-                        <h5 class="card-title text-secondary">Une de Journal</h5>
-                        <p class="card-text small text-muted mb-3">Illustration du concept de référentiel culturel commun</p>
+                        <h5 class="card-title text-secondary" data-i18n="card1.title">Une de Journal</h5>
+                        <p class="card-text small text-muted mb-3" data-i18n="card1.description">Illustration du concept de référentiel culturel commun</p>
                         <div>
                             <span class="badge bg-light text-dark border me-1 mb-1">Communication</span>
-                            <span class="badge bg-light text-dark border me-1 mb-1">Design graphique</span>
-                            <span class="badge bg-light text-dark border me-1 mb-1">Rédaction</span>
+                            <span class="badge bg-light text-dark border me-1 mb-1" data-i18n="card1.badge1">Design graphique</span>
+                            <span class="badge bg-light text-dark border me-1 mb-1" data-i18n="card1.badge2">Rédaction</span>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Portfolio Item 2 : Étude comparative d'algorithmes -->
             <div class="col-md-6 col-lg-4 mb-5">
                 <div class="card h-100 shadow-sm border-0 portfolio-card" data-bs-toggle="modal" data-bs-target="#portfolioModal2" style="cursor: pointer; transition: transform 0.3s ease;">
                     <img class="card-img-top" src="assets/img/portfolio/SAE1.02 Poissonnier Thomas/Une.png" alt="Étude comparative d'algorithmes">
                     <div class="card-body">
-                        <h5 class="card-title text-secondary">Étude comparative d'algorithmes</h5>
-                        <p class="card-text small text-muted mb-3">Comparaison qualitative d'algorithmes de tri</p>
+                        <h5 class="card-title text-secondary" data-i18n="card2.title">Étude comparative d'algorithmes</h5>
+                        <p class="card-text small text-muted mb-3" data-i18n="card2.description">Comparaison qualitative d'algorithmes de tri</p>
                         <div>
                             <span class="badge bg-light text-dark border me-1 mb-1">C++</span>
-                            <span class="badge bg-light text-dark border me-1 mb-1">Algorithmique</span>
-                            <span class="badge bg-light text-dark border me-1 mb-1">Analyse de performance</span>
+                            <span class="badge bg-light text-dark border me-1 mb-1" data-i18n="card2.badge1">Algorithmique</span>
+                            <span class="badge bg-light text-dark border me-1 mb-1" data-i18n="card2.badge2">Analyse de performance</span>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Portfolio Item 3 : Analyse Organisationnelle d'une Entreprise -->
             <div class="col-md-6 col-lg-4 mb-5">
                 <div class="card h-100 shadow-sm border-0 portfolio-card" data-bs-toggle="modal" data-bs-target="#portfolioModal3" style="cursor: pointer; transition: transform 0.3s ease;">
                     <img class="card-img-top" src="assets/img/portfolio/Analyse_orga/Une.png" alt="Analyse organisationnelle de LeBonCoin">
                     <div class="card-body">
-                        <h5 class="card-title text-secondary">Analyse Organisationnelle d'une Entreprise</h5>
-                        <p class="card-text small text-muted mb-3">Analyse de l'organisation et du fonctionnement de LeBonCoin</p>
+                        <h5 class="card-title text-secondary" data-i18n="card3.title">Analyse Organisationnelle d'une Entreprise</h5>
+                        <p class="card-text small text-muted mb-3" data-i18n="card3.description">Analyse de l'organisation et du fonctionnement de LeBonCoin</p>
                         <div>
-                            <span class="badge bg-light text-dark border me-1 mb-1">Économie du numérique</span>
+                            <span class="badge bg-light text-dark border me-1 mb-1" data-i18n="card3.badge1">Économie du numérique</span>
                             <span class="badge bg-light text-dark border me-1 mb-1">Communication</span>
-                            <span class="badge bg-light text-dark border me-1 mb-1">Gestion d'un SI</span>
+                            <span class="badge bg-light text-dark border me-1 mb-1" data-i18n="card3.badge2">Gestion d'un SI</span>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Portfolio Item 4 : Calculateur de trajet -->
             <div class="col-md-6 col-lg-4 mb-5">
                 <div class="card h-100 shadow-sm border-0 portfolio-card" data-bs-toggle="modal" data-bs-target="#portfolioModal4" style="cursor: pointer; transition: transform 0.3s ease;">
                     <img class="card-img-top" src="assets/img/portfolio/Calculatrice/Affichage_Trajet.png" alt="Calculateur de trajet">
                     <div class="card-body">
-                        <h5 class="card-title text-secondary">Calculateur de trajet</h5>
-                        <p class="card-text small text-muted mb-3">Application de calcul d'itinéraires optimisés</p>
+                        <h5 class="card-title text-secondary" data-i18n="card4.title">Calculateur de trajet</h5>
+                        <p class="card-text small text-muted mb-3" data-i18n="card4.description">Application de calcul d'itinéraires optimisés</p>
                         <div>
                             <span class="badge bg-light text-dark border me-1 mb-1">C++</span>
                             <span class="badge bg-light text-dark border me-1 mb-1">Qt</span>
                             <span class="badge bg-light text-dark border me-1 mb-1">Dijkstra</span>
-                            <span class="badge bg-light text-dark border me-1 mb-1">Base de données</span>
+                            <span class="badge bg-light text-dark border me-1 mb-1" data-i18n="card4.badge1">Base de données</span>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Portfolio Item 5 : Cahier des charges -->
             <div class="col-md-6 col-lg-4 mb-5">
                 <div class="card h-100 shadow-sm border-0 portfolio-card" data-bs-toggle="modal" data-bs-target="#portfolioModal5" style="cursor: pointer; transition: transform 0.3s ease;">
                     <img class="card-img-top" src="assets/img/portfolio/Etablissement cahier des charges/Cahier_des_charges.png" alt="Cahier des charges">
                     <div class="card-body">
-                        <h5 class="card-title text-secondary">Cahier des charges</h5>
-                        <p class="card-text small text-muted mb-3">Réalisation d'un cahier des charges complet pour une application factice</p>
+                        <h5 class="card-title text-secondary" data-i18n="card5.title">Cahier des charges</h5>
+                        <p class="card-text small text-muted mb-3" data-i18n="card5.description">Réalisation d'un cahier des charges complet pour une application factice</p>
                         <div>
-                            <span class="badge bg-light text-dark border me-1 mb-1">Documentation de projet</span>
-                            <span class="badge bg-light text-dark border me-1 mb-1">Travail d'équipe</span>
-                            <span class="badge bg-light text-dark border me-1 mb-1">Réalisation d'application</span>
+                            <span class="badge bg-light text-dark border me-1 mb-1" data-i18n="card5.badge1">Documentation de projet</span>
+                            <span class="badge bg-light text-dark border me-1 mb-1" data-i18n="card5.badge2">Travail d'équipe</span>
+                            <span class="badge bg-light text-dark border me-1 mb-1" data-i18n="card5.badge3">Réalisation d'application</span>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Portfolio Item 6 : Bibliothèque de recettes -->
             <div class="col-md-6 col-lg-4 mb-5">
                 <div class="card h-100 shadow-sm border-0 portfolio-card" data-bs-toggle="modal" data-bs-target="#portfolioModal6" style="cursor: pointer; transition: transform 0.3s ease;">
                     <img class="card-img-top" src="assets/img/portfolio/Bibliothèque_de_recette/Homepage.png" alt="Bibliothèque de recettes">
                     <div class="card-body">
-                        <h5 class="card-title text-secondary">Bibliothèque de recettes</h5>
-                        <p class="card-text small text-muted mb-3">Application de gestion de recettes culinaires</p>
+                        <h5 class="card-title text-secondary" data-i18n="card6.title">Bibliothèque de recettes</h5>
+                        <p class="card-text small text-muted mb-3" data-i18n="card6.description">Application de gestion de recettes culinaires</p>
                         <div>
                             <span class="badge bg-light text-dark border me-1 mb-1">C++</span>
                             <span class="badge bg-light text-dark border me-1 mb-1">Qt</span>
-                            <span class="badge bg-light text-dark border me-1 mb-1">Interface graphique</span>
+                            <span class="badge bg-light text-dark border me-1 mb-1" data-i18n="card6.badge1">Interface graphique</span>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Portfolio Item 7 : Weather Rugby -->
             <div class="col-md-6 col-lg-4 mb-5">
                 <div class="card h-100 shadow-sm border-0 portfolio-card" data-bs-toggle="modal" data-bs-target="#portfolioModal7" style="cursor: pointer; transition: transform 0.3s ease;">
                     <img class="card-img-top" src="assets/img/portfolio/Weather_Rugby/Screenshot1.jpg" alt="Weather Rugby">
                     <div class="card-body">
                         <h5 class="card-title text-secondary">Weather Rugby</h5>
-                        <p class="card-text small text-muted mb-3">Application web affichant les terrains de rugby de France avec leur météo</p>
+                        <p class="card-text small text-muted mb-3" data-i18n="card7.description">Application web affichant les terrains de rugby de France avec leur météo</p>
                         <div>
                             <span class="badge bg-light text-dark border me-1 mb-1">HTML/CSS/JavaScript</span>
-                            <span class="badge bg-light text-dark border me-1 mb-1">BDD</span>
+                            <span class="badge bg-light text-dark border me-1 mb-1" data-i18n="card7.badge1">BDD</span>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Portfolio Item 8 : Keyp -->
             <div class="col-md-6 col-lg-4 mb-5">
                 <div class="card h-100 shadow-sm border-0 portfolio-card" data-bs-toggle="modal" data-bs-target="#portfolioModal8" style="cursor: pointer; transition: transform 0.3s ease;">
                     <img class="card-img-top" src="assets/img/portfolio/Keyp/Menu.png" alt="Keyp Image">
                     <div class="card-body">
                         <h5 class="card-title text-secondary">Keyp</h5>
-                        <p class="card-text small text-muted mb-3">Gestionnaire de mots de passe sécurisé — cryptographie AES/DES/Blowfish, architecture MVC + Design Patterns</p>
+                        <p class="card-text small text-muted mb-3" data-i18n="card8.description">Gestionnaire de mots de passe sécurisé — cryptographie AES/DES/Blowfish, architecture MVC + Design Patterns</p>
                         <div>
                             <span class="badge bg-secondary text-white me-1 mb-1">Java</span>
                             <span class="badge bg-secondary text-white me-1 mb-1">JavaFX</span>
@@ -297,7 +293,7 @@
                     <div class="divider-custom-icon"><i class="fas fa-code"></i></div>
                     <div class="divider-custom-line"></div>
                 </div>
-                <h3 class="text-center text-secondary mb-4">Langages de Programmation</h3>
+                <h3 class="text-center text-secondary mb-4" data-i18n="skills.languages.heading">Langages de Programmation</h3>
             </div>
         </div>
 
@@ -310,12 +306,12 @@
                             <i class="fab fa-cuttlefish fs-4"></i>
                         </div>
                         <h5 class="card-title text-secondary">C++</h5>
-                        <span class="badge bg-success mb-2">Intermédiaire</span>
-                        <p class="card-text small text-muted">Algorithmes avancés, framework Qt, gestion de la mémoire</p>
+                        <span class="badge bg-success mb-2" data-i18n="skill.cpp.level">Intermédiaire</span>
+                        <p class="card-text small text-muted" data-i18n="skill.cpp.description">Algorithmes avancés, framework Qt, gestion de la mémoire</p>
                     </div>
                 </div>
             </div>
-            
+
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card h-100 shadow-sm border-0">
                     <div class="card-body text-center p-4">
@@ -323,12 +319,12 @@
                             <i class="fas fa-database fs-4"></i>
                         </div>
                         <h5 class="card-title text-secondary">SQL / PL/pgSQL</h5>
-                        <span class="badge bg-success mb-2">Intermédiaire</span>
-                        <p class="card-text small text-muted">Requêtes complexes, triggers, fonctions et procédures stockées</p>
+                        <span class="badge bg-success mb-2" data-i18n="skill.sql.level">Intermédiaire</span>
+                        <p class="card-text small text-muted" data-i18n="skill.sql.description">Requêtes complexes, triggers, fonctions et procédures stockées</p>
                     </div>
                 </div>
             </div>
-            
+
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card h-100 shadow-sm border-0">
                     <div class="card-body text-center p-4">
@@ -336,8 +332,8 @@
                             <i class="fab fa-python fs-4"></i>
                         </div>
                         <h5 class="card-title text-secondary">Python</h5>
-                        <span class="badge bg-success mb-2">Intermédiaire</span>
-                        <p class="card-text small text-muted">Projets académiques, fonctions mathématiques, cryptographie et calculs avancés</p>
+                        <span class="badge bg-success mb-2" data-i18n="skill.python.level">Intermédiaire</span>
+                        <p class="card-text small text-muted" data-i18n="skill.python.description">Projets académiques, fonctions mathématiques, cryptographie et calculs avancés</p>
                     </div>
                 </div>
             </div>
@@ -352,12 +348,12 @@
                             <i class="fab fa-java fs-4"></i>
                         </div>
                         <h5 class="card-title text-secondary">Java</h5>
-                        <span class="badge bg-warning text-dark mb-2">Débutant+</span>
-                        <p class="card-text small text-muted">Programmation orientée objet, projets académiques</p>
+                        <span class="badge bg-warning text-dark mb-2" data-i18n="skill.java.level">Débutant+</span>
+                        <p class="card-text small text-muted" data-i18n="skill.java.description">Programmation orientée objet, projets académiques</p>
                     </div>
                 </div>
             </div>
-            
+
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card h-100 shadow-sm border-0">
                     <div class="card-body text-center p-4">
@@ -365,12 +361,12 @@
                             <i class="fab fa-html5 fs-4"></i>
                         </div>
                         <h5 class="card-title text-secondary">HTML/CSS<br>JAVASCRIPT</h5>
-                        <span class="badge bg-warning text-dark mb-2">Débutant+</span>
-                        <p class="card-text small text-muted">Bases du développement web, design responsive</p>
+                        <span class="badge bg-warning text-dark mb-2" data-i18n="skill.web.level">Débutant+</span>
+                        <p class="card-text small text-muted" data-i18n="skill.web.description">Bases du développement web, design responsive</p>
                     </div>
                 </div>
             </div>
-            
+
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card h-100 shadow-sm border-0">
                     <div class="card-body text-center p-4">
@@ -378,8 +374,8 @@
                             <i class="fab fa-php fs-4"></i>
                         </div>
                         <h5 class="card-title text-secondary">PHP</h5>
-                        <span class="badge bg-warning text-dark mb-2">Débutant+</span>
-                        <p class="card-text small text-muted">Développement web backend</p>
+                        <span class="badge bg-warning text-dark mb-2" data-i18n="skill.php.level">Débutant+</span>
+                        <p class="card-text small text-muted" data-i18n="skill.php.description">Développement web backend</p>
                     </div>
                 </div>
             </div>
@@ -393,7 +389,7 @@
                 <div class="divider-custom-icon"><i class="fas fa-tools"></i></div>
                 <div class="divider-custom-line"></div>
             </div>
-            <h3 class="text-center text-secondary mb-4">Outils de Développement & Frameworks</h3>
+            <h3 class="text-center text-secondary mb-4" data-i18n="skills.tools.heading">Outils de Développement &amp; Frameworks</h3>
         </div>
     </div>
 
@@ -406,12 +402,12 @@
                         <i class="fas fa-laptop-code fs-4"></i>
                     </div>
                     <h5 class="card-title text-secondary">Qt Creator<br>Apache NetBeans</h5>
-                    <span class="badge bg-success mb-2">Intermédiaire</span>
-                    <p class="card-text small text-muted">Développement d'interfaces graphiques et applications</p>
+                    <span class="badge bg-success mb-2" data-i18n="skill.qt.level">Intermédiaire</span>
+                    <p class="card-text small text-muted" data-i18n="skill.qt.description">Développement d'interfaces graphiques et applications</p>
                 </div>
             </div>
         </div>
-        
+
         <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100 shadow-sm border-0">
                 <div class="card-body text-center p-4">
@@ -419,12 +415,12 @@
                         <i class="fab fa-git-alt fs-4"></i>
                     </div>
                     <h5 class="card-title text-secondary">Git</h5>
-                    <span class="badge bg-warning text-dark mb-2">Débutant+</span>
-                    <p class="card-text small text-muted">Contrôle de version, développement collaboratif</p>
+                    <span class="badge bg-warning text-dark mb-2" data-i18n="skill.git.level">Débutant+</span>
+                    <p class="card-text small text-muted" data-i18n="skill.git.description">Contrôle de version, développement collaboratif</p>
                 </div>
             </div>
         </div>
-        
+
         <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100 shadow-sm border-0">
                 <div class="card-body text-center p-4">
@@ -432,8 +428,8 @@
                         <i class="fas fa-file-alt fs-4"></i>
                     </div>
                     <h5 class="card-title text-secondary">UML / Markdown</h5>
-                    <span class="badge bg-warning text-dark mb-2">Débutant+</span>
-                    <p class="card-text small text-muted">Modélisation de systèmes, documentation technique</p>
+                    <span class="badge bg-warning text-dark mb-2" data-i18n="skill.uml.level">Débutant+</span>
+                    <p class="card-text small text-muted" data-i18n="skill.uml.description">Modélisation de systèmes, documentation technique</p>
                 </div>
             </div>
         </div>
@@ -448,12 +444,12 @@
                         <i class="fas fa-tasks fs-4"></i>
                     </div>
                     <h5 class="card-title text-secondary">Jira / Notion</h5>
-                    <span class="badge bg-success mb-2">Intermédiaire</span>
-                    <p class="card-text small text-muted">Gestion de projet Agile, documentation collaborative</p>
+                    <span class="badge bg-success mb-2" data-i18n="skill.jira.level">Intermédiaire</span>
+                    <p class="card-text small text-muted" data-i18n="skill.jira.description">Gestion de projet Agile, documentation collaborative</p>
                 </div>
             </div>
         </div>
-        
+
         <div class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100 shadow-sm border-0">
                 <div class="card-body text-center p-4">
@@ -461,8 +457,8 @@
                         <i class="fas fa-cube fs-4"></i>
                     </div>
                     <h5 class="card-title text-secondary">Webpack / Docker</h5>
-                    <span class="badge bg-info mb-2">Débutant</span>
-                    <p class="card-text small text-muted">Module bundler, conteneurisation</p>
+                    <span class="badge bg-info mb-2" data-i18n="skill.webpack.level">Débutant</span>
+                    <p class="card-text small text-muted" data-i18n="skill.webpack.description">Module bundler, conteneurisation</p>
                 </div>
             </div>
         </div>
@@ -475,7 +471,7 @@
                 <div class="divider-custom-icon"><i class="fas fa-cogs"></i></div>
                 <div class="divider-custom-line"></div>
             </div>
-            <h3 class="text-center text-secondary mb-4">Expertise Technique</h3>
+            <h3 class="text-center text-secondary mb-4" data-i18n="skills.expertise.heading">Expertise Technique</h3>
         </div>
     </div>
 
@@ -489,16 +485,16 @@
                             <i class="fas fa-server"></i>
                         </div>
                         <div>
-                            <h5 class="card-title text-secondary mb-1">Backend & Bases de Données</h5>
-                            <span class="badge bg-success">Intermédiaire</span>
+                            <h5 class="card-title text-secondary mb-1" data-i18n="expertise.backend.title">Backend &amp; Bases de Données</h5>
+                            <span class="badge bg-success" data-i18n="expertise.backend.level">Intermédiaire</span>
                         </div>
                     </div>
-                    <p class="card-text mb-2" style="font-size: 0.9rem; line-height: 1.9; font-weight: 300; color: #6c757d;">
+                    <p class="card-text mb-2" style="font-size: 0.9rem; line-height: 1.9; font-weight: 300; color: #6c757d;" data-i18n="expertise.backend.description">
                         SQL/PL/pgSQL (triggers, fonctions, procédures) • Architecture serveur • Modélisation et gestion de données • Optimisation de requêtes
                     </p>
                     <small class="text-primary">
                         <i class="fas fa-lightbulb me-1"></i>
-                        Appliqué dans : Bibliothèque de recettes, Calculateur de trajet
+                        <span data-i18n="expertise.backend.appliedIn">Appliqué dans : Bibliothèque de recettes, Calculateur de trajet</span>
                     </small>
                 </div>
             </div>
@@ -515,16 +511,16 @@
                             <i class="fas fa-globe"></i>
                         </div>
                         <div>
-                            <h5 class="card-title text-secondary mb-1">Développement Web</h5>
-                            <span class="badge bg-warning text-dark">Débutant+</span>
+                            <h5 class="card-title text-secondary mb-1" data-i18n="expertise.web.title">Développement Web</h5>
+                            <span class="badge bg-warning text-dark" data-i18n="expertise.web.level">Débutant+</span>
                         </div>
                     </div>
-                    <p class="card-text mb-2" style="font-size: 0.9rem; line-height: 1.9; font-weight: 300; color: #6c757d;">
+                    <p class="card-text mb-2" style="font-size: 0.9rem; line-height: 1.9; font-weight: 300; color: #6c757d;" data-i18n="expertise.web.description">
                         Frontend (HTML/CSS/JavaScript) • Backend (PHP) • Architecture client-serveur • Design responsive
                     </p>
                     <small class="text-primary">
                         <i class="fas fa-lightbulb me-1"></i>
-                        Appliqué dans : Portfolio actuel, Weather Rugby
+                        <span data-i18n="expertise.web.appliedIn">Appliqué dans : Portfolio actuel, Weather Rugby</span>
                     </small>
                 </div>
             </div>
@@ -541,16 +537,16 @@
                             <i class="fas fa-desktop"></i>
                         </div>
                         <div>
-                            <h5 class="card-title text-secondary mb-1">Interfaces Graphiques & UX</h5>
-                            <span class="badge bg-success">Intermédiaire</span>
+                            <h5 class="card-title text-secondary mb-1" data-i18n="expertise.gui.title">Interfaces Graphiques &amp; UX</h5>
+                            <span class="badge bg-success" data-i18n="expertise.gui.level">Intermédiaire</span>
                         </div>
                     </div>
-                    <p class="card-text mb-2" style="font-size: 0.9rem; line-height: 1.9; font-weight: 300; color: #6c757d;">
+                    <p class="card-text mb-2" style="font-size: 0.9rem; line-height: 1.9; font-weight: 300; color: #6c757d;" data-i18n="expertise.gui.description">
                         Framework Qt (C++) • Design d'interfaces utilisateur • Gestion d'événements et interactions • Ergonomie logicielle
                     </p>
                     <small class="text-primary">
                         <i class="fas fa-lightbulb me-1"></i>
-                        Appliqué dans : Bibliothèque de recettes, Calculateur de trajet, Weather Rugby, Keyp
+                        <span data-i18n="expertise.gui.appliedIn">Appliqué dans : Bibliothèque de recettes, Calculateur de trajet, Weather Rugby, Keyp</span>
                     </small>
                 </div>
             </div>
@@ -567,16 +563,16 @@
                             <i class="fas fa-shield-alt"></i>
                         </div>
                         <div>
-                            <h5 class="card-title text-secondary mb-1">Algorithmique & Cryptographie</h5>
-                            <span class="badge bg-success">Intermédiaire</span>
+                            <h5 class="card-title text-secondary mb-1" data-i18n="expertise.algorithms.title">Algorithmique &amp; Cryptographie</h5>
+                            <span class="badge bg-success" data-i18n="expertise.algorithms.level">Intermédiaire</span>
                         </div>
                     </div>
-                    <p class="card-text mb-2" style="font-size: 0.9rem; line-height: 1.9; font-weight: 300; color: #6c757d;">
+                    <p class="card-text mb-2" style="font-size: 0.9rem; line-height: 1.9; font-weight: 300; color: #6c757d;" data-i18n="expertise.algorithms.description">
                         Algorithmes de graphes (Dijkstra) • Algorithmes de tri avancés • Fonctions de chiffrement (Python) • Analyse de complexité temporelle et spatiale
                     </p>
                     <small class="text-primary">
                         <i class="fas fa-lightbulb me-1"></i>
-                        Appliqué dans : Calculateur de trajet, SAE Comparaison d'algorithmes de tri, Keyp
+                        <span data-i18n="expertise.algorithms.appliedIn">Appliqué dans : Calculateur de trajet, SAE Comparaison d'algorithmes de tri, Keyp</span>
                     </small>
                 </div>
             </div>
@@ -593,16 +589,16 @@
                             <i class="fas fa-file-alt"></i>
                         </div>
                         <div>
-                            <h5 class="card-title text-secondary mb-1">Méthodologie & Documentation</h5>
-                            <span class="badge bg-success">Intermédiaire</span>
+                            <h5 class="card-title text-secondary mb-1" data-i18n="expertise.methodology.title">Méthodologie &amp; Documentation</h5>
+                            <span class="badge bg-success" data-i18n="expertise.methodology.level">Intermédiaire</span>
                         </div>
                     </div>
-                    <p class="card-text mb-2" style="font-size: 0.9rem; line-height: 1.9; font-weight: 300; color: #6c757d;">
+                    <p class="card-text mb-2" style="font-size: 0.9rem; line-height: 1.9; font-weight: 300; color: #6c757d;" data-i18n="expertise.methodology.description">
                         Modélisation UML (cas d'usage, séquence, classes) • Documentation technique (Markdown) • Architecture logicielle • Gestion de projet (Jira/Notion)
                     </p>
                     <small class="text-primary">
                         <i class="fas fa-lightbulb me-1"></i>
-                        Appliqué dans l'ensemble de mes projets académiques
+                        <span data-i18n="expertise.methodology.appliedIn">Appliqué dans l'ensemble de mes projets académiques</span>
                     </small>
                 </div>
             </div>
@@ -616,7 +612,7 @@
                 <div class="divider-custom-icon"><i class="fas fa-users"></i></div>
                 <div class="divider-custom-line"></div>
             </div>
-            <h3 class="text-center text-secondary mb-4">Savoir-Être & Qualités Personnelles</h3>
+            <h3 class="text-center text-secondary mb-4" data-i18n="softskills.heading">Savoir-Être &amp; Qualités Personnelles</h3>
         </div>
     </div>
     <div class="row justify-content-center mb-5">
@@ -629,36 +625,36 @@
                                 <div class="bg-secondary text-white rounded-circle me-3 d-flex align-items-center justify-content-center" style="width: 2.5rem; height: 2.5rem;">
                                     <i class="fas fa-user-tie"></i>
                                 </div>
-                                <span class="fw-bold text-secondary">Leadership d'Équipe</span>
+                                <span class="fw-bold text-secondary" data-i18n="softskill.leadership.title">Leadership d'Équipe</span>
                             </div>
-                            <p class="text-muted mb-0 ms-5">À l'aise pour diriger ou suivre selon les besoins</p>
+                            <p class="text-muted mb-0 ms-5" data-i18n="softskill.leadership.description">À l'aise pour diriger ou suivre selon les besoins</p>
                         </div>
                         <div class="col-md-6 mb-3">
                             <div class="d-flex align-items-center">
                                 <div class="bg-secondary text-white rounded-circle me-3 d-flex align-items-center justify-content-center" style="width: 2.5rem; height: 2.5rem;">
                                     <i class="fas fa-lightbulb"></i>
                                 </div>
-                                <span class="fw-bold text-secondary">Travail Autonome</span>
+                                <span class="fw-bold text-secondary" data-i18n="softskill.autonomous.title">Travail Autonome</span>
                             </div>
-                            <p class="text-muted mb-0 ms-5">Apprentissage auto-dirigé et résolution de problèmes</p>
+                            <p class="text-muted mb-0 ms-5" data-i18n="softskill.autonomous.description">Apprentissage auto-dirigé et résolution de problèmes</p>
                         </div>
                         <div class="col-md-6 mb-3">
                             <div class="d-flex align-items-center">
                                 <div class="bg-secondary text-white rounded-circle me-3 d-flex align-items-center justify-content-center" style="width: 2.5rem; height: 2.5rem;">
                                     <i class="fas fa-sync-alt"></i>
                                 </div>
-                                <span class="fw-bold text-secondary">Adaptabilité</span>
+                                <span class="fw-bold text-secondary" data-i18n="softskill.adaptability.title">Adaptabilité</span>
                             </div>
-                            <p class="text-muted mb-0 ms-5">Intégration rapide dans de nouveaux environnements</p>
+                            <p class="text-muted mb-0 ms-5" data-i18n="softskill.adaptability.description">Intégration rapide dans de nouveaux environnements</p>
                         </div>
                         <div class="col-md-6 mb-3">
                             <div class="d-flex align-items-center">
                                 <div class="bg-secondary text-white rounded-circle me-3 d-flex align-items-center justify-content-center" style="width: 2.5rem; height: 2.5rem;">
                                     <i class="fas fa-comments"></i>
                                 </div>
-                                <span class="fw-bold text-secondary">Communication Technique</span>
+                                <span class="fw-bold text-secondary" data-i18n="softskill.communication.title">Communication Technique</span>
                             </div>
-                            <p class="text-muted mb-0 ms-5">Documentation et reporting clairs</p>
+                            <p class="text-muted mb-0 ms-5" data-i18n="softskill.communication.description">Documentation et reporting clairs</p>
                         </div>
                     </div>
                 </div>
@@ -671,23 +667,23 @@
         <div class="col-12">
             <div class="card bg-light border-0 shadow-sm">
                 <div class="card-body text-center p-4">
-                    <h6 class="text-secondary mb-3"><i class="fas fa-info-circle me-2"></i>Guide des Niveaux de Compétences</h6>
+                    <h6 class="text-secondary mb-3"><i class="fas fa-info-circle me-2"></i><span data-i18n="skills.level.guide.heading">Guide des Niveaux de Compétences</span></h6>
                     <div class="row justify-content-center">
                         <div class="col-auto">
-                            <span class="badge bg-info me-2">Débutant</span>
-                            <span class="small text-muted">Connaissances académiques</span>
+                            <span class="badge bg-info me-2" data-i18n="skills.level.beginner">Débutant</span>
+                            <span class="small text-muted" data-i18n="skills.level.beginner.description">Connaissances académiques</span>
                         </div>
                         <div class="col-auto">
-                            <span class="badge bg-warning text-dark me-2">Débutant+</span>
-                            <span class="small text-muted">Application pratique de base</span>
+                            <span class="badge bg-warning text-dark me-2" data-i18n="skills.level.beginnerplus">Débutant+</span>
+                            <span class="small text-muted" data-i18n="skills.level.beginnerplus.description">Application pratique de base</span>
                         </div>
                         <div class="col-auto">
-                            <span class="badge bg-success me-2">Intermédiaire</span>
-                            <span class="small text-muted">Utilisation régulière, projets multiples</span>
+                            <span class="badge bg-success me-2" data-i18n="skills.level.intermediate">Intermédiaire</span>
+                            <span class="small text-muted" data-i18n="skills.level.intermediate.description">Utilisation régulière, projets multiples</span>
                         </div>
                         <div class="col-auto">
-                            <span class="badge bg-primary me-2">Avancé</span>
-                            <span class="small text-muted">Expertise approfondie, optimisation</span>
+                            <span class="badge bg-primary me-2" data-i18n="skills.level.advanced">Avancé</span>
+                            <span class="small text-muted" data-i18n="skills.level.advanced.description">Expertise approfondie, optimisation</span>
                         </div>
                     </div>
                 </div>
@@ -696,13 +692,13 @@
     </div>
 </div>
             </div>
-            
+
         </section>
         <!-- About Section-->
         <section class="page-section bg-primary text-white mb-0" id="about">
             <div class="container">
                 <!-- About Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-white">Mon CV</h2>
+                <h2 class="page-section-heading text-center text-uppercase text-white" data-i18n="cv.section.heading">Mon CV</h2>
                 <!-- Icon Divider-->
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
@@ -711,17 +707,17 @@
                 </div>
                 <!-- About Section Content-->
                 <div class="row">
-                    <div class="ms-auto text-center"><p class="lead">Le lien pour ouvrir mon CV dans votre naviguateur :</p></div>
+                    <div class="ms-auto text-center"><p class="lead" data-i18n="cv.intro">Le lien pour ouvrir mon CV dans votre naviguateur :</p></div>
                     </div>
                 <!-- About Section Button-->
                 <div class="text-center mt-4">
-                    <a class="btn btn-xl btn-outline-light" href="assets/img/CV_POISSONNIER_Thomas.png" target="_blank" download="assets/img/CV_POISSONNIER_Thomas.png">
+                    <a class="btn btn-xl btn-outline-light" href="assets/img/CV_POISSONNIER_Thomas.png" data-i18n-href="cv.href.png" target="_blank" download="assets/img/CV_POISSONNIER_Thomas.png">
                         <i class="fas fa-download me-2"></i>
-                        PNG
+                        <span data-i18n="cv.btn.png">PNG</span>
                     </a>
-                    <a class="btn btn-xl btn-outline-light" href="assets/img/CV_POISSONNIER_Thomas.pdf" target="_blank" download="assets/img/CV_POISSONNIER_Thomas.pdf">
+                    <a class="btn btn-xl btn-outline-light" href="assets/img/CV_POISSONNIER_Thomas.pdf" data-i18n-href="cv.href.pdf" target="_blank" download="assets/img/CV_POISSONNIER_Thomas.pdf">
                         <i class="fas fa-download me-2"></i>
-                        PDF
+                        <span data-i18n="cv.btn.pdf">PDF</span>
                     </a>
                 </div>
             </div>
@@ -729,24 +725,24 @@
         <!-- Bio Section-->
         <section class="page-section bg-secondary text-white text-center" id="Interet">
             <div class="container">
-                <h2 class="page-section-heading text-center text-uppercase text-white">Mes centres d'intérêt</h2>
+                <h2 class="page-section-heading text-center text-uppercase text-white" data-i18n="interests.section.heading">Mes centres d'intérêt</h2>
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
                     <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                     <div class="divider-custom-line"></div>
                 </div>
-                
+
                 <div class="row">
                     <div class="col-lg-8 mx-auto text-start">
-                        <p class="lead mb-4">En dehors de l'informatique, voici les activités qui rythment mon quotidien :</p>
-                        
+                        <p class="lead mb-4" data-i18n="interests.intro">En dehors de l'informatique, voici les activités qui rythment mon quotidien :</p>
+
                         <ul class="lead" style="list-style: none; padding-left: 0;">
-                            <li class="mb-3"><i class="fas fa-basketball-ball text-primary me-3"></i><strong>Sports collectifs :</strong> Ancien footballeur reconverti au basket, je joue aujourd'hui et entraîne une équipe de jeunes. Je suis actuellement une formation pour obtenir mon brevet fédéral d'entraînement de catégorie jeune, une expérience enrichissante qui développe mes compétences pédagogiques et mon esprit d'équipe.</li>
-                            <li class="mb-3"><i class="fas fa-mountain text-primary me-3"></i><strong>Activités de plein air :</strong> Amateur de trekking et de randonnée, j'apprécie partager ces moments avec des amis et découvrir de nouveaux horizons.</li>
-                            <li class="mb-3"><i class="fas fa-book text-primary me-3"></i><strong>Lecture :</strong> Passionné de science-fiction (Asimov, Philip K. Dick) et de mythologie, qu'elle soit classique ou revisitée dans des œuvres contemporaines comme celles de Rick Riordan.</li>
+                            <li class="mb-3"><i class="fas fa-basketball-ball text-primary me-3"></i><strong data-i18n="interest.sports.title">Sports collectifs :</strong> <span data-i18n="interest.sports.description">Ancien footballeur reconverti au basket, je joue aujourd'hui et entraîne une équipe de jeunes. Je suis actuellement une formation pour obtenir mon brevet fédéral d'entraînement de catégorie jeune, une expérience enrichissante qui développe mes compétences pédagogiques et mon esprit d'équipe.</span></li>
+                            <li class="mb-3"><i class="fas fa-mountain text-primary me-3"></i><strong data-i18n="interest.outdoors.title">Activités de plein air :</strong> <span data-i18n="interest.outdoors.description">Amateur de trekking et de randonnée, j'apprécie partager ces moments avec des amis et découvrir de nouveaux horizons.</span></li>
+                            <li class="mb-3"><i class="fas fa-book text-primary me-3"></i><strong data-i18n="interest.reading.title">Lecture :</strong> <span data-i18n="interest.reading.description">Passionné de science-fiction (Asimov, Philip K. Dick) et de mythologie, qu'elle soit classique ou revisitée dans des œuvres contemporaines comme celles de Rick Riordan.</span></li>
                         </ul>
-                        
-                        <p class="lead mt-4"><em>Ces passions cultivent mon esprit d'équipe, ma persévérance et ma curiosité intellectuelle.</em></p>
+
+                        <p class="lead mt-4"><em data-i18n="interests.closing">Ces passions cultivent mon esprit d'équipe, ma persévérance et ma curiosité intellectuelle.</em></p>
                     </div>
                 </div>
             </div>
@@ -754,45 +750,45 @@
         <!-- Contact Section-->
         <section class="masthead page-section" id="contact">
             <div class="container">
-                <h2 class="page-section-heading text-uppercase text-secondary mb-0 text-center">Me contacter</h2>
+                <h2 class="page-section-heading text-uppercase text-secondary mb-0 text-center" data-i18n="contact.section.heading">Me contacter</h2>
                 <div class="divider-custom">
                     <div class="divider-custom-line"></div>
                     <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                     <div class="divider-custom-line"></div>
                 </div>
-                
+
                 <div class="row justify-content-center mt-5">
                     <div class="col-lg-6">
                         <div class="card shadow border-0">
                             <div class="card-body p-5">
-                                <h5 class="text-center text-secondary mb-4">Restons en contact</h5>
-                                
+                                <h5 class="text-center text-secondary mb-4" data-i18n="contact.card.title">Restons en contact</h5>
+
                                 <div class="contact-info">
                                     <div class="d-flex align-items-center mb-3 pb-3 border-bottom">
                                         <i class="fas fa-envelope text-primary fs-5 me-3"></i>
                                         <div>
-                                            <small class="text-muted d-block">Email professionnel</small>
+                                            <small class="text-muted d-block" data-i18n="contact.email.label">Email professionnel</small>
                                             <a href="mailto:poissonnierthomaspro@gmail.com">poissonnierthomaspro@gmail.com</a>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="d-flex align-items-center mb-3 pb-3 border-bottom">
                                         <i class="fas fa-graduation-cap text-primary fs-5 me-3"></i>
                                         <div>
-                                            <small class="text-muted d-block">Email étudiant</small>
+                                            <small class="text-muted d-block" data-i18n="contact.student.label">Email étudiant</small>
                                             <a href="mailto:thomas.poissonnier@etu.univ-amu.fr">thomas.poissonnier@etu.univ-amu.fr</a>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="d-flex align-items-center">
                                         <i class="fas fa-phone text-primary fs-5 me-3"></i>
                                         <div>
-                                            <small class="text-muted d-block">Téléphone</small>
-                                            <span id="phone-display" class="text-muted" style="cursor:pointer; text-decoration:underline dotted;" data-p="0768087088" onclick="var el=this; el.textContent='0'+el.dataset.p.slice(0,2)+' '+el.dataset.p.slice(2,4)+' '+el.dataset.p.slice(4,6)+' '+el.dataset.p.slice(6,8)+' '+el.dataset.p.slice(8,10); el.removeAttribute('onclick'); el.style.cursor='default'; el.style.textDecoration='none'; el.style.color='';">Afficher le numéro</span>
+                                            <small class="text-muted d-block" data-i18n="contact.phone.label">Téléphone</small>
+                                            <span id="phone-display" class="text-muted" style="cursor:pointer; text-decoration:underline dotted;" data-p="0768087088" onclick="var el=this; el.textContent=el.dataset.p.slice(0,2)+' '+el.dataset.p.slice(2,4)+' '+el.dataset.p.slice(4,6)+' '+el.dataset.p.slice(6,8)+' '+el.dataset.p.slice(8,10); el.removeAttribute('onclick'); el.style.cursor='default'; el.style.textDecoration='none'; el.style.color='';" data-i18n="contact.phone.reveal">Afficher le numéro</span>
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <!--div class="alert alert-light mt-4 mb-0 text-center">
                                     <small><i class="fas fa-briefcase me-2"></i>Disponible pour stage, alternance ou projet collaboratif</small>
                                 </div-->
@@ -808,7 +804,7 @@
                     <div class="row">
                         <!-- Footer Location-->
                         <div class="col-lg-6 mb-5 mb-lg-0">
-                            <h4 class="text-uppercase mb-4">Localisations</h4>
+                            <h4 class="text-uppercase mb-4" data-i18n="footer.locations.heading">Localisations</h4>
                             <p class="lead mb-0">
                                 <i class="fas fa-graduation-cap text-primary me-2"></i>
                                 Arles, 13200
@@ -819,7 +815,7 @@
                         </div>
                         <!-- Footer Social Icons-->
                         <div class="col-lg-6 mb-5 mb-lg-0">
-                            <h4 class="text-uppercase mb-4">Mes réseaux</h4>
+                            <h4 class="text-uppercase mb-4" data-i18n="footer.networks.heading">Mes réseaux</h4>
                             <a class="btn btn-outline-light btn-social mx-1" href="https://x.com/ThomasPoissonn2"><i class="fab fa-fw fa-twitter"></i></a>
                             <a class="btn btn-outline-light btn-social mx-1" href="https://linkedin.com/in/thomas-poissonnier-70064529b"><i class="fab fa-fw fa-linkedin-in"></i></a>
                         </div>
@@ -830,7 +826,7 @@
         <!-- Copyright Section -->
         <div class="copyright py-4 text-center text-white">
             <div class="container">
-                <small>Copyright &copy; Thomas Poissonnier 2026 - Étudiant en BUT Informatique</small>
+                <small data-i18n="footer.copyright">Copyright &copy; Thomas Poissonnier 2026 - Étudiant en BUT Informatique</small>
             </div>
         </div>
         <!-- Portfolio Modals-->
@@ -838,13 +834,13 @@
         <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" aria-labelledby="portfolioModal1" aria-hidden="true">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close" data-i18n-attr="aria-label:btn.close"></button></div>
                     <div class="modal-body text-center pb-5">
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Illustration du concept de référentiel culturel commun</h2>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" data-i18n="modal1.title">Illustration du concept de référentiel culturel commun</h2>
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
@@ -854,21 +850,21 @@
                                     <!-- Portfolio Modal - Image-->
                                     <img class="img-fluid rounded mb-5" src="assets/img/portfolio/Une_Journal/Une_Journal.png" alt="Une de journal réalisé notamment par Thomas Poissonnier" />
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Dans le cadre de la ressource R2.13, il a été demandé aux étudiants la réalisation d’une
-                                        Une de journal relatant des faits concernant l’IUT d’Arles. Nous avons interprété l’objectif de ce
-                                        travail comme la conception d’une Une crédible et engageante pour un journal destiné aux
-                                        étudiants de l’IUT (“L’Écho de l’IUT”). Ce travail repose sur la connaissance du concept de
-                                        référentiel culturel commun, à savoir un ensemble d’informations que partage plusieurs partis,
-                                        ici les étudiants de l’IUT. Pour la mise en page, nous nous sommes fortement appuyés sur le
+                                    <p class="mb-4" data-i18n="modal1.description">Dans le cadre de la ressource R2.13, il a été demandé aux étudiants la réalisation d'une
+                                        Une de journal relatant des faits concernant l'IUT d'Arles. Nous avons interprété l'objectif de ce
+                                        travail comme la conception d'une Une crédible et engageante pour un journal destiné aux
+                                        étudiants de l'IUT ("L'Écho de l'IUT"). Ce travail repose sur la connaissance du concept de
+                                        référentiel culturel commun, à savoir un ensemble d'informations que partage plusieurs partis,
+                                        ici les étudiants de l'IUT. Pour la mise en page, nous nous sommes fortement appuyés sur le
                                         plan présent sur le document distribué lors du cours où les consignes de ce devoir ont été
                                         expliquées</p>
                                         <div class="text-center mt-4">
                                             <a class="btn btn-xl" href="assets/img/portfolio/Une_Journal/Note_explicative_Benjabir_Poissonnier-1.pdf" download="assets/img/portfolio/Une_Journal/Note_explicative_Benjabir_Poissonnier-1.pdf">
                                                 <i class="fas fa-download me-2"></i>
-                                                Note explicative
+                                                <span data-i18n="modal1.btn">Note explicative</span>
                                             </a>
                                         </div>
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
+                                    <button class="btn btn-primary" data-bs-dismiss="modal" data-i18n="btn.close">
                                         <i class="fas fa-xmark fa-fw"></i>
                                     </button>
                                 </div>
@@ -882,13 +878,13 @@
         <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" aria-labelledby="portfolioModal2" aria-hidden="true">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close" data-i18n-attr="aria-label:btn.close"></button></div>
                     <div class="modal-body text-center pb-5">
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Comparaison Qualitative d'algorithmes</h2>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" data-i18n="modal2.title">Comparaison Qualitative d'algorithmes</h2>
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
@@ -902,11 +898,11 @@
                                     <img class="img-fluid rounded mb-5" src="assets/img/portfolio/SAE1.02 Poissonnier Thomas/SAE1.02 Poissonnier Thomas-4.png" alt="" />
                                     <img class="img-fluid rounded mb-5" src="assets/img/portfolio/SAE1.02 Poissonnier Thomas/SAE1.02 Poissonnier Thomas-5.png" alt="" />
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Dans le cadre d'un projet transversal de fin de semestre, il nous a été demandé d'implanter plusieurs algorithmes de tri différents et de les comparer, principalement sur le critère de la vitesse d'éxécution.
+                                    <p class="mb-4" data-i18n-html="modal2.description">Dans le cadre d'un projet transversal de fin de semestre, il nous a été demandé d'implanter plusieurs algorithmes de tri différents et de les comparer, principalement sur le critère de la vitesse d'éxécution.
                                         J'ai par la suite rédigé la synthèse ci-dessus en anglais présentant les résultats et les conclusions que nous pouvions en tirer.
                                         <br><br>Ce projet m'a permis de mieux comprendre les <b>différents algorithmes de tri</b>, les notions de <b>complexité temporelle et spatiale</b> ainsi que l'<b>analyse statistique des résultats</b>.
                                     </p>
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
+                                    <button class="btn btn-primary" data-bs-dismiss="modal" data-i18n="btn.close">
                                         <i class="fas fa-xmark fa-fw"></i>
                                     </button>
                                 </div>
@@ -920,13 +916,13 @@
         <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" aria-labelledby="portfolioModal3" aria-hidden="true">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close" data-i18n-attr="aria-label:btn.close"></button></div>
                     <div class="modal-body text-center pb-5">
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Analyse d'organisation</h2>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" data-i18n="modal3.title">Analyse d'organisation</h2>
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
@@ -935,21 +931,21 @@
                                     </div>
                                     <!-- Portfolio Modal - Image-->
                                     <img class="img-fluid rounded mb-5" src="assets/img/portfolio/Analyse_orga/Une.png" alt="..." />
-                                    <p class="mb-4">Dans le cadre de la ressource économie du premier semestre du BUT, il nous a été demandé une analyse complète d'une organisation de notre choix. D'un point de vue personnel, j'ai essentiellement contribué aux analyses SWOT et Pestel de l'entreprise "LeBonCoin".</p>
+                                    <p class="mb-4" data-i18n="modal3.description">Dans le cadre de la ressource économie du premier semestre du BUT, il nous a été demandé une analyse complète d'une organisation de notre choix. D'un point de vue personnel, j'ai essentiellement contribué aux analyses SWOT et Pestel de l'entreprise "LeBonCoin".</p>
                                     <div class="text-center mt-4">
                                         <a class="btn btn-xl" href="assets/img/portfolio/Analyse_orga/R108_AO_Leboncoin.pdf" download="assets/img/portfolio/Analyse_orga/R108_AO_Leboncoin.pdf">
                                             <i class="fas fa-download me-2"></i>
-                                            Analyse organisationnelle de LebonCoin
+                                            <span data-i18n="modal3.btn1">Analyse organisationnelle de LebonCoin</span>
                                         </a>
                                     </div>
                                     <div class="text-center mt-4">
                                         <a class="btn btn-xl" href="assets/img/portfolio/Analyse_orga/Saé.S1.06.R1.08_DT_Leboncoin.pdf" download="assets/img/portfolio/Analyse_orga/Saé.S1.06.R1.08_DT_Leboncoin.pdf">
                                             <i class="fas fa-download me-2"></i>
-                                            Gestion du Projet
+                                            <span data-i18n="modal3.btn2">Gestion du Projet</span>
                                         </a>
                                     </div>
                                     <!-- Portfolio Modal - Text-->
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
+                                    <button class="btn btn-primary" data-bs-dismiss="modal" data-i18n="btn.close">
                                         <i class="fas fa-xmark fa-fw"></i>
                                     </button>
                                 </div>
@@ -963,13 +959,13 @@
         <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" aria-labelledby="portfolioModal4" aria-hidden="true">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close" data-i18n-attr="aria-label:btn.close"></button></div>
                     <div class="modal-body text-center pb-5">
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Calculateur de Trajet</h2>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" data-i18n="modal4.title">Calculateur de Trajet</h2>
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
@@ -982,7 +978,7 @@
                                     <img class="img-fluid rounded mb-5" src="assets/img/portfolio/Calculatrice/Matrice.png" alt="..." />
                                     <img class="img-fluid rounded mb-5" src="assets/img/portfolio/Calculatrice/Historique.png" alt="..." />
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Ce projet a été réalisé dans le cadre d'une SAé de première année de BUT Info. L'objectif était d'utiliser les connaissances sur la théorie des graphes, la gestion de données ainsi que le développement d'interface à l'aide de Qt dans une application unique répondant à un besoin clair (Calculer un trajet).
+                                    <p class="mb-4" data-i18n-html="modal4.description">Ce projet a été réalisé dans le cadre d'une SAé de première année de BUT Info. L'objectif était d'utiliser les connaissances sur la théorie des graphes, la gestion de données ainsi que le développement d'interface à l'aide de Qt dans une application unique répondant à un besoin clair (Calculer un trajet).
                                         <br><br>Ce logiciel a été réalisé en C++ et a nécessité pas mal de maintenance et de recherches afin d'obtenir un rendu final proche de ma conception initiale du projet. Tehniquement, j'ai implémenté l'algorithme de Dijkstra pour le calcul des plus courts chemins, géré des structures de données complexes (graphes, matrices d'adjacence) et des données dans des fichiers CSV
                                         XML.<br><br> Ainsi, j'ai pu développé mes compétences en <b>algorithmique avancée</b>, <b>programmation orientée objet</b> et <b>tests unitaires</b>.
                                         <br><br> Vous trouverez dans le fichier compressé de téléchargement le logiciel ainsi que la documentation qui va avec, notamment le README.
@@ -991,14 +987,14 @@
                                     <div class="text-center mt-4">
                                         <a class="btn btn-xl" href="assets/img/portfolio/Calculatrice/Calculatrice_POISSONNIER.zip" download="assets/img/portfolio/Calculatrice/Calculatrice_POISSONNIER.zip">
                                             <i class="fas fa-download me-2"></i>
-                                            Dossier zip
+                                            <span data-i18n="modal4.btn.zip">Dossier zip</span>
                                         </a>
                                         <a class="btn btn-xl ms-2" href="https://github.com/PoissonnierThomas/Calculateur_Trajets" target="_blank" rel="noopener">
                                             <i class="fab fa-github me-2"></i>
                                             GitHub
                                         </a>
                                     </div>
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
+                                    <button class="btn btn-primary" data-bs-dismiss="modal" data-i18n="btn.close">
                                         <i class="fas fa-xmark fa-fw"></i>
                                     </button>
                                 </div>
@@ -1012,13 +1008,13 @@
         <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" aria-labelledby="portfolioModal5" aria-hidden="true">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close" data-i18n-attr="aria-label:btn.close"></button></div>
                     <div class="modal-body text-center pb-5">
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Etablissement d'un cahier des charges</h2>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" data-i18n="modal5.title">Etablissement d'un cahier des charges</h2>
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
@@ -1030,16 +1026,16 @@
                                     <img class="img-fluid rounded mb-5" src="assets/img/portfolio/Etablissement cahier des charges/Sequence_Case.png" alt="..." />
                                     <img class="img-fluid rounded mb-5" src="assets/img/portfolio/Etablissement cahier des charges/User_Case.png" alt="..." />
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Pour ce travail, il nous a fallu nous mettre dans la peau d'une équipe de développeurs pour commencer un projet d'application. 
+                                    <p class="mb-4" data-i18n-html="modal5.description">Pour ce travail, il nous a fallu nous mettre dans la peau d'une équipe de développeurs pour commencer un projet d'application.
                                         Nous avons entamé toutes les démarches du début d'un projet (maquettage, étude préalable, etablissement d'un cahier des charges). J'ai essentiellement contribué à la conception du cahier des charges ainsi que l'identification des besoins fonctionnels, tout en gérant le projet, notamment via la plateforme Jira.
                                         <br><br>Ce projet m'a permis de développer mes compétences en <b>Analyse de besoins</b>, <b>modélisation technique</b> et <b>gestion de projet informatique et outils collaboratifs</b>.</p>
-                                    
+
                                      <div class="text-center mt-4">
                                         <a class="btn btn-xl" href="assets/img/portfolio/Etablissement cahier des charges/Cahier_des_Charges_S2.05.pdf" download="assets/img/portfolio/Analyse_orga/Saé.S1.06.R1.08_DT_Leboncoin.pdf">
                                             <i class="fas fa-download me-2"></i>
-                                            Télécharger le cahier des charges complet
+                                            <span data-i18n="modal5.btn">Télécharger le cahier des charges complet</span>
                                         </a>
-                                    </div><button class="btn btn-primary" data-bs-dismiss="modal">
+                                    </div><button class="btn btn-primary" data-bs-dismiss="modal" data-i18n="btn.close">
                                         <i class="fas fa-xmark fa-fw"></i>
                                         Close Window
                                     </button>
@@ -1054,13 +1050,13 @@
         <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" aria-labelledby="portfolioModal6" aria-hidden="true">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close" data-i18n-attr="aria-label:btn.close"></button></div>
                     <div class="modal-body text-center pb-5">
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Bibliothèque de recettes</h2>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" data-i18n="modal6.title">Bibliothèque de recettes</h2>
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
@@ -1069,30 +1065,34 @@
                                     </div>
                                     <!-- Portfolio Modal - Image-->
                                     <img class="img-fluid rounded mb-5" src="assets/img/portfolio/Bibliothèque_de_recette/Homepage.png" alt="..." />
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/Bibliothèque_de_recette/UML.png" alt="..." /> 
+                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/Bibliothèque_de_recette/UML.png" alt="..." />
                                     <img class="img-fluid rounded mb-5" src="assets/img/portfolio/Bibliothèque_de_recette/Qt.png" alt="..." />
                                     <img class="img-fluid rounded mb-5" src="assets/img/portfolio/Bibliothèque_de_recette/répartition_horaire.png" alt="..." />
                                     <img class="img-fluid rounded mb-5" src="assets/img/portfolio/Bibliothèque_de_recette/répartition_par_session.png" alt="..." />
-                                    
+
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Dans le cadre du dernier projet de première année, nous devions réaliser un gestionnaire de recettes en utilisant l'outil Qt Créator. Ce projet C++ m'a permis de tout réaliser de A à Z, de la conception des classes à la structure de l'application graphique jusqu'aux jeux de données à utiliser.
+                                    <p class="mb-4" data-i18n-html="modal6.description">Dans le cadre du dernier projet de première année, nous devions réaliser un gestionnaire de recettes en utilisant l'outil Qt Créator. Ce projet C++ m'a permis de tout réaliser de A à Z, de la conception des classes à la structure de l'application graphique jusqu'aux jeux de données à utiliser.
                                          Mon binôme n'ayant que peu participé, je me suis rendu compte que lorsque les choses n'avancent pas suffisament vite, il faut savoir prendre les choses en main et se débrouiller par soi-même.
-                                         <br><br> Techniquement, j'ai travaillé sur une interface graphique responsive (Qt Designer), un système de filtrage et de recherche et une Architecture Master/Detail. 
+                                         <br><br> Techniquement, j'ai travaillé sur une interface graphique responsive (Qt Designer), un système de filtrage et de recherche et une Architecture Master/Detail.
                                          <br><br> J'ai pu développé mes compétences en <b>Conception et modélisation UML</b>, <b>gestion de projets</b> et <b>tests d'intégration</b>.
                                         <br><br>Vous trouverez ci-dessous le README du projet ainsi qu'un fichier zip contenant le projet en question, avec sa documentation et ses jeux de données.</p>
                                     <div class="text-center mt-4">
                                         <a class="btn btn-xl" href="assets/img/portfolio/Bibliothèque_de_recette/README.md" download="assets/img/portfolio/Bibliothèque_de_recette/README.md">
                                             <i class="fas fa-download me-2"></i>
-                                            README du projet
+                                            <span data-i18n="modal6.btn1">README du projet</span>
                                         </a>
                                     </div>
                                     <div class="text-center mt-4">
                                         <a class="btn btn-xl" href="assets/img/portfolio/Bibliothèque_de_recette/Bibliothèque_de_recettes.zip" download="assets/img/portfolio/Bibliothèque_de_recette/Bibliothèque_de_recettes.zip">
                                             <i class="fas fa-download me-2"></i>
-                                            Dossier zip
+                                            <span data-i18n="modal6.btn2">Dossier zip</span>
+                                        </a>
+                                        <a class="btn btn-xl ms-2" href="https://github.com/PoissonnierThomas/Biblioth-que_Recettes" target="_blank" rel="noopener">
+                                            <i class="fab fa-github me-2"></i>
+                                            GitHub
                                         </a>
                                     </div>
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
+                                    <button class="btn btn-primary" data-bs-dismiss="modal" data-i18n="btn.close">
                                         <i class="fas fa-xmark fa-fw"></i>
                                         Close Window
                                     </button>
@@ -1107,13 +1107,13 @@
         <div class="portfolio-modal modal fade" id="portfolioModal7" tabindex="-1" aria-labelledby="portfolioModal5" aria-hidden="true">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close" data-i18n-attr="aria-label:btn.close"></button></div>
                     <div class="modal-body text-center pb-5">
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Création d'une application web dynamique</h2>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" data-i18n="modal7.title">Création d'une application web dynamique</h2>
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
@@ -1124,15 +1124,19 @@
                                     <img class="img-fluid rounded mb-5" src="assets/img/portfolio/Weather_Rugby/Screenshot1.jpg" alt="..." />
                                     <img class="img-fluid rounded mb-5" src="assets/img/portfolio/Weather_Rugby/Screenshot2.jpg" alt="..." />
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Pour réaliser ce projet, il aura fallu trouver plusieurs API web à appeler de sorte à ce que l'une soit dépendante des résultats de l'autre. Ce travail portait principalement sur l'utilisation du langage <b>Javascript</b> et de l'outil de configuration <b>Webpack</b>
+                                    <p class="mb-4" data-i18n-html="modal7.description">Pour réaliser ce projet, il aura fallu trouver plusieurs API web à appeler de sorte à ce que l'une soit dépendante des résultats de l'autre. Ce travail portait principalement sur l'utilisation du langage <b>Javascript</b> et de l'outil de configuration <b>Webpack</b>
                                         <br><br>Ce projet m'a permis de développer mes compétences en <b>Développement Web</b> et <b>Configuration d'environnement de développement</b>.</p>
-                                    
+
                                      <div class="text-center mt-4">
                                         <a class="btn btn-xl" href="assets/img/portfolio/Weather_Rugby/Weather_Rugby.zip" download="assets/img/portfolio/Weather_Rugby/Weather_Rugby.zip">
                                             <i class="fas fa-download me-2"></i>
-                                            Télécharger les fichiers sources et le README
+                                            <span data-i18n="modal7.btn">Télécharger les fichiers sources et le README</span>
                                         </a>
-                                    </div><button class="btn btn-primary" data-bs-dismiss="modal">
+                                        <a class="btn btn-xl ms-2" href="https://github.com/PoissonnierThomas/Weather_Rugby" target="_blank" rel="noopener">
+                                            <i class="fab fa-github me-2"></i>
+                                            GitHub
+                                        </a>
+                                    </div><button class="btn btn-primary" data-bs-dismiss="modal" data-i18n="btn.close">
                                         <i class="fas fa-xmark fa-fw"></i>
                                         Close Window
                                     </button>
@@ -1147,13 +1151,13 @@
             <div class="portfolio-modal modal fade" id="portfolioModal8" tabindex="-1" aria-labelledby="portfolioModal8" aria-hidden="true">
                 <div class="modal-dialog modal-xl">
                     <div class="modal-content">
-                        <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                        <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close" data-i18n-attr="aria-label:btn.close"></button></div>
                         <div class="modal-body text-center pb-5">
                             <div class="container">
                                 <div class="row justify-content-center">
                                     <div class="col-lg-8">
                                         <!-- Portfolio Modal - Title-->
-                                        <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Keyp - Gestionnaire de mots de passe</h2>
+                                        <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" data-i18n="modal8.title">Keyp - Gestionnaire de mots de passe</h2>
                                         <!-- Icon Divider-->
                                         <div class="divider-custom">
                                             <div class="divider-custom-line"></div>
@@ -1163,22 +1167,22 @@
                                         <!-- Portfolio Modal - Image-->
                                         <img class="img-fluid rounded mb-5" src="assets/img/portfolio/Keyp/Menu.png" alt="Menu de l'application" />
                                         <img class="img-fluid rounded mb-5" src="assets/img/portfolio/Keyp/Connexion.png" alt="Page de connexion de l'application" />
-                                        
+
                                         <!-- Portfolio Modal - Text-->
-                                        <p class="mb-4">Ce projet Java avec JavaFX est un gestionnaire de mots de passe sécurisé développé en deuxième année de BUT Informatique. L'application permet de stocker et gérer des identifiants chiffrés avec un système d'expiration et d'alertes automatiques.
+                                        <p class="mb-4" data-i18n-html="modal8.description">Ce projet Java avec JavaFX est un gestionnaire de mots de passe sécurisé développé en deuxième année de BUT Informatique. L'application permet de stocker et gérer des identifiants chiffrés avec un système d'expiration et d'alertes automatiques.
                                             <br><br>Techniquement, j'ai implémenté trois algorithmes de chiffrement (AES, DES, Blowfish) interchangeables grâce au <b>pattern Strategy</b>, une architecture <b>MVC</b> avec séparation claire des responsabilités, et un système de persistance avec le <b>pattern DAO</b>. L'interface JavaFX propose un tableau dynamique avec code couleur selon l'urgence des expirations.
                                             <br><br>J'ai pu développer mes compétences en <b>design patterns</b>, <b>cryptographie appliquée (javax.crypto, SHA-256)</b> et <b>architecture logicielle</b>.
                                             <br><br>Vous trouverez ci-dessous le code source complet du projet avec sa documentation JavaDoc.</p>
-                                        
+
                                         <!-- Boutons de téléchargement -->
                                         <div class="text-center mt-4">
                                             <a class="btn btn-xl" href="assets/img/portfolio/Keyp/Keyp.zip" download="assets/img/portfolio/Keyp/Keyp_.zip">
-                                                <i class="fas fa-download me-2"></i>    
-                                                Code source
+                                                <i class="fas fa-download me-2"></i>
+                                                <span data-i18n="modal8.btn">Code source</span>
                                             </a>
                                         </div>
-                                        
-                                        <button class="btn btn-primary" data-bs-dismiss="modal">
+
+                                        <button class="btn btn-primary" data-bs-dismiss="modal" data-i18n="btn.close">
                                             <i class="fas fa-xmark fa-fw"></i>
                                             Close Window
                                         </button>
@@ -1198,5 +1202,6 @@
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+        <script src="js/i18n.js"></script>
     </body>
 </html>
