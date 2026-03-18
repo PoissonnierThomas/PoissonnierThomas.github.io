@@ -11,9 +11,13 @@
   "nav.contact": "Contact",
 
   "masthead.tagline": "Why work with me?",
-  "masthead.subtitle": "Software Developer - Project Manager - Database Manager",
+  "masthead.role": "Software\nDeveloper",
+  "masthead.subtitle": "Software development — Project management — Databases",
+  "masthead.cta.projects": "My projects",
+  "masthead.cta.contact": "Get in touch",
 
-  "profile.heading": "My Profile",
+  "profile.heading": "Profile",
+  "profile.heading.full": "My Profile",
   "profile.background.heading": "My Background",
   "profile.background.line1": "2019/2022: General Baccalaureate at Lycée Ismaël Dauphin, Cavaillon",
   "profile.background.line2": "2022: One semester in PTSI preparatory class (Physics, Technology, Engineering Sciences) at LaMartinière Monplaisir, Lyon",
@@ -24,6 +28,7 @@
   "profile.improvements.heading": "My areas for improvement",
   "profile.improvements.text": "I often lack confidence in myself, double-check information I already know, or question work I'm capable of doing. So, if you're looking for someone with a keen sense of aesthetics, that's definitely not me.",
 
+  "portfolio.section.label": "Projects",
   "portfolio.section.heading": "Skills Portfolio",
 
   "card1.title": "Newspaper Front Page",
@@ -135,6 +140,7 @@
   "cv.href.png": "assets/img/CV_POISSONNIER_Thomas_EN.png",
   "cv.href.pdf": "assets/img/CV_POISSONNIER_Thomas_EN.pdf",
 
+  "interests.section.label": "Outside of code",
   "interests.section.heading": "My interests",
   "interests.intro": "Outside of computer science, here are the activities that rhythm my daily life:",
   "interest.sports.title": "Team Sports:",
@@ -145,6 +151,7 @@
   "interest.reading.description": "Passionate about science fiction (Asimov, Philip K. Dick) and mythology, whether classical or reimagined in contemporary works like those of Rick Riordan.",
   "interests.closing": "These passions cultivate my team spirit, perseverance, and intellectual curiosity.",
 
+  "contact.section.label": "Contact",
   "contact.section.heading": "Contact Me",
   "contact.card.title": "Let's Stay in Touch",
   "contact.email.label": "Professional Email",

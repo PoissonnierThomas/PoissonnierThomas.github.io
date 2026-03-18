@@ -1,253 +1,663 @@
-/*!
-* Start Bootstrap - Freelancer v7.0.7 (https://startbootstrap.com/theme/freelancer)
-* Copyright 2013-2023 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-freelancer/blob/master/LICENSE)
-*/
+/*
+ * Portfolio Thomas Poissonnier — Redesign éditorial
+ * Palette : Ardoise #111827 + Indigo #818cf8
+ */
 
-/* Custom theme variables */
+/* ============================================================
+   Variables
+   ============================================================ */
 :root {
-  --bs-primary: #1abc9c;
-  --bs-secondary: #2c3e50;
-  --bs-primary-rgb: 26, 188, 156;
-  --bs-secondary-rgb: 44, 62, 80;
-  --bs-link-color: #1abc9c;
-  --bs-link-hover-color: #15967d;
-  --bs-font-sans-serif: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --bs-border-width: 0.125rem;
+  --bg:          #111827;
+  --surface:     #1f2937;
+  --surface-2:   #374151;
+  --text:        #f9fafb;
+  --text-muted:  #9ca3af;
+  --accent:      #818cf8;
+  --accent-dark: #6366f1;
+  --border:      rgba(129, 140, 248, 0.15);
+
+  /* Bootstrap overrides */
+  --bs-primary:          #818cf8;
+  --bs-secondary:        #1f2937;
+  --bs-primary-rgb:      129, 140, 248;
+  --bs-secondary-rgb:    31, 41, 55;
+  --bs-link-color:       #818cf8;
+  --bs-link-hover-color: #6366f1;
+  --bs-body-bg:          #111827;
+  --bs-body-color:       #f9fafb;
+  --bs-border-color:     #374151;
+  --bs-font-sans-serif:  "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --bs-border-width:     1px;
 }
 
-.divider-custom {
-  margin: 1.25rem 0 1.5rem;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.divider-custom .divider-custom-line {
-  width: 100%;
-  max-width: 7rem;
-  height: 0.25rem;
-  background-color: #2c3e50;
-  border-radius: 1rem;
-  border-color: #2c3e50;
-}
-.divider-custom .divider-custom-line:first-child {
-  margin-right: 1rem;
-}
-.divider-custom .divider-custom-line:last-child {
-  margin-left: 1rem;
-}
-.divider-custom .divider-custom-icon {
-  color: #2c3e50;
-  font-size: 2rem;
-}
-.divider-custom.divider-light .divider-custom-line {
-  background-color: #fff;
-}
-.divider-custom.divider-light .divider-custom-icon {
-  color: #fff;
+body {
+  background-color: var(--bg);
+  color: var(--text);
 }
 
-.btn-xl {
-  padding: 1rem 1.75rem;
-  font-size: 1.25rem;
-}
-
-.btn-social {
-  border-radius: 100%;
-  display: inline-flex;
-  width: 3.25rem;
-  height: 3.25rem;
-  font-size: 1.25rem;
-  justify-content: center;
-  align-items: center;
-}
-
+/* ============================================================
+   Navbar
+   ============================================================ */
 #mainNav {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-weight: 700;
+  background-color: rgba(17, 24, 39, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 0;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  transition: background-color 0.3s ease, padding 0.3s ease;
 }
+
+#mainNav.navbar-shrink {
+  padding: 0.5rem 0;
+  background-color: rgba(17, 24, 39, 0.98);
+}
+
 #mainNav .navbar-brand {
-  color: #fff;
+  color: var(--text);
+  font-size: 1rem;
+  letter-spacing: 0.04em;
 }
-#mainNav .navbar-nav {
-  margin-top: 1rem;
-}
+
+#mainNav .navbar-brand:hover { color: var(--accent); }
+
+#mainNav .navbar-nav { margin-top: 0; }
+
 #mainNav .navbar-nav li.nav-item a.nav-link {
-  color: #fff;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+  padding: 0.5rem 0.75rem;
 }
-#mainNav .navbar-nav li.nav-item a.nav-link:hover {
-  color: #1abc9c;
-}
-#mainNav .navbar-nav li.nav-item a.nav-link:active, #mainNav .navbar-nav li.nav-item a.nav-link:focus {
-  color: #fff;
-}
+
+#mainNav .navbar-nav li.nav-item a.nav-link:hover,
 #mainNav .navbar-nav li.nav-item a.nav-link.active {
-  color: #1abc9c;
+  color: var(--accent);
+  background: transparent;
 }
+
+#mainNav .navbar-nav li.nav-item a.nav-link:active,
+#mainNav .navbar-nav li.nav-item a.nav-link:focus {
+  color: var(--accent);
+}
+
 #mainNav .navbar-toggler {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
   font-size: 80%;
-  padding: 0.8rem;
+  padding: 0.6rem 0.9rem;
+  border-radius: 0.35rem;
 }
 
 @media (min-width: 992px) {
   #mainNav {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-    transition: padding-top 0.3s, padding-bottom 0.3s;
+    padding: 1.25rem 0;
+    transition: padding 0.3s ease;
   }
+
+  #mainNav.navbar-shrink {
+    padding: 0.5rem 0;
+  }
+
   #mainNav .navbar-brand {
-    font-size: 1.75em;
+    font-size: 1.1rem;
     transition: font-size 0.3s;
   }
-  #mainNav .navbar-nav {
-    margin-top: 0;
-  }
-  #mainNav .navbar-nav > li.nav-item > a.nav-link.active {
-    color: #fff;
-    background: #1abc9c;
-  }
-  #mainNav .navbar-nav > li.nav-item > a.nav-link.active:active, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:focus, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:hover {
-    color: #fff;
-    background: #1abc9c;
-  }
-  #mainNav.navbar-shrink {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-  }
+
   #mainNav.navbar-shrink .navbar-brand {
-    font-size: 1.5em;
+    font-size: 1rem;
+  }
+
+  #mainNav .navbar-nav > li.nav-item > a.nav-link.active {
+    color: var(--accent) !important;
+    background: transparent !important;
   }
 }
 
+/* ============================================================
+   Hero / Masthead
+   ============================================================ */
+.masthead {
+  min-height: 100vh;
+  background-color: var(--bg);
+  display: flex;
+  align-items: center;
+  padding: 7rem 0 5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Grille subtile en fond */
+.masthead::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(129,140,248,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(129,140,248,0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+  pointer-events: none;
+}
+
+.masthead-label {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.25rem;
+  display: block;
+}
+
+.masthead-heading {
+  font-family: "Montserrat", sans-serif;
+  font-size: 3.75rem;
+  font-weight: 800;
+  line-height: 1.05;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 992px) {
+  .masthead-heading { font-size: 5.5rem; }
+}
+
+.masthead-subheading {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  max-width: 46ch;
+  margin-bottom: 2.5rem;
+}
+
+.masthead-avatar {
+  width: 19rem;
+  border-radius: 1.25rem;
+  border: 1px solid var(--border);
+  box-shadow: 0 30px 70px rgba(0,0,0,0.5), 0 0 0 1px var(--border);
+  filter: grayscale(10%);
+  display: block;
+  margin: 0 auto;
+}
+
+@media (max-width: 991px) {
+  .masthead { padding: 7rem 0 4rem; }
+  .masthead-heading { font-size: 2.75rem; }
+  .masthead-avatar {
+    width: 11rem;
+    border-radius: 50%;
+    margin-top: 2.5rem;
+  }
+  .masthead-subheading { max-width: 100%; }
+}
+
+.masthead-cta {
+  display: flex;
+  gap: 0.875rem;
+  flex-wrap: wrap;
+}
+
+/* ============================================================
+   Boutons
+   ============================================================ */
+.btn-accent {
+  background-color: var(--accent);
+  color: #0f0f1a;
+  border: 1px solid var(--accent);
+  padding: 0.7rem 1.6rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 0.4rem;
+  text-decoration: none;
+  transition: background-color 0.2s, transform 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.btn-accent:hover {
+  background-color: var(--accent-dark);
+  border-color: var(--accent-dark);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  background-color: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  padding: 0.7rem 1.6rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 0.4rem;
+  text-decoration: none;
+  transition: color 0.2s, border-color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.btn-ghost:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.btn-xl {
+  padding: 0.8rem 1.75rem;
+  font-size: 0.8rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 0.4rem;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+.btn-xl:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(129,140,248,0.07);
+}
+
+.btn-outline-light {
+  border-color: rgba(249,250,251,0.25) !important;
+  color: var(--text-muted) !important;
+}
+
+.btn-outline-light:hover {
+  border-color: var(--accent) !important;
+  color: var(--accent) !important;
+  background: rgba(129,140,248,0.07) !important;
+}
+
+/* ============================================================
+   Sections communes
+   ============================================================ */
+.page-section {
+  padding: 6rem 0;
+}
+
+.section-label {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.page-section-heading {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text) !important;
+  letter-spacing: -0.01em;
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 992px) {
+  .page-section-heading { font-size: 2.5rem; }
+}
+
+/* ============================================================
+   Profil
+   ============================================================ */
+#profil {
+  background-color: var(--surface);
+}
+
+#profil h2 { color: var(--text) !important; }
+
+#profil .profile-col {
+  border-left: 2px solid var(--border);
+  padding-left: 1.75rem;
+}
+
+#profil .profile-col h4 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+#profil .profile-col p,
+#profil .profile-col .lead {
+  color: var(--text-muted) !important;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  text-align: left !important;
+}
+
+@media (max-width: 991px) {
+  #profil .profile-col {
+    border-left: none;
+    border-top: 2px solid var(--border);
+    padding-left: 0;
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+  }
+}
+
+/* ============================================================
+   Portfolio / Projets
+   ============================================================ */
+#portfolio {
+  background-color: var(--bg);
+}
+
+#portfolio h2 { color: var(--text) !important; }
+
+.portfolio-card {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 0.75rem !important;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease !important;
+  cursor: pointer;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.45), 0 0 0 1px var(--accent) !important;
+  border-color: var(--accent) !important;
+}
+
+.portfolio-card .card-img-top {
+  border-radius: 0.65rem 0.65rem 0 0;
+  height: 195px;
+  object-fit: cover;
+}
+
+.portfolio-card .card-body { padding: 1.3rem; }
+
+.portfolio-card .card-title {
+  color: var(--text) !important;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.portfolio-card .card-text {
+  color: var(--text-muted) !important;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.portfolio-card .badge {
+  background-color: var(--surface-2) !important;
+  color: var(--accent) !important;
+  border: 1px solid var(--border) !important;
+  font-size: 0.68rem;
+  font-weight: 500;
+}
+
+/* ============================================================
+   Compétences (dans #portfolio)
+   ============================================================ */
+#portfolio .card {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text) !important;
+  border-radius: 0.75rem !important;
+}
+
+#portfolio .card .card-title  { color: var(--text) !important; }
+#portfolio .card .card-text,
+#portfolio .card p             { color: var(--text-muted) !important; }
+#portfolio .text-secondary     { color: var(--text) !important; }
+#portfolio .text-muted         { color: var(--text-muted) !important; }
+#portfolio .text-primary       { color: var(--accent) !important; }
+
+#portfolio .badge.bg-info      { background-color: #164e63 !important; color: #a5f3fc !important; }
+#portfolio .badge.bg-warning   { background-color: #422006 !important; color: #fde68a !important; }
+#portfolio .badge.bg-success   { background-color: #052e16 !important; color: #86efac !important; }
+#portfolio .badge.bg-primary   { background-color: var(--accent) !important; color: #0f0f1a !important; }
+
+#portfolio .card.bg-light {
+  background-color: var(--surface-2) !important;
+}
+
+#portfolio .section-subtitle {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent) !important;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+#portfolio .bg-primary.text-white.rounded-circle,
+#portfolio .bg-secondary.text-white.rounded-circle {
+  background-color: var(--surface-2) !important;
+  color: var(--accent) !important;
+}
+
+#portfolio .fw-bold.text-secondary { color: var(--text) !important; }
+
+/* ============================================================
+   CV
+   ============================================================ */
+#about {
+  background-color: var(--surface);
+}
+
+#about h2    { color: var(--text) !important; }
+#about .lead { color: var(--text-muted) !important; }
+#about p     { color: var(--text-muted) !important; }
+
+/* ============================================================
+   Centres d'intérêt
+   ============================================================ */
+#Interet {
+  background-color: var(--bg);
+}
+
+#Interet h2,
+#Interet h4               { color: var(--text) !important; }
+#Interet .lead,
+#Interet p, #Interet li   { color: var(--text-muted) !important; }
+#Interet strong           { color: var(--text) !important; }
+#Interet .text-primary    { color: var(--accent) !important; }
+
+/* ============================================================
+   Contact
+   ============================================================ */
+#contact {
+  background-color: var(--surface);
+}
+
+#contact h2    { color: var(--text) !important; }
+#contact .lead { color: var(--text-muted) !important; }
+
+#contact .card {
+  background-color: var(--surface-2) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 0.75rem !important;
+}
+
+#contact h5              { color: var(--text) !important; }
+#contact small.text-muted{ color: var(--text-muted) !important; }
+#contact a               { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+#contact a:hover         { color: var(--accent); }
+#contact .text-primary   { color: var(--accent) !important; }
+#contact .border-bottom  { border-color: var(--border) !important; }
+
+#contact #phone-display  { color: var(--text-muted) !important; }
+
 .form-floating input.form-control,
 .form-floating textarea.form-control {
-  font-size: 1.5rem;
+  background-color: var(--surface-2);
+  border-color: var(--border);
+  color: var(--text);
   border-left: 0;
   border-right: 0;
   border-top: 0;
   border-radius: 0;
   border-width: 1px;
+  font-size: 1rem;
 }
+
 .form-floating input.form-control:focus,
 .form-floating textarea.form-control:focus {
   box-shadow: none;
+  border-color: var(--accent);
+  background-color: var(--surface-2);
+  color: var(--text);
 }
+
 .form-floating label {
-  font-size: 1.5rem;
-  color: #6c757d;
+  font-size: 1rem;
+  color: var(--text-muted);
 }
 
-.masthead {
-  padding-top: calc(6rem + 74px);
-  padding-bottom: 6rem;
-}
-.masthead .masthead-heading {
-  font-size: 2.75rem;
-  line-height: 2.75rem;
-}
-.masthead .masthead-subheading {
-  font-size: 1.25rem;
-}
-.masthead .masthead-avatar {
-  width: 15rem;
-}
-
-@media (min-width: 992px) {
-  .masthead {
-    padding-top: calc(6rem + 104px);
-    padding-bottom: 6rem;
-  }
-  .masthead .masthead-heading {
-    font-size: 4rem;
-    line-height: 3.5rem;
-  }
-  .masthead .masthead-subheading {
-    font-size: 1.5rem;
-  }
-}
-
-.portfolio .portfolio-item {
-  cursor: pointer;
-  position: relative;
-  display: block;
-  max-width: 25rem;
-  border-radius: 0.5rem;
-  overflow: hidden;
-}
-.portfolio .portfolio-item .portfolio-item-caption {
-  position: absolute;
-  top: 0;
-  left: 0;
-  transition: all 0.2s ease-in-out;
-  opacity: 0;
-  background-color: rgba(26, 188, 156, 0.9);
-}
-.portfolio .portfolio-item .portfolio-item-caption:hover {
-  opacity: 1;
-}
-.portfolio .portfolio-item .portfolio-item-caption .portfolio-item-caption-content {
-  font-size: 1.5rem;
-}
-
-.portfolio-modal .btn-close {
-  color: #1abc9c;
-  font-size: 2rem;
-  padding: 1rem;
-}
-.portfolio-modal .portfolio-modal-title {
-  font-size: 2.25rem;
-  line-height: 2rem;
-}
-@media (min-width: 992px) {
-  .portfolio-modal .portfolio-modal-title {
-    font-size: 3rem;
-    line-height: 2.5rem;
-  }
-}
-
+/* ============================================================
+   Footer
+   ============================================================ */
 .footer {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-  background-color: #2c3e50;
-  color: #fff;
+  background-color: var(--bg);
+  border-top: 1px solid var(--border);
+  padding: 3.5rem 0;
+  color: var(--text-muted);
 }
+
+.footer h4         { color: var(--text) !important; font-size: 0.75rem; letter-spacing: 0.15em; }
+.footer .lead      { color: var(--text-muted) !important; font-size: 0.9rem; }
+.footer .text-primary { color: var(--accent) !important; }
 
 .copyright {
-  background-color: #1a252f;
+  background-color: var(--bg);
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  padding: 1rem 0;
 }
 
-.section-subtitle {
-    font-weight: 700;
-    font-size: 1.3rem;
-    color: #2c3e50;
-    margin-top: 2.5rem;
-    margin-bottom: 1.5rem;
+.copyright a { color: var(--accent); }
+
+.btn-social {
+  border-radius: 50%;
+  display: inline-flex;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1rem;
+  justify-content: center;
+  align-items: center;
+  background: var(--surface-2);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  transition: color 0.2s, border-color 0.2s;
 }
 
-.contact-item a {
-    color: #2c3e50;
-    text-decoration: none;
-    transition: color 0.3s ease;
+.btn-social:hover {
+  color: var(--accent);
+  border-color: var(--accent);
 }
 
-.contact-item a:hover {
-    color: #1abc9c;
+/* ============================================================
+   Modals
+   ============================================================ */
+.portfolio-modal .modal-content {
+  background-color: var(--surface);
+  color: var(--text);
 }
 
-/* Page sections */
-.page-section {
-  padding: 6rem 0;
+.portfolio-modal .modal-body {
+  background-color: var(--surface);
 }
-.page-section .page-section-heading {
-  font-size: 2.25rem;
-  line-height: 2rem;
+
+.portfolio-modal .portfolio-modal-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--text) !important;
+  text-transform: none;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
 }
+
 @media (min-width: 992px) {
-  .page-section .page-section-heading {
-    font-size: 3rem;
-    line-height: 2.5rem;
-  }
+  .portfolio-modal .portfolio-modal-title { font-size: 2.25rem; }
 }
+
+.portfolio-modal .btn-close { filter: invert(1) brightness(0.7); }
+
+.portfolio-modal p,
+.portfolio-modal ul,
+.portfolio-modal li           { color: var(--text-muted); }
+.portfolio-modal h4,
+.portfolio-modal h5           { color: var(--text); }
+.portfolio-modal .text-secondary { color: var(--text) !important; }
+.portfolio-modal .text-muted     { color: var(--text-muted) !important; }
+.portfolio-modal .text-primary   { color: var(--accent) !important; }
+
+.portfolio-modal .badge {
+  background-color: var(--surface-2) !important;
+  color: var(--accent) !important;
+  border: 1px solid var(--border);
+}
+
+/* ============================================================
+   Divider (modals uniquement)
+   ============================================================ */
+.divider-custom {
+  margin: 1.25rem 0 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.divider-custom .divider-custom-line {
+  width: 100%;
+  max-width: 4rem;
+  height: 1px;
+  background-color: var(--border);
+  border-radius: 1rem;
+}
+
+.divider-custom .divider-custom-line:first-child { margin-right: 1rem; }
+.divider-custom .divider-custom-line:last-child  { margin-left: 1rem; }
+
+.divider-custom .divider-custom-icon {
+  color: var(--accent);
+  font-size: 1.25rem;
+}
+
+.divider-custom.divider-light .divider-custom-line { background-color: var(--border); }
+.divider-custom.divider-light .divider-custom-icon { color: var(--accent); }
+
+/* ============================================================
+   Utilitaires globaux
+   ============================================================ */
+.text-secondary { color: var(--text) !important; }
+.text-muted     { color: var(--text-muted) !important; }
+.text-primary   { color: var(--accent) !important; }
+.bg-primary     { background-color: var(--accent) !important; }
+.bg-secondary   { background-color: var(--surface) !important; }
+.bg-light       { background-color: var(--surface-2) !important; color: var(--text) !important; }

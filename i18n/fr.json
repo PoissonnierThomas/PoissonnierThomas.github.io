@@ -11,9 +11,13 @@
   "nav.contact": "Contact",
 
   "masthead.tagline": "Pourquoi travailler avec moi ?",
-  "masthead.subtitle": "Développeur logiciel - Gestionnaire de projets - Gestionnaire de base de données",
+  "masthead.role": "Développeur\nLogiciel",
+  "masthead.subtitle": "Développeur logiciel — Gestion de projets — Bases de données",
+  "masthead.cta.projects": "Mes projets",
+  "masthead.cta.contact": "Me contacter",
 
-  "profile.heading": "Mon Profil",
+  "profile.heading": "Profil",
+  "profile.heading.full": "Mon Profil",
   "profile.background.heading": "Mon Parcours",
   "profile.background.line1": "2019/2022 : Baccalauréat Général au lycée Ismaël Dauphin, Cavaillon",
   "profile.background.line2": "2022 : Un semestre en classe préparatoire PTSI (Physique, Technologie, Sciences de l'Ingénieur) à LaMartinière Monplaisir, Lyon",
@@ -24,6 +28,7 @@
   "profile.improvements.heading": "Mes axes de progression",
   "profile.improvements.text": "Il m'arrive souvent de ne pas assez me faire confiance, de vérifier une information que je connais déjà ou de mettre en doute un travail que je sais faire. Aussi, si vous cherchez un profil avec un sens aigu de l'esthétisme, ce n'est clairement pas mon profil.",
 
+  "portfolio.section.label": "Projets",
   "portfolio.section.heading": "Recueil de Compétences",
 
   "card1.title": "Une de Journal",
@@ -135,6 +140,7 @@
   "cv.href.png": "assets/img/CV_POISSONNIER_Thomas.png",
   "cv.href.pdf": "assets/img/CV_POISSONNIER_Thomas.pdf",
 
+  "interests.section.label": "En dehors du code",
   "interests.section.heading": "Mes centres d'intérêt",
   "interests.intro": "En dehors de l'informatique, voici les activités qui rythment mon quotidien :",
   "interest.sports.title": "Sports collectifs :",
@@ -145,6 +151,7 @@
   "interest.reading.description": "Passionné de science-fiction (Asimov, Philip K. Dick) et de mythologie, qu'elle soit classique ou revisitée dans des œuvres contemporaines comme celles de Rick Riordan.",
   "interests.closing": "Ces passions cultivent mon esprit d'équipe, ma persévérance et ma curiosité intellectuelle.",
 
+  "contact.section.label": "Contact",
   "contact.section.heading": "Me contacter",
   "contact.card.title": "Restons en contact",
   "contact.email.label": "Email professionnel",
