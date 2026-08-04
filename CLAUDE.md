@@ -40,10 +40,15 @@ HTTP rather than `file://` is mandatory, not a preference: `js/layout.js` fetche
 
 `python3 -m http.server` answers `304 Not Modified`, so an edited ES module can be served from cache and a page silently keeps running old code. If a change appears to have no effect, force-reload before debugging.
 
-There is no test suite or linter. There is one check, and it covers translations, data cross-references and asset paths:
+Two checks, and they answer different questions. Neither replaces the other.
+
+**`python3 outils/verifier.py`** — are the *files* coherent? Translations, data cross-references, asset paths. Runs in a second, no dependency, no build needed.
+
+**`npm test`** (after `npm run build`) — does the *built site* behave? Opens `dist/` in Chromium and checks the eight pages: expected content present and present once, no console error, no surviving fetch to `data/` or `i18n/`, filtering still working from DOM attributes, `canonical`/`hreflang` correct, and content readable with JavaScript disabled.
 
 ```bash
-python3 outils/verifier.py
+python3 outils/verifier.py          # cohérence des fichiers
+npm run build && npm test           # comportement du site produit
 ```
 
 It exits non-zero on the first inconsistency and runs in CI on every push and pull request (`.github/workflows/verification.yml`). Standard library only, no venv, no dependency to install — so it stays runnable by hand.
@@ -54,7 +59,9 @@ Run it after touching `i18n/*.json`, `data/*.json`, or anything under `assets/`.
 - **Data cross-references** — the data files cite each other by string and nothing enforces it at runtime. An unclassified techno still shows on the project card but never appears in the filter panel; it fails silently, which is the whole reason this check exists. Also covers unknown contexts, unknown skill technos, project ids cited but absent, and aliases straddling two categories.
 - **Files** — every icon must exist in the sprite, and every `assets/…` path quoted anywhere must resolve on disk. Several asset paths contain spaces and accents, so the check bounds paths at the quote, never at whitespace.
 
-Adding a check means editing `outils/verifier.py`; keep it dependency-free.
+Adding a check means editing `outils/verifier.py`; keep it dependency-free. Behaviour goes in `outils/tester.js` instead — it may use Puppeteer, which the build needs anyway.
+
+`tester.js` holds hard-coded counts (9 projects, 6 timeline steps, 3 interests, 14 skills, 5 expertises, 4 soft skills). **Adding an entry to `data/` makes the tests fail until you update them**, which is the point: deriving the counts from the same JSON would test the renderer against itself and catch nothing.
 
 ## The English stub
 
@@ -137,7 +144,9 @@ New visible text means a new key in **both** locale files.
 
 ## Data files
 
-**`data/projets.json`** — 9 projects, in display order; the card number is the array index, so reordering renumbers the grid.
+**`data/projets.json`** — 9 projects, in display order; the card number is the array index, so reordering renumbers the grid. Numbers describe a position, not an identity — that is a deliberate choice, so never add a `numero` field to pin them.
+
+**The order is editorial**, not chronological: most demonstrative first (the CBA internship, then this portfolio), oldest coursework last. **Ask the owner where a new project goes — never append by default.** Inserting mid-list renumbers everything after it, which is expected and fine.
 
 ```json
 {

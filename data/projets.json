@@ -1,5 +1,167 @@
 [
   {
+    "id": "stage-cba",
+    "icone": "server",
+    "carte": {
+      "titre": "card9.title",
+      "description": "card9.description",
+      "image": "assets/img/portfolio/CBA/logo-cba.webp",
+      "alt": "CBA Informatique Libérale"
+    },
+    "tags": [
+      "card9.badge1",
+      { "libelle": "FHIR" },
+      "tag.communication"
+    ],
+    "detail": {
+      "titre": "modal9.title",
+      "description": "modal9.description",
+      "html": true,
+      "images": [
+        {
+          "src": "assets/img/portfolio/CBA/logo-cba.webp",
+          "alt": "CBA Informatique Libérale"
+        }
+      ],
+      "liens": []
+    },
+    "annee": "projet.annee.2",
+    "technos": [
+      "PHP",
+      "Symfony",
+      "API Platform",
+      "FHIR",
+      "Docker",
+      "Base de données",
+      "API web",
+      "Gestion de projet"
+    ]
+  },
+  {
+    "id": "portfolio",
+    "icone": "code",
+    "carte": {
+      "titre": "card10.title",
+      "description": "card10.description",
+      "image": "assets/img/portfolio/Portfolio/apercu.svg",
+      "alt": "Aperçu du portfolio"
+    },
+    "tags": [
+      "card10.badge1",
+      { "libelle": "i18n" }
+    ],
+    "detail": {
+      "titre": "modal10.title",
+      "description": "modal10.description",
+      "html": true,
+      "images": [
+        {
+          "src": "assets/img/portfolio/Portfolio/apercu.svg",
+          "alt": "Aperçu du portfolio"
+        }
+      ],
+      "liens": [
+        {
+          "href": "https://github.com/PoissonnierThomas/PoissonnierThomas.github.io",
+          "cle": null,
+          "libelle": "GitHub",
+          "externe": true
+        }
+      ]
+    },
+    "annee": "projet.annee.perso",
+    "technos": [
+      "HTML/CSS",
+      "JavaScript",
+      "Claude Code"
+    ]
+  },
+  {
+    "id": "weather-rugby",
+    "icone": "globe",
+    "carte": {
+      "titre": "card7.title",
+      "description": "card7.description",
+      "image": "assets/img/portfolio/Weather_Rugby/Screenshot1.webp",
+      "alt": "Weather Rugby"
+    },
+    "tags": [
+      "card7.badge1"
+    ],
+    "detail": {
+      "titre": "modal7.title",
+      "description": "modal7.description",
+      "html": true,
+      "images": [
+        {
+          "src": "assets/img/portfolio/Weather_Rugby/Screenshot1.webp",
+          "alt": "Carte des terrains de rugby de France avec la météo associée"
+        },
+        {
+          "src": "assets/img/portfolio/Weather_Rugby/Screenshot2.webp",
+          "alt": "Fiche détaillée d'un terrain avec ses prévisions météo"
+        }
+      ],
+      "liens": [
+        {
+          "href": "https://github.com/PoissonnierThomas/Weather_Rugby",
+          "cle": null,
+          "libelle": "GitHub",
+          "externe": true
+        }
+      ]
+    },
+    "annee": "projet.annee.2",
+    "technos": [
+      "JavaScript",
+      "Webpack",
+      "API web",
+      "HTML/CSS"
+    ]
+  },
+  {
+    "id": "keyp",
+    "icone": "shield",
+    "carte": {
+      "titre": "card8.title",
+      "description": "card8.description",
+      "image": "assets/img/portfolio/Keyp/Menu.webp",
+      "alt": "Keyp Image"
+    },
+    "tags": [],
+    "detail": {
+      "titre": "modal8.title",
+      "description": "modal8.description",
+      "html": true,
+      "images": [
+        {
+          "src": "assets/img/portfolio/Keyp/Menu.webp",
+          "alt": "Menu de l'application"
+        },
+        {
+          "src": "assets/img/portfolio/Keyp/Connexion.webp",
+          "alt": "Page de connexion de l'application"
+        }
+      ],
+      "liens": [
+        {
+          "href": "https://github.com/PoissonnierThomas/Keyp",
+          "cle": null,
+          "libelle": "GitHub",
+          "externe": true
+        }
+      ]
+    },
+    "annee": "projet.annee.2",
+    "technos": [
+      "Java",
+      "JavaFX",
+      "Cryptographie",
+      "MVC",
+      "Design Patterns"
+    ]
+  },
+  {
     "id": "comparaison-algorithmes",
     "icone": "cogs",
     "carte": {
@@ -49,48 +211,63 @@
     ]
   },
   {
-    "id": "analyse-organisation",
-    "icone": "users",
+    "id": "bibliotheque-recettes",
+    "icone": "book",
     "carte": {
-      "titre": "card3.title",
-      "description": "card3.description",
-      "image": "assets/img/portfolio/Analyse_orga/Une.webp",
-      "alt": "Analyse organisationnelle de LeBonCoin"
+      "titre": "card6.title",
+      "description": "card6.description",
+      "image": "assets/img/portfolio/Bibliothèque_de_recette/Homepage.webp",
+      "alt": "Bibliothèque de recettes"
     },
     "tags": [
-      "card3.badge1",
-      "card3.badge2",
-      "tag.communication"
+      "card6.badge1"
     ],
     "detail": {
-      "titre": "modal3.title",
-      "description": "modal3.description",
-      "html": false,
+      "titre": "modal6.title",
+      "description": "modal6.description",
+      "html": true,
       "images": [
         {
-          "src": "assets/img/portfolio/Analyse_orga/Une.webp",
-          "alt": "Page de garde du rapport d'analyse organisationnelle de LeBonCoin"
+          "src": "assets/img/portfolio/Bibliothèque_de_recette/Homepage.webp",
+          "alt": "Page d'accueil de la bibliothèque de recettes"
+        },
+        {
+          "src": "assets/img/portfolio/Bibliothèque_de_recette/UML.webp",
+          "alt": "Diagramme de classes UML de la bibliothèque de recettes"
+        },
+        {
+          "src": "assets/img/portfolio/Bibliothèque_de_recette/Qt.webp",
+          "alt": "Interface Qt de consultation d'une recette"
+        },
+        {
+          "src": "assets/img/portfolio/Bibliothèque_de_recette/répartition_horaire.webp",
+          "alt": "Graphique de répartition du temps de travail sur le projet"
+        },
+        {
+          "src": "assets/img/portfolio/Bibliothèque_de_recette/répartition_par_session.webp",
+          "alt": "Graphique de répartition du travail par session"
         }
       ],
       "liens": [
         {
-          "href": "assets/img/portfolio/Analyse_orga/R108_AO_Leboncoin.pdf",
-          "cle": "modal3.btn1",
+          "href": "assets/img/portfolio/Bibliothèque_de_recette/README.md",
+          "cle": "modal6.btn1",
           "libelle": null,
           "externe": false
         },
         {
-          "href": "assets/img/portfolio/Analyse_orga/Saé.S1.06.R1.08_DT_Leboncoin.pdf",
-          "cle": "modal3.btn2",
-          "libelle": null,
-          "externe": false
+          "href": "https://github.com/PoissonnierThomas/Biblioth-que_Recettes",
+          "cle": null,
+          "libelle": "GitHub",
+          "externe": true
         }
       ]
     },
     "annee": "projet.annee.1",
     "technos": [
-      "Analyse",
-      "Rédaction"
+      "C++",
+      "Qt",
+      "Base de données"
     ]
   },
   {
@@ -104,9 +281,7 @@
     },
     "tags": [
       "card4.badge1",
-      {
-        "libelle": "Dijkstra"
-      }
+      { "libelle": "Dijkstra" }
     ],
     "detail": {
       "titre": "modal4.title",
@@ -196,225 +371,48 @@
     ]
   },
   {
-    "id": "bibliotheque-recettes",
-    "icone": "book",
+    "id": "analyse-organisation",
+    "icone": "users",
     "carte": {
-      "titre": "card6.title",
-      "description": "card6.description",
-      "image": "assets/img/portfolio/Bibliothèque_de_recette/Homepage.webp",
-      "alt": "Bibliothèque de recettes"
+      "titre": "card3.title",
+      "description": "card3.description",
+      "image": "assets/img/portfolio/Analyse_orga/Une.webp",
+      "alt": "Analyse organisationnelle de LeBonCoin"
     },
     "tags": [
-      "card6.badge1"
+      "card3.badge1",
+      "card3.badge2",
+      "tag.communication"
     ],
     "detail": {
-      "titre": "modal6.title",
-      "description": "modal6.description",
-      "html": true,
+      "titre": "modal3.title",
+      "description": "modal3.description",
+      "html": false,
       "images": [
         {
-          "src": "assets/img/portfolio/Bibliothèque_de_recette/Homepage.webp",
-          "alt": "Page d'accueil de la bibliothèque de recettes"
-        },
-        {
-          "src": "assets/img/portfolio/Bibliothèque_de_recette/UML.webp",
-          "alt": "Diagramme de classes UML de la bibliothèque de recettes"
-        },
-        {
-          "src": "assets/img/portfolio/Bibliothèque_de_recette/Qt.webp",
-          "alt": "Interface Qt de consultation d'une recette"
-        },
-        {
-          "src": "assets/img/portfolio/Bibliothèque_de_recette/répartition_horaire.webp",
-          "alt": "Graphique de répartition du temps de travail sur le projet"
-        },
-        {
-          "src": "assets/img/portfolio/Bibliothèque_de_recette/répartition_par_session.webp",
-          "alt": "Graphique de répartition du travail par session"
+          "src": "assets/img/portfolio/Analyse_orga/Une.webp",
+          "alt": "Page de garde du rapport d'analyse organisationnelle de LeBonCoin"
         }
       ],
       "liens": [
         {
-          "href": "assets/img/portfolio/Bibliothèque_de_recette/README.md",
-          "cle": "modal6.btn1",
+          "href": "assets/img/portfolio/Analyse_orga/R108_AO_Leboncoin.pdf",
+          "cle": "modal3.btn1",
           "libelle": null,
           "externe": false
         },
         {
-          "href": "https://github.com/PoissonnierThomas/Biblioth-que_Recettes",
-          "cle": null,
-          "libelle": "GitHub",
-          "externe": true
+          "href": "assets/img/portfolio/Analyse_orga/Saé.S1.06.R1.08_DT_Leboncoin.pdf",
+          "cle": "modal3.btn2",
+          "libelle": null,
+          "externe": false
         }
       ]
     },
     "annee": "projet.annee.1",
     "technos": [
-      "C++",
-      "Qt",
-      "Base de données"
-    ]
-  },
-  {
-    "id": "weather-rugby",
-    "icone": "globe",
-    "carte": {
-      "titre": "card7.title",
-      "description": "card7.description",
-      "image": "assets/img/portfolio/Weather_Rugby/Screenshot1.webp",
-      "alt": "Weather Rugby"
-    },
-    "tags": [
-      "card7.badge1"
-    ],
-    "detail": {
-      "titre": "modal7.title",
-      "description": "modal7.description",
-      "html": true,
-      "images": [
-        {
-          "src": "assets/img/portfolio/Weather_Rugby/Screenshot1.webp",
-          "alt": "Carte des terrains de rugby de France avec la météo associée"
-        },
-        {
-          "src": "assets/img/portfolio/Weather_Rugby/Screenshot2.webp",
-          "alt": "Fiche détaillée d'un terrain avec ses prévisions météo"
-        }
-      ],
-      "liens": [
-        {
-          "href": "https://github.com/PoissonnierThomas/Weather_Rugby",
-          "cle": null,
-          "libelle": "GitHub",
-          "externe": true
-        }
-      ]
-    },
-    "annee": "projet.annee.2",
-    "technos": [
-      "JavaScript",
-      "Webpack",
-      "API web",
-      "HTML/CSS"
-    ]
-  },
-  {
-    "id": "keyp",
-    "icone": "shield",
-    "carte": {
-      "titre": "card8.title",
-      "description": "card8.description",
-      "image": "assets/img/portfolio/Keyp/Menu.webp",
-      "alt": "Keyp Image"
-    },
-    "tags": [],
-    "detail": {
-      "titre": "modal8.title",
-      "description": "modal8.description",
-      "html": true,
-      "images": [
-        {
-          "src": "assets/img/portfolio/Keyp/Menu.webp",
-          "alt": "Menu de l'application"
-        },
-        {
-          "src": "assets/img/portfolio/Keyp/Connexion.webp",
-          "alt": "Page de connexion de l'application"
-        }
-      ],
-      "liens": [
-        {
-          "href": "https://github.com/PoissonnierThomas/Keyp",
-          "cle": null,
-          "libelle": "GitHub",
-          "externe": true
-        }
-      ]
-    },
-    "annee": "projet.annee.2",
-    "technos": [
-      "Java",
-      "JavaFX",
-      "Cryptographie",
-      "MVC",
-      "Design Patterns"
-    ]
-  },
-  {
-    "id": "stage-cba",
-    "icone": "server",
-    "carte": {
-      "titre": "card9.title",
-      "description": "card9.description",
-      "image": "assets/img/portfolio/CBA/logo-cba.webp",
-      "alt": "CBA Informatique Libérale"
-    },
-    "tags": [
-      "card9.badge1",
-      { "libelle": "FHIR" },
-      "tag.communication"
-    ],
-    "detail": {
-      "titre": "modal9.title",
-      "description": "modal9.description",
-      "html": true,
-      "images": [
-        {
-          "src": "assets/img/portfolio/CBA/logo-cba.webp",
-          "alt": "CBA Informatique Libérale"
-        }
-      ],
-      "liens": []
-    },
-    "annee": "projet.annee.2",
-    "technos": [
-      "PHP",
-      "Symfony",
-      "API Platform",
-      "FHIR",
-      "Docker",
-      "Base de données",
-      "API web",
-      "Gestion de projet"
-    ]
-  },
-  {
-    "id": "portfolio",
-    "icone": "code",
-    "carte": {
-      "titre": "card10.title",
-      "description": "card10.description",
-      "image": "assets/img/portfolio/Portfolio/apercu.svg",
-      "alt": "Aperçu du portfolio"
-    },
-    "tags": [
-      "card10.badge1",
-      { "libelle": "i18n" }
-    ],
-    "detail": {
-      "titre": "modal10.title",
-      "description": "modal10.description",
-      "html": true,
-      "images": [
-        {
-          "src": "assets/img/portfolio/Portfolio/apercu.svg",
-          "alt": "Aperçu du portfolio"
-        }
-      ],
-      "liens": [
-        {
-          "href": "https://github.com/PoissonnierThomas/PoissonnierThomas.github.io",
-          "cle": null,
-          "libelle": "GitHub",
-          "externe": true
-        }
-      ]
-    },
-    "annee": "projet.annee.perso",
-    "technos": [
-      "HTML/CSS",
-      "JavaScript",
-      "Claude Code"
+      "Analyse",
+      "Rédaction"
     ]
   }
 ]

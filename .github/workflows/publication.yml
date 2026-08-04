@@ -54,6 +54,12 @@ jobs:
       - name: Pré-rendu
         run: npm run build
 
+      # dernier filet avant publication : verifier.py ne juge que les fichiers,
+      # ceci ouvre le site produit dans un navigateur. Un pré-rendu cassé
+      # s'arrête donc ici plutôt qu'en ligne.
+      - name: Tests du site produit
+        run: npm test
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

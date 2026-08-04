@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "build": "node outils/construire.js",
+    "test": "node outils/tester.js",
     "verifier": "python3 outils/verifier.py",
     "servir": "python3 -m http.server 8000"
   },

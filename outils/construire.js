@@ -16,11 +16,11 @@
  * rendent simplement côté client, ce qui reste pratique en développement.
  */
 
-import http from 'node:http';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import puppeteer from 'puppeteer';
+import { servir } from './serveur.js';
 
 const RACINE = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SORTIE = path.join(RACINE, 'dist');
@@ -33,36 +33,6 @@ const DEFAUT = 'fr';
 // recopiés tels quels ; data/ et i18n/ n'en sont pas, le HTML livré les a déjà
 // consommés et plus aucun fetch ne part une fois la page pré-rendue
 const A_COPIER = ['assets', 'css', 'js', 'robots.txt'];
-
-const TYPES = {
-  '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8',
-  '.css': 'text/css; charset=utf-8', '.json': 'application/json; charset=utf-8',
-  '.svg': 'image/svg+xml', '.webp': 'image/webp', '.png': 'image/png',
-  '.jpg': 'image/jpeg', '.ico': 'image/x-icon', '.woff2': 'font/woff2',
-  '.pdf': 'application/pdf', '.txt': 'text/plain; charset=utf-8',
-  '.xml': 'application/xml; charset=utf-8',
-};
-
-/* --- Serveur de sources -------------------------------------------------- */
-
-function servir(racine) {
-  const serveur = http.createServer(async (req, rep) => {
-    // plusieurs dossiers d'images contiennent espaces et accents
-    const rel = decodeURIComponent(req.url.split('?')[0]).replace(/^\/+/, '');
-    const cible = path.join(racine, rel || 'index.html');
-    if (!cible.startsWith(racine)) { rep.writeHead(403).end(); return; }
-    try {
-      const corps = await fs.readFile(cible);
-      rep.writeHead(200, { 'Content-Type': TYPES[path.extname(cible)] || 'application/octet-stream' });
-      rep.end(corps);
-    } catch {
-      rep.writeHead(404).end('introuvable');
-    }
-  });
-  return new Promise((resoudre) => {
-    serveur.listen(0, '127.0.0.1', () => resoudre({ serveur, port: serveur.address().port }));
-  });
-}
 
 /* --- Chemins ------------------------------------------------------------- */
 
@@ -174,8 +144,7 @@ async function copier(nom) {
 }
 
 async function construire() {
-  const { serveur, port } = await servir(RACINE);
-  const base = `http://127.0.0.1:${port}`;
+  const { base, fermer } = await servir(RACINE);
 
   await fs.rm(SORTIE, { recursive: true, force: true });
   await fs.mkdir(SORTIE, { recursive: true });
@@ -225,7 +194,7 @@ async function construire() {
   }
 
   await navigateur.close();
-  serveur.close();
+  await fermer();
 
   for (const nom of A_COPIER) await copier(nom);
 
