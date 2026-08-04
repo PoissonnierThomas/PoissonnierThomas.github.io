@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Compétences — Thomas Poissonnier</title>
+
+  <meta name="description" content="Compétences techniques de Thomas Poissonnier — PHP, Symfony, Docker, SQL, C++, Python, Java, Qt, Git, UML." />
+  <meta property="og:title" content="Compétences — Thomas Poissonnier" />
+  <meta property="og:description" content="Product Builder en alternance chez CBA Informatique Libérale — développement logiciel, PHP/Symfony, gestion de projets. Étudiant en BUT Informatique à l'IUT d'Arles." />
+  <meta property="og:url" content="https://poissonnierthomas.github.io/competences.html" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:description" content="Product Builder — développement logiciel, gestion de projets, bases de données." />
+
+  <link rel="icon" href="assets/favicon.ico" sizes="any" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+
+<body data-page="competences">
+  <div id="zone-entete"></div>
+
+  <main id="contenu">
+
+    <section class="section shell" id="competences"
+             style="padding-top: calc(var(--hauteur-entete) + var(--section-y));">
+      <div class="section-tete">
+        <h2 data-i18n="portfolio.section.heading">Recueil de Compétences</h2>
+        <span class="label" data-i18n="competences.section.soustitre">Langages, outils et méthodes</span>
+      </div>
+
+      <div class="grille-filets comp-groupes" id="comp-groupes"></div>
+
+      <h3 class="label label--accent" style="margin-bottom: 1.25rem;"
+          data-i18n="skills.expertise.heading">Expertise Technique</h3>
+      <div class="grille-filets expertises" id="expertises"></div>
+
+      <h3 class="label label--accent" style="margin: 3rem 0 1.25rem;"
+          data-i18n="softskills.heading">Savoir-Être &amp; Qualités Personnelles</h3>
+      <div class="grille-filets savoir-etre" id="savoir-etre"></div>
+
+      <h3 class="label label--accent" style="margin: 3rem 0 1.25rem;"
+          data-i18n="comp.contexte.heading">Où j'emploie ces compétences</h3>
+      <div class="contextes" id="contextes"></div>
+    </section>
+
+  </main>
+
+  <div id="zone-pied"></div>
+
+  <div id="fiches"></div>
+
+  <!-- Gabarits de rendu -->
+  <template id="tpl-fiche">
+    <dialog class="fiche">
+      <div class="fiche-tete">
+        <h2 class="fiche-titre" data-s-i18n="titre"></h2>
+        <button class="fiche-fermer" type="button"
+                data-i18n-attr="aria-label:btn.close" aria-label="Fermer">
+          <svg class="ico" aria-hidden="true"><use href="assets/icons.svg#ico-close"></use></svg>
+        </button>
+      </div>
+      <div class="fiche-corps">
+        <p class="fiche-desc" data-s-i18n="description"></p>
+        <div class="tags fiche-competences"></div>
+        <div class="fiche-images"></div>
+        <div class="fiche-liens"></div>
+      </div>
+    </dialog>
+  </template>
+
+  <template id="tpl-comp-groupe">
+    <section class="comp-groupe">
+      <div class="comp-groupe-tete">
+        <svg class="ico" aria-hidden="true"><use href="assets/icons.svg#ico-code"></use></svg>
+        <h4 data-s-i18n="titre"></h4>
+      </div>
+      <div class="comp-lignes">
+        <span class="comp-th" data-i18n="comp.col.competence">Compétence</span>
+        <span class="comp-th" data-i18n="comp.col.preuves">Projets</span>
+      </div>
+    </section>
+  </template>
+
+  <template id="tpl-comp-ligne">
+    <div class="comp-rang">
+      <div class="comp-cell">
+        <span class="comp-nom" data-s="nom"></span>
+        <small class="comp-desc" data-s-i18n="description"></small>
+      </div>
+      <div class="comp-cell">
+        <div class="comp-projets"></div>
+      </div>
+    </div>
+  </template>
+
+  <template id="tpl-expertise">
+    <article class="expertise">
+      <svg class="ico" aria-hidden="true"><use href="assets/icons.svg#ico-server"></use></svg>
+      <div>
+        <h4 data-s-i18n="titre"></h4>
+        <p class="expertise-desc" data-s-i18n="description"></p>
+        <small class="expertise-applique"></small>
+      </div>
+    </article>
+  </template>
+
+  <template id="tpl-savoir">
+    <article class="savoir">
+      <svg class="ico" aria-hidden="true"><use href="assets/icons.svg#ico-user-tie"></use></svg>
+      <h4 data-s-i18n="titre"></h4>
+      <p data-s-i18n="description"></p>
+    </article>
+  </template>
+
+  <template id="tpl-contexte">
+    <dl class="contexte-fiche">
+      <dt data-s-i18n="titre"></dt>
+      <dd data-s-i18n="description"></dd>
+    </dl>
+  </template>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

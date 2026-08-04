@@ -1,0 +1,420 @@
+[
+  {
+    "id": "comparaison-algorithmes",
+    "icone": "cogs",
+    "carte": {
+      "titre": "card2.title",
+      "description": "card2.description",
+      "image": "assets/img/portfolio/SAE1.02 Poissonnier Thomas/Une.png",
+      "alt": "Étude comparative d'algorithmes"
+    },
+    "tags": [
+      "card2.badge1",
+      "card2.badge2"
+    ],
+    "detail": {
+      "titre": "modal2.title",
+      "description": "modal2.description",
+      "html": true,
+      "images": [
+        {
+          "src": "assets/img/portfolio/SAE1.02 Poissonnier Thomas/SAE1.02 Poissonnier Thomas-1.png",
+          "alt": "Synthèse comparative des algorithmes de tri, page 1"
+        },
+        {
+          "src": "assets/img/portfolio/SAE1.02 Poissonnier Thomas/SAE1.02 Poissonnier Thomas-2.png",
+          "alt": "Synthèse comparative des algorithmes de tri, page 2"
+        },
+        {
+          "src": "assets/img/portfolio/SAE1.02 Poissonnier Thomas/SAE1.02 Poissonnier Thomas-3.png",
+          "alt": "Synthèse comparative des algorithmes de tri, page 3"
+        },
+        {
+          "src": "assets/img/portfolio/SAE1.02 Poissonnier Thomas/SAE1.02 Poissonnier Thomas-4.png",
+          "alt": "Synthèse comparative des algorithmes de tri, page 4"
+        },
+        {
+          "src": "assets/img/portfolio/SAE1.02 Poissonnier Thomas/SAE1.02 Poissonnier Thomas-5.png",
+          "alt": "Synthèse comparative des algorithmes de tri, page 5"
+        }
+      ],
+      "liens": []
+    },
+    "annee": "projet.annee.1",
+    "technos": [
+      "Python",
+      "C++",
+      "Algorithmique",
+      "Rédaction"
+    ]
+  },
+  {
+    "id": "analyse-organisation",
+    "icone": "users",
+    "carte": {
+      "titre": "card3.title",
+      "description": "card3.description",
+      "image": "assets/img/portfolio/Analyse_orga/Une.png",
+      "alt": "Analyse organisationnelle de LeBonCoin"
+    },
+    "tags": [
+      "card3.badge1",
+      "card3.badge2",
+      "tag.communication"
+    ],
+    "detail": {
+      "titre": "modal3.title",
+      "description": "modal3.description",
+      "html": false,
+      "images": [
+        {
+          "src": "assets/img/portfolio/Analyse_orga/Une.png",
+          "alt": "Page de garde du rapport d'analyse organisationnelle de LeBonCoin"
+        }
+      ],
+      "liens": [
+        {
+          "href": "assets/img/portfolio/Analyse_orga/R108_AO_Leboncoin.pdf",
+          "cle": "modal3.btn1",
+          "libelle": null,
+          "externe": false
+        },
+        {
+          "href": "assets/img/portfolio/Analyse_orga/Saé.S1.06.R1.08_DT_Leboncoin.pdf",
+          "cle": "modal3.btn2",
+          "libelle": null,
+          "externe": false
+        }
+      ]
+    },
+    "annee": "projet.annee.1",
+    "technos": [
+      "Analyse",
+      "Rédaction"
+    ]
+  },
+  {
+    "id": "calculateur-trajet",
+    "icone": "pin",
+    "carte": {
+      "titre": "card4.title",
+      "description": "card4.description",
+      "image": "assets/img/portfolio/Calculatrice/Affichage_Trajet.png",
+      "alt": "Calculateur de trajet"
+    },
+    "tags": [
+      "card4.badge1",
+      {
+        "libelle": "Dijkstra"
+      }
+    ],
+    "detail": {
+      "titre": "modal4.title",
+      "description": "modal4.description",
+      "html": true,
+      "images": [
+        {
+          "src": "assets/img/portfolio/Calculatrice/Ouverture.png",
+          "alt": "Écran d'ouverture du calculateur de trajet"
+        },
+        {
+          "src": "assets/img/portfolio/Calculatrice/Affichage_Trajet.png",
+          "alt": "Affichage d'un itinéraire calculé entre deux points"
+        },
+        {
+          "src": "assets/img/portfolio/Calculatrice/Matrice.png",
+          "alt": "Matrice des distances entre les sommets du graphe"
+        },
+        {
+          "src": "assets/img/portfolio/Calculatrice/Historique.png",
+          "alt": "Historique des trajets calculés"
+        }
+      ],
+      "liens": [
+        {
+          "href": "https://github.com/PoissonnierThomas/Calculateur_Trajets",
+          "cle": null,
+          "libelle": "GitHub",
+          "externe": true
+        }
+      ]
+    },
+    "annee": "projet.annee.1",
+    "technos": [
+      "C++",
+      "Qt",
+      "Algorithmique",
+      "Base de données"
+    ]
+  },
+  {
+    "id": "cahier-des-charges",
+    "icone": "file",
+    "carte": {
+      "titre": "card5.title",
+      "description": "card5.description",
+      "image": "assets/img/portfolio/Etablissement cahier des charges/Cahier_des_charges.png",
+      "alt": "Cahier des charges"
+    },
+    "tags": [
+      "card5.badge1",
+      "card5.badge2",
+      "card5.badge3"
+    ],
+    "detail": {
+      "titre": "modal5.title",
+      "description": "modal5.description",
+      "html": true,
+      "images": [
+        {
+          "src": "assets/img/portfolio/Etablissement cahier des charges/Cahier_des_charges.png",
+          "alt": "Première page du cahier des charges rédigé"
+        },
+        {
+          "src": "assets/img/portfolio/Etablissement cahier des charges/Sequence_Case.png",
+          "alt": "Diagramme de séquence UML de l'application"
+        },
+        {
+          "src": "assets/img/portfolio/Etablissement cahier des charges/User_Case.png",
+          "alt": "Diagramme de cas d'utilisation UML de l'application"
+        }
+      ],
+      "liens": [
+        {
+          "href": "assets/img/portfolio/Etablissement cahier des charges/Cahier_des_Charges_S2.05.pdf",
+          "cle": "modal5.btn",
+          "libelle": null,
+          "externe": false
+        }
+      ]
+    },
+    "annee": "projet.annee.1",
+    "technos": [
+      "UML",
+      "Gestion de projet",
+      "Analyse"
+    ]
+  },
+  {
+    "id": "bibliotheque-recettes",
+    "icone": "book",
+    "carte": {
+      "titre": "card6.title",
+      "description": "card6.description",
+      "image": "assets/img/portfolio/Bibliothèque_de_recette/Homepage.png",
+      "alt": "Bibliothèque de recettes"
+    },
+    "tags": [
+      "card6.badge1"
+    ],
+    "detail": {
+      "titre": "modal6.title",
+      "description": "modal6.description",
+      "html": true,
+      "images": [
+        {
+          "src": "assets/img/portfolio/Bibliothèque_de_recette/Homepage.png",
+          "alt": "Page d'accueil de la bibliothèque de recettes"
+        },
+        {
+          "src": "assets/img/portfolio/Bibliothèque_de_recette/UML.png",
+          "alt": "Diagramme de classes UML de la bibliothèque de recettes"
+        },
+        {
+          "src": "assets/img/portfolio/Bibliothèque_de_recette/Qt.png",
+          "alt": "Interface Qt de consultation d'une recette"
+        },
+        {
+          "src": "assets/img/portfolio/Bibliothèque_de_recette/répartition_horaire.png",
+          "alt": "Graphique de répartition du temps de travail sur le projet"
+        },
+        {
+          "src": "assets/img/portfolio/Bibliothèque_de_recette/répartition_par_session.png",
+          "alt": "Graphique de répartition du travail par session"
+        }
+      ],
+      "liens": [
+        {
+          "href": "assets/img/portfolio/Bibliothèque_de_recette/README.md",
+          "cle": "modal6.btn1",
+          "libelle": null,
+          "externe": false
+        },
+        {
+          "href": "https://github.com/PoissonnierThomas/Biblioth-que_Recettes",
+          "cle": null,
+          "libelle": "GitHub",
+          "externe": true
+        }
+      ]
+    },
+    "annee": "projet.annee.1",
+    "technos": [
+      "C++",
+      "Qt",
+      "Base de données"
+    ]
+  },
+  {
+    "id": "weather-rugby",
+    "icone": "globe",
+    "carte": {
+      "titre": "card7.title",
+      "description": "card7.description",
+      "image": "assets/img/portfolio/Weather_Rugby/Screenshot1.jpg",
+      "alt": "Weather Rugby"
+    },
+    "tags": [
+      "card7.badge1"
+    ],
+    "detail": {
+      "titre": "modal7.title",
+      "description": "modal7.description",
+      "html": true,
+      "images": [
+        {
+          "src": "assets/img/portfolio/Weather_Rugby/Screenshot1.jpg",
+          "alt": "Carte des terrains de rugby de France avec la météo associée"
+        },
+        {
+          "src": "assets/img/portfolio/Weather_Rugby/Screenshot2.jpg",
+          "alt": "Fiche détaillée d'un terrain avec ses prévisions météo"
+        }
+      ],
+      "liens": [
+        {
+          "href": "https://github.com/PoissonnierThomas/Weather_Rugby",
+          "cle": null,
+          "libelle": "GitHub",
+          "externe": true
+        }
+      ]
+    },
+    "annee": "projet.annee.2",
+    "technos": [
+      "JavaScript",
+      "Webpack",
+      "API web",
+      "HTML/CSS"
+    ]
+  },
+  {
+    "id": "keyp",
+    "icone": "shield",
+    "carte": {
+      "titre": "card8.title",
+      "description": "card8.description",
+      "image": "assets/img/portfolio/Keyp/Menu.png",
+      "alt": "Keyp Image"
+    },
+    "tags": [],
+    "detail": {
+      "titre": "modal8.title",
+      "description": "modal8.description",
+      "html": true,
+      "images": [
+        {
+          "src": "assets/img/portfolio/Keyp/Menu.png",
+          "alt": "Menu de l'application"
+        },
+        {
+          "src": "assets/img/portfolio/Keyp/Connexion.png",
+          "alt": "Page de connexion de l'application"
+        }
+      ],
+      "liens": [
+        {
+          "href": "https://github.com/PoissonnierThomas/Keyp",
+          "cle": null,
+          "libelle": "GitHub",
+          "externe": true
+        }
+      ]
+    },
+    "annee": "projet.annee.2",
+    "technos": [
+      "Java",
+      "JavaFX",
+      "Cryptographie",
+      "MVC",
+      "Design Patterns"
+    ]
+  },
+  {
+    "id": "stage-cba",
+    "icone": "server",
+    "carte": {
+      "titre": "card9.title",
+      "description": "card9.description",
+      "image": "assets/img/portfolio/CBA/logo-cba.png",
+      "alt": "CBA Informatique Libérale"
+    },
+    "tags": [
+      "card9.badge1",
+      { "libelle": "FHIR" },
+      "tag.communication"
+    ],
+    "detail": {
+      "titre": "modal9.title",
+      "description": "modal9.description",
+      "html": true,
+      "images": [
+        {
+          "src": "assets/img/portfolio/CBA/logo-cba.png",
+          "alt": "CBA Informatique Libérale"
+        }
+      ],
+      "liens": []
+    },
+    "annee": "projet.annee.2",
+    "technos": [
+      "PHP",
+      "Symfony",
+      "API Platform",
+      "FHIR",
+      "Docker",
+      "Base de données",
+      "API web",
+      "Gestion de projet"
+    ]
+  },
+  {
+    "id": "portfolio",
+    "icone": "code",
+    "carte": {
+      "titre": "card10.title",
+      "description": "card10.description",
+      "image": "assets/img/portfolio/Portfolio/apercu.svg",
+      "alt": "Aperçu du portfolio"
+    },
+    "tags": [
+      "card10.badge1",
+      { "libelle": "i18n" }
+    ],
+    "detail": {
+      "titre": "modal10.title",
+      "description": "modal10.description",
+      "html": true,
+      "images": [
+        {
+          "src": "assets/img/portfolio/Portfolio/apercu.svg",
+          "alt": "Aperçu du portfolio"
+        }
+      ],
+      "liens": [
+        {
+          "href": "https://github.com/PoissonnierThomas/PoissonnierThomas.github.io",
+          "cle": null,
+          "libelle": "GitHub",
+          "externe": true
+        }
+      ]
+    },
+    "annee": "projet.annee.perso",
+    "technos": [
+      "HTML/CSS",
+      "JavaScript",
+      "Claude Code"
+    ]
+  }
+]

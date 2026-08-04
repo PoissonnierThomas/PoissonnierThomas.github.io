@@ -1,0 +1,62 @@
+{
+  "facettes": [
+    {
+      "id": "langage",
+      "cle": "filtre.cat.langage",
+      "source": "techno",
+      "categorie": "langage"
+    },
+    {
+      "id": "outil",
+      "cle": "filtre.cat.outil",
+      "source": "techno",
+      "categorie": "outil"
+    },
+    {
+      "id": "sujet",
+      "cle": "filtre.cat.sujet",
+      "source": "techno",
+      "categorie": "sujet"
+    },
+    {
+      "id": "annee",
+      "cle": "filtre.cat.annee",
+      "source": "annee"
+    },
+    {
+      "id": "code",
+      "cle": "filtre.cat.code",
+      "source": "code"
+    }
+  ],
+  "technos": {
+    "C++": "langage",
+    "Java": "langage",
+    "JavaScript": "langage",
+    "Python": "langage",
+    "HTML/CSS": "langage",
+    "PHP": "langage",
+    "Qt": "outil",
+    "JavaFX": "outil",
+    "Webpack": "hors-filtre",
+    "UML": "outil",
+    "Symfony": "outil",
+    "API Platform": "outil",
+    "Docker": "outil",
+    "FHIR": "outil",
+    "Claude Code": "outil",
+    "Algorithmique": "sujet",
+    "Analyse": "sujet",
+    "API web": "sujet",
+    "Base de données": "sujet",
+    "Cryptographie": "sujet",
+    "Design Patterns": "hors-filtre",
+    "Gestion de projet": "sujet",
+    "MVC": "hors-filtre",
+    "Rédaction": "sujet"
+  },
+  "alias": {
+    "Qt": "Qt / JavaFX",
+    "JavaFX": "Qt / JavaFX"
+  }
+}

@@ -1,0 +1,24 @@
+[
+  {
+    "id": "sports",
+    "icone": "basketball",
+    "titre": "interest.sports.title",
+    "description": "interest.sports.description",
+    "image": "assets/img/interets/asi-basket.png",
+    "alt": "Logo de l'ASI Basket",
+    "legende": "ASI Basket",
+    "role": "interest.sports.club.role"
+  },
+  {
+    "id": "outdoors",
+    "icone": "mountain",
+    "titre": "interest.outdoors.title",
+    "description": "interest.outdoors.description"
+  },
+  {
+    "id": "reading",
+    "icone": "book",
+    "titre": "interest.reading.title",
+    "description": "interest.reading.description"
+  }
+]

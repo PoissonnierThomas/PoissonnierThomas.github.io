@@ -1,0 +1,34 @@
+[
+  {
+    "annee": "2019 – 2022",
+    "texte": "profile.background.line1",
+    "actuel": false
+  },
+  {
+    "annee": "2022 – 2023",
+    "texte": "profile.background.line2",
+    "actuel": false
+  },
+  {
+    "annee": "2022 – 2023",
+    "texte": "profile.background.line3",
+    "actuel": false
+  },
+  {
+    "annee": "2023 – 2027",
+    "texte": "profile.background.line4",
+    "actuel": true
+  },
+  {
+    "annee": "2026",
+    "texte": "profile.background.line5",
+    "contexte": "profile.background.line5.context",
+    "actuel": false
+  },
+  {
+    "annee": "2026 – 2027",
+    "texte": "profile.background.line6",
+    "contexte": "profile.background.line6.context",
+    "actuel": true
+  }
+]

@@ -1,0 +1,284 @@
+{
+  "groupes": [
+    {
+      "id": "langages",
+      "icone": "code",
+      "titre": "skills.languages.heading",
+      "items": [
+        {
+          "nom": "C++",
+          "contextes": [
+            "academique"
+          ],
+          "technos": [
+            "C++"
+          ],
+          "description": "skill.cpp.description"
+        },
+        {
+          "nom": "SQL / PL-pgSQL",
+          "contextes": [
+            "entreprise",
+            "academique"
+          ],
+          "technos": [
+            "Base de données"
+          ],
+          "description": "skill.sql.description"
+        },
+        {
+          "nom": "Python",
+          "contextes": [
+            "academique"
+          ],
+          "technos": [
+            "Python"
+          ],
+          "description": "skill.python.description"
+        },
+        {
+          "nom": "Java",
+          "contextes": [
+            "academique"
+          ],
+          "technos": [
+            "Java"
+          ],
+          "description": "skill.java.description"
+        },
+        {
+          "nom": "HTML / CSS / JavaScript",
+          "contextes": [
+            "academique"
+          ],
+          "technos": [
+            "HTML/CSS",
+            "JavaScript"
+          ],
+          "description": "skill.web.description"
+        },
+        {
+          "nom": "PHP",
+          "contextes": [
+            "entreprise"
+          ],
+          "technos": [
+            "PHP"
+          ],
+          "description": "skill.php.description"
+        }
+      ]
+    },
+    {
+      "id": "outils",
+      "icone": "tools",
+      "titre": "skills.tools.heading",
+      "items": [
+        {
+          "nom": "Qt Creator / Apache NetBeans",
+          "contextes": [
+            "academique"
+          ],
+          "technos": [
+            "Qt",
+            "JavaFX"
+          ],
+          "description": "skill.qt.description"
+        },
+        {
+          "nom": "Git",
+          "contextes": [
+            "entreprise",
+            "academique"
+          ],
+          "technos": [],
+          "projets": [
+            "portfolio",
+            "keyp",
+            "weather-rugby",
+            "bibliotheque-recettes",
+            "calculateur-trajet"
+          ],
+          "description": "skill.git.description"
+        },
+        {
+          "nom": "UML",
+          "contextes": [
+            "academique"
+          ],
+          "technos": [
+            "UML"
+          ],
+          "description": "skill.uml.description"
+        },
+        {
+          "nom": "Jira / Notion",
+          "contextes": [
+            "academique"
+          ],
+          "technos": [
+            "Gestion de projet"
+          ],
+          "description": "skill.jira.description"
+        },
+        {
+          "nom": "Webpack",
+          "contextes": [
+            "academique"
+          ],
+          "technos": [
+            "Webpack"
+          ],
+          "description": "skill.webpack.description"
+        },
+        {
+          "nom": "Docker",
+          "contextes": [
+            "entreprise",
+            "academique"
+          ],
+          "technos": [
+            "Docker"
+          ],
+          "description": "skill.docker.description"
+        },
+        {
+          "nom": "Symfony",
+          "contextes": [
+            "entreprise"
+          ],
+          "technos": [
+            "Symfony",
+            "API Platform"
+          ],
+          "description": "skill.symfony.description"
+        },
+        {
+          "nom": "Claude Code",
+          "contextes": [
+            "exploration"
+          ],
+          "technos": [
+            "Claude Code"
+          ],
+          "description": "skill.claudecode.description"
+        }
+      ]
+    }
+  ],
+  "contextes": [
+    {
+      "id": "entreprise",
+      "cle": "comp.contexte.entreprise",
+      "description": "comp.contexte.entreprise.desc"
+    },
+    {
+      "id": "academique",
+      "cle": "comp.contexte.academique",
+      "description": "comp.contexte.academique.desc"
+    },
+    {
+      "id": "exploration",
+      "cle": "comp.contexte.exploration",
+      "description": "comp.contexte.exploration.desc"
+    }
+  ],
+  "expertises": [
+    {
+      "id": "backend",
+      "icone": "server",
+      "titre": "expertise.backend.title",
+      "description": "expertise.backend.description",
+      "applique": {
+        "prefixe": "expertise.appliedIn.prefix",
+        "projets": [
+          "stage-cba",
+          "bibliotheque-recettes",
+          "calculateur-trajet"
+        ],
+        "extras": []
+      }
+    },
+    {
+      "id": "web",
+      "icone": "globe",
+      "titre": "expertise.web.title",
+      "description": "expertise.web.description",
+      "applique": {
+        "prefixe": "expertise.appliedIn.prefix",
+        "projets": [
+          "stage-cba",
+          "portfolio",
+          "weather-rugby"
+        ],
+        "extras": []
+      }
+    },
+    {
+      "id": "gui",
+      "icone": "monitor",
+      "titre": "expertise.gui.title",
+      "description": "expertise.gui.description",
+      "applique": {
+        "prefixe": "expertise.appliedIn.prefix",
+        "projets": [
+          "bibliotheque-recettes",
+          "calculateur-trajet",
+          "weather-rugby",
+          "keyp"
+        ],
+        "extras": []
+      }
+    },
+    {
+      "id": "algorithms",
+      "icone": "shield",
+      "titre": "expertise.algorithms.title",
+      "description": "expertise.algorithms.description",
+      "applique": {
+        "prefixe": "expertise.appliedIn.prefix",
+        "projets": [
+          "calculateur-trajet",
+          "comparaison-algorithmes",
+          "keyp"
+        ],
+        "extras": []
+      }
+    },
+    {
+      "id": "methodology",
+      "icone": "file",
+      "titre": "expertise.methodology.title",
+      "description": "expertise.methodology.description",
+      "applique": {
+        "texte": "expertise.methodology.appliedIn"
+      }
+    }
+  ],
+  "savoirEtre": [
+    {
+      "id": "leadership",
+      "icone": "user-tie",
+      "titre": "softskill.leadership.title",
+      "description": "softskill.leadership.description"
+    },
+    {
+      "id": "autonomous",
+      "icone": "bulb",
+      "titre": "softskill.autonomous.title",
+      "description": "softskill.autonomous.description"
+    },
+    {
+      "id": "adaptability",
+      "icone": "refresh",
+      "titre": "softskill.adaptability.title",
+      "description": "softskill.adaptability.description"
+    },
+    {
+      "id": "communication",
+      "icone": "message",
+      "titre": "softskill.communication.title",
+      "description": "softskill.communication.description"
+    }
+  ]
+}

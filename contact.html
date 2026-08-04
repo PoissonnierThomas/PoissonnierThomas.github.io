@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — Thomas Poissonnier</title>
+
+  <meta name="description" content="Contacter Thomas Poissonnier, Product Builder en alternance chez CBA Informatique Libérale — e-mail, téléphone, réseaux." />
+  <meta property="og:title" content="Contact — Thomas Poissonnier" />
+  <meta property="og:description" content="Product Builder en alternance chez CBA Informatique Libérale — développement logiciel, PHP/Symfony, gestion de projets. Étudiant en BUT Informatique à l'IUT d'Arles." />
+  <meta property="og:url" content="https://poissonnierthomas.github.io/contact.html" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:description" content="Product Builder — développement logiciel, gestion de projets, bases de données." />
+
+  <link rel="icon" href="assets/favicon.ico" sizes="any" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+
+<body data-page="contact">
+  <div id="zone-entete"></div>
+
+  <main id="contenu">
+
+    <section class="section shell" id="contact"
+             style="padding-top: calc(var(--hauteur-entete) + var(--section-y));">
+      <div class="section-tete">
+        <h2 data-i18n="contact.section.heading">Me contacter</h2>
+        <span class="label" data-i18n="contact.section.soustitre">Par mail ou par téléphone</span>
+      </div>
+
+      <p class="texte-doux" data-i18n="contact.card.title" style="margin-bottom: 2rem;">
+        Restons en contact
+      </p>
+
+      <div class="contact-grille">
+        <ul class="coordonnees">
+          <li>
+            <svg class="ico" aria-hidden="true"><use href="assets/icons.svg#ico-mail"></use></svg>
+            <span>
+              <span class="label" data-i18n="contact.email.label">Email professionnel</span>
+              <a class="coord-valeur" href="mailto:poissonnierthomaspro@gmail.com">poissonnierthomaspro@gmail.com</a>
+            </span>
+          </li>
+          <li>
+            <svg class="ico" aria-hidden="true"><use href="assets/icons.svg#ico-school"></use></svg>
+            <span>
+              <span class="label" data-i18n="contact.student.label">Email étudiant</span>
+              <a class="coord-valeur" href="mailto:thomas.poissonnier@etu.univ-amu.fr">thomas.poissonnier@etu.univ-amu.fr</a>
+            </span>
+          </li>
+          <li>
+            <svg class="ico" aria-hidden="true"><use href="assets/icons.svg#ico-phone"></use></svg>
+            <span>
+              <span class="label" data-i18n="contact.phone.label">Téléphone</span>
+              <button class="tel-reveal coord-valeur" type="button" id="tel"
+                      data-tel="0768087088" data-i18n="contact.phone.reveal">Afficher le numéro</button>
+            </span>
+          </li>
+        </ul>
+
+        <ul class="coordonnees">
+          <li>
+            <svg class="ico" aria-hidden="true"><use href="assets/icons.svg#ico-school"></use></svg>
+            <span>
+              <span class="label" data-i18n="footer.locations.heading">Localisations</span>
+              <span class="coord-valeur">Arles, 13200</span>
+            </span>
+          </li>
+          <li>
+            <svg class="ico" aria-hidden="true"><use href="assets/icons.svg#ico-home"></use></svg>
+            <span>
+              <span class="label">&nbsp;</span>
+              <span class="coord-valeur">L'Isle-sur-la-Sorgue, 84800</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="zone-pied"></div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

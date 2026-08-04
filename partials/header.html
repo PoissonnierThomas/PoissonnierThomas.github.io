@@ -1,0 +1,28 @@
+<a class="saut-contenu" href="#contenu" data-i18n="a11y.skip">Aller au contenu</a>
+
+<header class="entete" id="entete">
+  <div class="shell">
+    <a class="marque" href="index.html">Thomas Poissonnier</a>
+
+    <button class="burger" type="button" id="burger"
+            aria-expanded="false" aria-controls="nav"
+            data-i18n-attr="aria-label:a11y.menu" aria-label="Ouvrir le menu">
+      <svg class="ico" aria-hidden="true"><use href="assets/icons.svg#ico-menu"></use></svg>
+    </button>
+
+    <nav class="nav" id="nav">
+      <a href="index.html"    data-page="index"    data-i18n="nav.profil">Profil</a>
+      <a href="projets.html"  data-page="projets"  data-i18n="nav.projets">Projets</a>
+      <a href="competences.html" data-page="competences" data-i18n="nav.portfolio">Recueil de compétences</a>
+      <a href="contact.html"  data-page="contact"  data-i18n="nav.contact">Contact</a>
+
+      <div class="langues">
+        <button type="button" data-lang="fr" aria-pressed="false"
+                data-i18n-attr="title:a11y.lang.fr" title="Version française">FR</button>
+        <span class="sep" aria-hidden="true">/</span>
+        <button type="button" data-lang="en" aria-pressed="false"
+                data-i18n-attr="title:a11y.lang.en" title="English version">EN</button>
+      </div>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projets — Thomas Poissonnier</title>
+
+  <meta name="description" content="Les projets de Thomas Poissonnier — stage chez CBA Informatique Libérale (PHP, Symfony, FHIR) et projets de BUT : C++, Java, Qt, bases de données, cryptographie." />
+  <meta property="og:title" content="Projets — Thomas Poissonnier" />
+  <meta property="og:description" content="Product Builder en alternance chez CBA Informatique Libérale — développement logiciel, PHP/Symfony, gestion de projets. Étudiant en BUT Informatique à l'IUT d'Arles." />
+  <meta property="og:url" content="https://poissonnierthomas.github.io/projets.html" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:description" content="Product Builder — développement logiciel, gestion de projets, bases de données." />
+
+  <link rel="icon" href="assets/favicon.ico" sizes="any" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+
+<body data-page="projets">
+  <div id="zone-entete"></div>
+
+  <main id="contenu">
+    <section class="section shell" style="padding-top: calc(var(--hauteur-entete) + var(--section-y));">
+      <div class="section-tete">
+        <h2 data-i18n="portfolio.section.label">Projets</h2>
+        <span class="label" data-i18n="projets.compte">9 réalisations</span>
+      </div>
+
+      <div class="filtres-barre">
+        <button class="filtres-declencheur" type="button" id="filtres-ouvrir"
+                aria-expanded="false" aria-controls="filtres-panneau">
+          <svg class="ico" aria-hidden="true"><use href="assets/icons.svg#ico-filter"></use></svg>
+          <span data-i18n="filtre.ouvrir">Filtrer</span>
+          <span class="filtres-actifs" id="filtres-actifs" hidden></span>
+          <svg class="ico filtres-chevron" aria-hidden="true"><use href="assets/icons.svg#ico-chevron-down"></use></svg>
+        </button>
+
+        <button class="filtres-effacer" type="button" id="filtres-effacer" hidden
+                data-i18n="filtre.effacer">Tout effacer</button>
+
+        <span class="filtres-resultat" id="filtres-resultat" aria-live="polite"></span>
+      </div>
+
+      <div class="filtres-panneau" id="filtres-panneau" hidden
+           data-i18n-attr="aria-label:filtre.ouvrir" aria-label="Filtrer"></div>
+
+      <div class="grille-filets projets" id="projets">
+        <a class="projet-appel" id="projet-appel"
+           href="https://github.com/PoissonnierThomas" target="_blank" rel="noopener noreferrer">
+          <span class="projet-appel-corps">
+            <svg class="ico" aria-hidden="true"><use href="assets/icons.svg#ico-external"></use></svg>
+            <span class="projet-appel-titre" data-i18n="projets.github.titre">Tous mes dépôts</span>
+            <span class="projet-appel-texte" data-i18n="projets.github.texte">
+              Le code source de mes projets est publié sur GitHub.
+            </span>
+            <span class="label label--accent" data-i18n="projets.github.lien">Voir mon profil GitHub</span>
+          </span>
+        </a>
+      </div>
+
+      <p class="texte-doux filtre-vide" id="filtre-vide" hidden
+         data-i18n="projets.filtre.aucun">Aucun projet ne correspond à ce filtre.</p>
+    </section>
+  </main>
+
+  <div id="zone-pied"></div>
+
+  <div id="fiches"></div>
+
+  <!-- Gabarits de rendu -->
+  <template id="tpl-projet">
+    <button class="projet" type="button">
+      <span class="projet-tete">
+        <span class="projet-meta">
+          <span class="projet-num" data-s="num"></span>
+          <span class="projet-annee" data-s-i18n="annee"></span>
+        </span>
+        <svg class="ico projet-icone" aria-hidden="true"><use href="assets/icons.svg#ico-file"></use></svg>
+      </span>
+      <img class="projet-vignette" data-s-attr="src:image,alt:alt" loading="lazy" decoding="async" />
+      <span class="projet-titre" data-s-i18n="titre"></span>
+      <span class="projet-desc" data-s-i18n="description"></span>
+      <span class="projet-code">
+        <svg class="ico" aria-hidden="true"><use href="assets/icons.svg#ico-external"></use></svg>
+        <span data-i18n="projet.code.dispo">Code public</span>
+      </span>
+      <span class="tags"></span>
+    </button>
+  </template>
+
+  <template id="tpl-fiche">
+    <dialog class="fiche">
+      <div class="fiche-tete">
+        <h2 class="fiche-titre" data-s-i18n="titre"></h2>
+        <button class="fiche-fermer" type="button"
+                data-i18n-attr="aria-label:btn.close" aria-label="Fermer">
+          <svg class="ico" aria-hidden="true"><use href="assets/icons.svg#ico-close"></use></svg>
+        </button>
+      </div>
+      <div class="fiche-corps">
+        <p class="fiche-desc" data-s-i18n="description"></p>
+        <div class="tags fiche-competences"></div>
+        <div class="fiche-images"></div>
+        <div class="fiche-liens"></div>
+      </div>
+    </dialog>
+  </template>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
