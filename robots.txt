@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Redirection de 9 lignes vers index.html : rien à indexer, et son contenu
+# ferait doublon avec la page d'accueil.
+Disallow: /index-en.html
+
+Sitemap: https://poissonnierthomas.github.io/sitemap.xml

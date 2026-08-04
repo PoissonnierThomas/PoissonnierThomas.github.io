@@ -141,7 +141,7 @@ Filtering semantics: **OR within a facet, AND across facets**.
 
 **`data/interets.json`** — three entries. An entry may carry `image`, `alt`, `legende` (a literal — a club name is a proper noun) and `role` (an i18n key), which render as a logo block at the bottom of the card. That block drives the layout: `render.js` tags an entry that has an `image` with `interet--large`, which spans two rows of the two-column grid, so the long entry gets a wide column and the short ones stack beside it instead of inheriting its height. **The layout assumes exactly one entry with an image** — give a second one an image and the grid loses its balance. Entries without an image have the whole block removed, so they are unaffected.
 
-## Styling (`css/main.css`, ~1190 lines)
+## Styling (`css/main.css`, ~1180 lines)
 
 Dark theme declared once as custom properties in `:root`, alongside a small typographic scale. Change the palette there, not at the call site. The file opens with block `0. Polices` — six `@font-face` — then continues as a sequence of 17 numbered `/* --- n. Title --- */` blocks in page order; locate the right block before adding rules.
 
@@ -161,11 +161,14 @@ Comments were deliberately stripped to a minimum. The five that remain flag rule
 - Assets live under `assets/img/portfolio/<project-name>/`. Several directory names contain accents or spaces and are referenced unencoded; keep that convention rather than mixing in percent-encoded paths. `.gitignore` excludes `*.zip`.
 - `assets/icons.svg` is a sprite of 26 stroke symbols, viewBox 24×24, `stroke="currentColor"`.
 - **Every displayed image is WebP**, sized to its real use (card thumbnails 900px wide, fiche illustrations 1600px, portrait 960px, interest logos 400px) — roughly twice the CSS width, for high-density screens. A new image goes through the same treatment; dropping in a 2 MB PNG undoes the work. The two CV files are the exception: `cv.href.png` and `cv.href.pdf` point at the full-resolution originals because the buttons *download* them, and `cv.apercu.src` points at a separate lightweight WebP used only for the on-page preview. Do not merge the two back together.
+- **Contact details are in the clear**, deliberately: both e-mail addresses as `mailto:`, the phone number as a `tel:` link. A previous "reveal" button hid the number behind a click while holding it in plain text in `data-tel`, which stopped no scraper and made the page inconsistent with the two bare e-mails. Do not reintroduce cosmetic obfuscation — either the detail is public or it is not on the page.
 - **No external requests.** Fonts are self-hosted under `assets/fonts/` and declared in block 0 of `css/main.css` — DM Sans as a variable font covering weights 300-500, Instrument Serif in roman and italic, each split latin / latin-ext. `index.html` and its three siblings preload the two `latin` files. Keep it that way: a CDN link costs a third-party round trip before first paint and sends the visitor's IP to that host.
 
 ## Deployment
 
-`origin` **is** the GitHub Pages repository (`github.com/PoissonnierThomas/PoissonnierThomas.github.io.git`). Pushing `main` publishes the site directly — there is no separate build or publish step.
+`origin` **is** the GitHub Pages repository (`github.com/PoissonnierThomas/PoissonnierThomas.github.io.git`). Pushing `main` publishes the site directly — there is no separate build or publish step. (Which is also why pushing is never done on your own initiative; see the rule at the top of this file.)
+
+`robots.txt` allows everything except `index-en.html` (a redirect, nothing to index) and points at `sitemap.xml`. The sitemap lists the four real pages and is maintained by hand — `outils/verifier.py` fails if a page of the site is missing from it, or if it names a page that no longer exists, so it cannot drift silently. Its `lastmod` dates are not checked; update them when content changes.
 
 The nested `PoissonnierThomas.github.io/` directory is not a publishing target: it is an abandoned clone of that same remote, with an empty working tree and no local commits. Ignore it.
 

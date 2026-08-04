@@ -21,19 +21,6 @@ function cablerFiches() {
   });
 }
 
-function cablerTelephone() {
-  const bouton = document.getElementById('tel');
-  if (!bouton) return;
-
-  bouton.addEventListener('click', () => {
-    const brut = bouton.dataset.tel || '';
-    bouton.textContent = brut.replace(/(\d{2})(?=\d)/g, '$1 ').trim();
-    bouton.dataset.revele = 'true';
-    bouton.removeAttribute('data-i18n');
-    bouton.disabled = true;
-  });
-}
-
 function cablerLangues() {
   document.querySelectorAll('[data-lang]').forEach((btn) => {
     btn.addEventListener('click', () => definirLangue(btn.dataset.lang));
@@ -57,7 +44,6 @@ async function demarrer() {
 
   cablerLangues();
   cablerFiches();
-  cablerTelephone();
 
   devoiler('true');
 }

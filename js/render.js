@@ -302,7 +302,19 @@ async function rendreFiltres(projets, cartesParId, appel) {
     appel.classList.toggle('projet-appel--large', visibles % colonnes === 0);
   }
 
-  window.addEventListener('resize', () => ajusterAppel(dernierCompte));
+  // ajusterAppel lit gridTemplateColumns, ce qui force un calcul de style ;
+  // sur un redimensionnement continu l'événement part des dizaines de fois par
+  // seconde. On n'en garde qu'un par trame, la cadence à laquelle l'écran
+  // pourrait de toute façon afficher le résultat.
+  let ajustementPrevu = false;
+  window.addEventListener('resize', () => {
+    if (ajustementPrevu) return;
+    ajustementPrevu = true;
+    requestAnimationFrame(() => {
+      ajustementPrevu = false;
+      ajusterAppel(dernierCompte);
+    });
+  });
 
   function appliquerFiltres() {
     let visibles = 0;

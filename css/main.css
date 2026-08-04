@@ -993,20 +993,6 @@ a:hover > .cv-apercu { border-color: var(--accent); transform: translateY(-3px);
 
 .coord-valeur { word-break: break-word; }
 
-.tel-reveal {
-  cursor: pointer;
-  background: none;
-  border: 0;
-  padding: 0;
-  text-align: left;
-  color: var(--muted);
-  text-decoration: underline dotted;
-  text-underline-offset: 3px;
-}
-
-.tel-reveal:hover { color: var(--accent); }
-.tel-reveal[data-revele="true"] { color: var(--text); text-decoration: none; cursor: default; }
-
 /* --- 14. Pied de page --- */
 .pied { border-top: 1px solid var(--border); padding-block: clamp(2.5rem, 5vw, 4rem) 0; }
 
