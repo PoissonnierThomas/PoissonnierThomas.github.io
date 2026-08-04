@@ -97,9 +97,16 @@
            loading="lazy" decoding="async" />
       <span class="projet-titre" data-s-i18n="titre"></span>
       <span class="projet-desc" data-s-i18n="description"></span>
-      <span class="projet-code">
-        <svg class="ico" aria-hidden="true"><use href="assets/icons.svg#ico-external"></use></svg>
-        <span data-i18n="projet.code.dispo">Code public</span>
+      <!-- même ordre que les liens de la fiche : essayer d'abord, lire ensuite -->
+      <span class="projet-marques">
+        <span class="projet-demo">
+          <svg class="ico" aria-hidden="true"><use href="assets/icons.svg#ico-play"></use></svg>
+          <span data-i18n="projet.demo.dispo">Essayable</span>
+        </span>
+        <span class="projet-code">
+          <svg class="ico" aria-hidden="true"><use href="assets/icons.svg#ico-external"></use></svg>
+          <span data-i18n="projet.code.dispo">Code public</span>
+        </span>
       </span>
       <span class="tags"></span>
     </button>

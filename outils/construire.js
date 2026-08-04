@@ -31,8 +31,11 @@ const LANGUES = ['fr', 'en'];
 const DEFAUT = 'fr';
 
 // recopiés tels quels ; data/ et i18n/ n'en sont pas, le HTML livré les a déjà
-// consommés et plus aucun fetch ne part une fois la page pré-rendue
-const A_COPIER = ['assets', 'css', 'js', 'robots.txt'];
+// consommés et plus aucun fetch ne part une fois la page pré-rendue.
+// `demos` contient des applications déjà compilées, servies telles quelles :
+// elles ne passent pas par le pré-rendu et ne doivent surtout pas être ouvertes
+// dans Chromium comme les pages du site.
+const A_COPIER = ['assets', 'css', 'js', 'robots.txt', 'demos'];
 
 /* --- Chemins ------------------------------------------------------------- */
 

@@ -63,6 +63,20 @@ Adding a check means editing `outils/verifier.py`; keep it dependency-free. Beha
 
 `tester.js` holds hard-coded counts (11 projects, 6 timeline steps, 3 interests, 14 skills, 5 expertises, 4 soft skills). **Adding an entry to `data/` makes the tests fail until you update them**, which is the point: deriving the counts from the same JSON would test the renderer against itself and catch nothing.
 
+## Playable demos (`demos/`)
+
+A finished front-end project can be **shipped inside the portfolio and run from it**, rather than merely linked. `demos/dactylotest/` holds the compiled output of `github.com/PoissonnierThomas/Dactylotest`, served as-is at `/demos/dactylotest/`; the fiche links to it with *Essayer l'application*, before the repository link.
+
+This is a **committed build artifact**, which is normally a bad idea — a build drifts from its source. It is acceptable here only because the project is finished and will not change. Do not adopt this for a project still moving: publish it from its own repository and link to it instead.
+
+To regenerate it, three things matter:
+
+- Build with `--base=/demos/<name>/`. Vite emits absolute paths by default, so a build made without it loads nothing from a subdirectory — a blank page, with no error in the console.
+- Patch the generated `index.html` afterwards: the Vite template ships `lang="en"`, `<title>dactylo</title>` and an `href="/vite.svg"` favicon that does not exist in the project. It now points at the portfolio's own favicon.
+- `demos` is in `A_COPIER` in `outils/construire.js`, so the folder lands in `dist/`. It is **not** pre-rendered, and must never be: these pages are applications, not content.
+
+The link carries `"externe": true`. That is not cosmetic — without it `render.js` sets `download` on the anchor and the browser saves the page instead of opening it.
+
 ## What is deliberately not tracked
 
 Beyond `dist/` and `node_modules/`, `.gitignore` excludes two things that exist on disk but have no business in a public repository:
@@ -70,7 +84,7 @@ Beyond `dist/` and `node_modules/`, `.gitignore` excludes two things that exist 
 - **`docs/`** — reference documentation for the projects (READMEs, technical summaries) used when writing a fiche. Never served by the site, and often nominative: the FoxCorrector one lists four teammates' e-mail addresses. Drop a project's documents there, cite them while writing, and they stay out of the repo.
 - **`index-en.html`** — a leftover from the days when switching language meant writing `localStorage['portfolio-lang']` and reloading. The build now writes its own redirect to `/en/` into `dist/`, so the file at the root is neither copied nor served.
 
-Both were tracked until 2026-08-04 and remain in history up to commit `ecf145c`.
+Both were tracked until 2026-08-04. `index-en.html` remains in history; `docs/` never reached it — the commit that would have carried it was amended before being pushed.
 
 ## Pre-rendering (`outils/construire.js`)
 
@@ -135,7 +149,7 @@ data-s-attr="attr:field"  → setAttribute (comma-separated pairs allowed)
 data-s-i18n-attr="a:f"    → sets data-i18n-attr (the value is a key)
 ```
 
-**i18n** (`js/i18n.js` + `i18n/{fr,en}.json`, 190 keys each): the DOM is rewritten after load — which the build then freezes into one file per language.
+**i18n** (`js/i18n.js` + `i18n/{fr,en}.json`, 260 keys each): the DOM is rewritten after load — which the build then freezes into one file per language.
 
 ```
 data-i18n="key"            → textContent
@@ -187,7 +201,8 @@ Because ids contain hyphens, the key recogniser in `outils/verifier.py` matches 
 
 - `technos` are **literal names**, shown as-is on the card and used by the filter panel. `carte.*` and `detail.*` are **i18n keys** — **including every `alt`** (`projet.<id>.carte.alt`, `projet.<id>.fiche.alt1…`). They used to be literal French strings, which left the English pages with French alternative text; the card template now uses `data-s-i18n-attr` and `rendreFiches()` sets `data-i18n-attr` on each image. An `alt` written literally will render as an empty attribute, not as itself.
 - `tags` are the fiche's competency labels and accept two forms: a string is an i18n key, `{ "libelle": "…" }` is a literal (proper nouns such as Dijkstra have no place in a translation file).
-- A project shows the "public repository" marker when any `detail.liens` entry has `"externe": true` — it is derived, not stored twice. Link icons are derived from the same flag; the entry carries no `icone` field.
+- **Both card markers are derived from `detail.liens`**, never declared: *Code public* when an entry is `externe` **and** its href is absolute (`https://`), *Essayable* when an href starts with `/demos/`. Testing `externe` alone is not enough — a demo link carries it too, and a project with only a demo would then claim to have published code. Link icons follow the same reading (`play` for a demo, `external` for a repository, `download` otherwise); entries carry no `icone` field.
+- **Card markers and fiche links appear in the same order**: demo first, repository second. A card is read before the fiche it opens, so a reversal there reads as an inconsistency. The order lives in two places — the `tpl-projet` markup and the `detail.liens` array — so both must move together.
 
 **`data/facettes.json`** — the filter panel. `facettes` lists the groups in display order; `source` says where the values come from (`techno`, `annee`, `code`), each handled by the `SOURCES` table in `render.js`. Adding a facet drawn from an existing field costs one JSON entry plus one entry there. `technos` maps every technology to a category; the rule for that mapping is proper noun (a named product or standard) → `outil`, common noun (a field of practice) → `sujet`, which is what puts Qt, UML and Symfony on one side, "API web" and "Base de données" on the other.
 
@@ -204,16 +219,17 @@ Filtering semantics: **OR within a facet, AND across facets**.
 
 **`data/interets.json`** — three entries. An entry may carry `image`, `alt`, `legende` (a literal — a club name is a proper noun) and `role` (an i18n key), which render as a logo block at the bottom of the card. That block drives the layout: `render.js` tags an entry that has an `image` with `interet--large`, which spans two rows of the two-column grid, so the long entry gets a wide column and the short ones stack beside it instead of inheriting its height. **The layout assumes exactly one entry with an image** — give a second one an image and the grid loses its balance. Entries without an image have the whole block removed, so they are unaffected.
 
-## Styling (`css/main.css`, ~1180 lines)
+## Styling (`css/main.css`, ~1230 lines)
 
 Dark theme declared once as custom properties in `:root`, alongside a small typographic scale. Change the palette there, not at the call site. The file opens with block `0. Polices` — six `@font-face` — then continues as a sequence of 17 numbered `/* --- n. Title --- */` blocks in page order; locate the right block before adding rules.
 
-Comments were deliberately stripped to a minimum. The five that remain flag rules that look removable and are not — remove one and something breaks:
+Comments are kept to a minimum, and every one that survives flags a rule that looks removable and is not — remove it and something breaks:
 
 - `[hidden] { display: none !important }` — `hidden` comes from the UA stylesheet and loses to any author `display`; without it the project filter hides nothing.
 - `.fiche { margin: auto }` — the reset `* { margin: 0 }` kills the native centring of a modal `<dialog>`.
-- `.fiche[open] { display: flex }` — the `[open]` is mandatory, otherwise it overrides the `display: none` of closed dialogs and all seven stack at the bottom of the page.
+- `.fiche[open] { display: flex }` — the `[open]` is mandatory, otherwise it overrides the `display: none` of closed dialogs and all eleven stack at the bottom of the page.
 - `.fiche-corps { min-height: 0 }` — a flex item refuses to shrink below its content otherwise, and the body never scrolls.
+- `body.fiche-ouverte { overflow: hidden }` — a modal `<dialog>` blocks clicks behind it but never the wheel; the class is set from `app.js` rather than derived with `:has`, see the comment there.
 - `.grille-filets > *` — the 1px rules are drawn by each cell rather than by the container background, so a missing cell (odd count, or filtering) draws nothing instead of a grey square.
 
 ## Conventions worth knowing
@@ -222,7 +238,7 @@ Comments were deliberately stripped to a minimum. The five that remain flag rule
 - Identifiers, class names and data fields are in French; the code reads as one language.
 - Section ids: `#accueil`, `#profil`, `#interets-section`, `#cv`, `#competences`, `#contact`.
 - Assets live under `assets/img/portfolio/<project-name>/`. Several directory names contain accents or spaces and are referenced unencoded; keep that convention rather than mixing in percent-encoded paths. `.gitignore` excludes `*.zip`.
-- `assets/icons.svg` is a sprite of 26 stroke symbols, viewBox 24×24, `stroke="currentColor"`.
+- `assets/icons.svg` is a sprite of 29 stroke symbols, viewBox 24×24, `stroke="currentColor"`.
 - **Every displayed image is WebP**, sized to its real use (card thumbnails 900px wide, fiche illustrations 1600px, portrait 960px, interest logos 400px) — roughly twice the CSS width, for high-density screens. A new image goes through the same treatment; dropping in a 2 MB PNG undoes the work. The two CV files are the exception: `cv.href.png` and `cv.href.pdf` point at the full-resolution originals because the buttons *download* them, and `cv.apercu.src` points at a separate lightweight WebP used only for the on-page preview. Do not merge the two back together.
 - **Contact details are in the clear**, deliberately: both e-mail addresses as `mailto:`, the phone number as a `tel:` link. A previous "reveal" button hid the number behind a click while holding it in plain text in `data-tel`, which stopped no scraper and made the page inconsistent with the two bare e-mails. Do not reintroduce cosmetic obfuscation — either the detail is public or it is not on the page.
 - **No external requests.** Fonts are self-hosted under `assets/fonts/` and declared in block 0 of `css/main.css` — DM Sans as a variable font covering weights 300-500, Instrument Serif in roman and italic, each split latin / latin-ext. `index.html` and its three siblings preload the two `latin` files. Keep it that way: a CDN link costs a third-party round trip before first paint and sends the visitor's IP to that host.

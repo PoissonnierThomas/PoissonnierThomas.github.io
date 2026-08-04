@@ -625,17 +625,21 @@ b, strong { font-weight: 500; color: var(--text); }
   padding-left: 0.85rem;
 }
 
-.projet-code {
+/* une carte peut porter plusieurs marques : code publié, démo jouable… */
+.projet-marques { display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; align-self: flex-start; }
+
+.projet-code,
+.projet-demo {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  align-self: flex-start;
   font-size: var(--t-xs);
   letter-spacing: 0.06em;
   color: var(--accent);
 }
 
-.projet-code .ico { width: 0.85rem; height: 0.85rem; }
+.projet-code .ico,
+.projet-demo .ico { width: 0.85rem; height: 0.85rem; }
 
 .projet .ico { width: 1.35rem; height: 1.35rem; color: var(--muted); transition: color var(--transition); }
 

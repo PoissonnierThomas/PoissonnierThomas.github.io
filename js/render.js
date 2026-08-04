@@ -93,7 +93,16 @@ async function rendreParcours() {
 
 export const idFicheDe = (idProjet) => `fiche-${idProjet}`;
 
-const aDuCodePublic = (projet) => projet.detail.liens.some((l) => l.externe);
+/* Deux marques distinctes, toutes deux déduites des liens plutôt que déclarées.
+   Le test ne peut pas se contenter de `externe`, que porte aussi le lien d'une
+   démo : sans l'adresse absolue, un projet seulement jouable s'annoncerait
+   comme ayant du code publié. */
+const estDemo = (lien) => lien.href.startsWith('/demos/');
+
+const aDuCodePublic = (projet) =>
+  projet.detail.liens.some((l) => l.externe && /^https?:/.test(l.href));
+
+const estEssayable = (projet) => projet.detail.liens.some(estDemo);
 
 async function rendreFiches(projets) {
   const fiches = $('#fiches');
@@ -162,7 +171,10 @@ async function rendreFiches(projets) {
       svg.setAttribute('class', 'ico');
       svg.setAttribute('aria-hidden', 'true');
       const use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
-      use.setAttribute('href', `assets/icons.svg#ico-${lien.externe ? 'external' : 'download'}`);
+      // même icône que la marque « essayable » de la carte, pour qu'on
+      // reconnaisse le lien avant même de l'avoir lu
+      const icone = estDemo(lien) ? 'play' : (lien.externe ? 'external' : 'download');
+      use.setAttribute('href', `assets/icons.svg#ico-${icone}`);
       svg.append(use);
       const libelle = document.createElement('span');
       if (lien.cle) libelle.dataset.i18n = lien.cle;
@@ -209,6 +221,10 @@ async function rendreProjets() {
     if (!projet.annee) carte.querySelector('.projet-annee')?.remove();
 
     if (!aDuCodePublic(projet)) carte.querySelector('.projet-code')?.remove();
+    if (!estEssayable(projet)) carte.querySelector('.projet-demo')?.remove();
+    // le conteneur vide laisserait un blanc dans la pile de la carte
+    const marques = carte.querySelector('.projet-marques');
+    if (marques && !marques.children.length) marques.remove();
 
     const tags = carte.querySelector('.tags');
     projet.technos.forEach((techno) => {
