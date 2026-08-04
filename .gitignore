@@ -5,3 +5,15 @@
 # Ce qui fait foi reste les pages sources, data/*.json et i18n/*.json.
 dist/
 node_modules/
+
+# Documentation de référence des projets (README, cahiers des charges, résumés
+# techniques). Utile pour rédiger une fiche, jamais servie par le site — et
+# souvent nominative : celle de FoxCorrector porte les adresses de quatre
+# coéquipiers, qui n'ont pas à se retrouver dans un dépôt public.
+# Les fichiers restent sur le disque, ils sortent simplement du suivi git.
+docs/
+
+# Stub hérité de l'ancien basculement de langue par localStorage. Depuis le
+# pré-rendu, outils/construire.js écrit sa propre redirection vers /en/ dans
+# dist/ ; ce fichier-ci n'est plus copié ni servi.
+index-en.html

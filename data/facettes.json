@@ -53,7 +53,8 @@
     "Design Patterns": "hors-filtre",
     "Gestion de projet": "sujet",
     "MVC": "hors-filtre",
-    "Rédaction": "sujet"
+    "Rédaction": "sujet",
+    "Tests": "hors-filtre"
   },
   "alias": {
     "Qt": "Qt / JavaFX",

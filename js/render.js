@@ -48,6 +48,18 @@ function remplir(gabarit, valeurs) {
     });
   });
 
+  // même chose, mais la valeur est une clé : c'est i18n qui posera l'attribut.
+  // Sert aux alt, qui doivent suivre la langue comme le reste du texte.
+  fragment.querySelectorAll('[data-s-i18n-attr]').forEach((el) => {
+    const paires = [];
+    el.dataset.sI18nAttr.split(',').forEach((paire) => {
+      const [attr, champ] = paire.split(':').map((s) => s.trim());
+      const v = valeurs[champ];
+      if (v != null) paires.push(`${attr}:${v}`);
+    });
+    if (paires.length) el.dataset.i18nAttr = paires.join(',');
+  });
+
   return fragment;
 }
 
@@ -89,17 +101,39 @@ async function rendreFiches(projets) {
   if (!fiches || !tplFiche) return;
 
   projets.forEach((projet) => {
-    const fiche = remplir(tplFiche, {
-      titre: projet.detail.titre,
-      description: projet.detail.description,
-    });
+    const fiche = remplir(tplFiche, { titre: projet.detail.titre });
     fiche.querySelector('dialog').id = idFicheDe(projet.id);
 
-    const desc = fiche.querySelector('.fiche-desc');
-    if (projet.detail.html) {
-      desc.dataset.i18nHtml = projet.detail.description;
-      desc.removeAttribute('data-i18n');
-    }
+    // Le contenu est une suite ordonnée de blocs : chaque illustration se place
+    // à l'endroit du propos qu'elle sert, plutôt qu'en bloc après le texte.
+    const contenu = fiche.querySelector('.fiche-contenu');
+    projet.detail.blocs.forEach((bloc) => {
+      if (bloc.texte) {
+        const p = document.createElement('p');
+        p.className = 'fiche-desc';
+        p.dataset[projet.detail.html ? 'i18nHtml' : 'i18n'] = bloc.texte;
+        contenu.append(p);
+        return;
+      }
+
+      const el = document.createElement('img');
+      el.src = bloc.image;
+      el.dataset.i18nAttr = `alt:${bloc.alt}`;   // alt traduit comme le reste
+      el.loading = 'lazy';
+      el.decoding = 'async';
+
+      // `titre` est optionnel : une capture d'écran gagne à être située,
+      // un graphique porte déjà son titre à l'intérieur de l'image
+      if (!bloc.titre) {
+        contenu.append(el);
+        return;
+      }
+      const figure = document.createElement('figure');
+      const legende = document.createElement('figcaption');
+      legende.dataset.i18n = bloc.titre;
+      figure.append(el, legende);
+      contenu.append(figure);
+    });
 
     const competences = fiche.querySelector('.fiche-competences');
     if (competences) {
@@ -112,16 +146,6 @@ async function rendreFiches(projets) {
       });
       if (!projet.tags.length) competences.remove();
     }
-
-    const images = fiche.querySelector('.fiche-images');
-    projet.detail.images.forEach((img) => {
-      const el = document.createElement('img');
-      el.src = img.src;
-      el.alt = img.alt;
-      el.loading = 'lazy';
-      el.decoding = 'async';
-      images.append(el);
-    });
 
     const liens = fiche.querySelector('.fiche-liens');
     projet.detail.liens.forEach((lien) => {
@@ -478,9 +502,15 @@ async function rendreCompetences() {
         });
 
         const cible = ligne.querySelector('.comp-projets');
-        const lies = projetsDe(item);
-        lies.forEach((p) => cible.append(lienProjet(p)));
-        if (!lies.length) cible.remove();
+        if (item.texte) {
+          // une compétence transversale ne gagne rien à lister dix liens :
+          // une phrase dit la même chose sans noyer la ligne
+          cible.dataset.i18n = item.texte;
+        } else {
+          const lies = projetsDe(item);
+          lies.forEach((p) => cible.append(lienProjet(p)));
+          if (!lies.length) cible.remove();
+        }
 
         liste.append(ligne);
       });

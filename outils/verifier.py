@@ -54,11 +54,14 @@ def verifier_i18n():
                       for attr in re.findall(r'data-i18n-attr="([^"]+)"', html)
                       for paire in attr.split(',')}
 
-    # les données citent des clés en valeur (carte.titre, tags, années…)
+    # Les données citent des clés en valeur (carte.titre, tags, années…).
+    # Le tiret compte : les clés de projet portent l'identifiant, qui en
+    # contient (projet.stage-cba.carte.titre). Avec \w seul, ce contrôle ne
+    # verrait plus aucune clé de projet et validerait n'importe quoi.
     for fichier in sorted(RACINE.glob('data/*.json')):
         brut = json.dumps(json.loads(fichier.read_text(encoding='utf-8')),
                           ensure_ascii=False)
-        utilisees |= set(re.findall(r'"([a-z][\w.]*\.[\w.]+)"', brut))
+        utilisees |= set(re.findall(r'"([a-z][\w.-]*\.[\w.-]+)"', brut))
 
     fr, en = lire_json('i18n/fr.json'), lire_json('i18n/en.json')
     signaler('clés présentes en fr seulement', set(fr) - set(en))
@@ -136,10 +139,42 @@ def verifier_assets():
     signaler('fichiers référencés mais absents', manquants)
 
 
+# --- 4. Compteurs écrits en toutes lettres -------------------------------
+
+def verifier_compteurs():
+    """Deux endroits annoncent le nombre de projets en dur, loin des données.
+
+    Ils ont été oubliés lors de l'ajout de FoxCorrector : la grille affichait
+    « 9 réalisations » sous dix cartes. Rien ne peut le rattraper à l'exécution,
+    d'où ce contrôle.
+    """
+    print('\nCompteurs')
+    total = len(lire_json('data/projets.json'))
+
+    faux = set()
+    for langue in ('fr', 'en'):
+        annonce = lire_json(f'i18n/{langue}.json').get('projets.compte', '')
+        nombre = re.match(r'\s*(\d+)', annonce)
+        if not nombre or int(nombre.group(1)) != total:
+            faux.add(f'i18n/{langue}.json projets.compte = "{annonce}" au lieu de {total}')
+    signaler(f'annonce du nombre de projets ({total})', faux)
+
+    accueil = (RACINE / 'index.html').read_text(encoding='utf-8')
+    stat = re.search(r'<div class="stat-nombre">(\d+)</div>\s*'
+                     r'<div class="stat-label" data-i18n="stats\.projets\.label"', accueil)
+    ecart = set()
+    if not stat:
+        ecart.add('bloc introuvable dans index.html — le contrôle ne vaut plus rien')
+    elif int(stat.group(1)) != total:
+        ecart.add(f'index.html annonce {stat.group(1)} au lieu de {total}')
+    signaler('statistique « projets et expériences »', ecart)
+
+
 if __name__ == '__main__':
     verifier_i18n()
     verifier_donnees()
     verifier_assets()
+    verifier_compteurs()
 
     if anomalies:
         print(f"\n{len(anomalies)} contrôle(s) en échec.")

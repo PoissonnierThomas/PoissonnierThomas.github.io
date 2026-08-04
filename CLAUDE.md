@@ -61,11 +61,16 @@ Run it after touching `i18n/*.json`, `data/*.json`, or anything under `assets/`.
 
 Adding a check means editing `outils/verifier.py`; keep it dependency-free. Behaviour goes in `outils/tester.js` instead — it may use Puppeteer, which the build needs anyway.
 
-`tester.js` holds hard-coded counts (9 projects, 6 timeline steps, 3 interests, 14 skills, 5 expertises, 4 soft skills). **Adding an entry to `data/` makes the tests fail until you update them**, which is the point: deriving the counts from the same JSON would test the renderer against itself and catch nothing.
+`tester.js` holds hard-coded counts (10 projects, 6 timeline steps, 3 interests, 14 skills, 5 expertises, 4 soft skills). **Adding an entry to `data/` makes the tests fail until you update them**, which is the point: deriving the counts from the same JSON would test the renderer against itself and catch nothing.
 
-## The English stub
+## What is deliberately not tracked
 
-`index-en.html` is a 9-line stub: it writes `localStorage['portfolio-lang'] = 'en'` and redirects to `index.html`. It still works with the current version, which reads the same storage key. Never add content there.
+Beyond `dist/` and `node_modules/`, `.gitignore` excludes two things that exist on disk but have no business in a public repository:
+
+- **`docs/`** — reference documentation for the projects (READMEs, technical summaries) used when writing a fiche. Never served by the site, and often nominative: the FoxCorrector one lists four teammates' e-mail addresses. Drop a project's documents there, cite them while writing, and they stay out of the repo.
+- **`index-en.html`** — a leftover from the days when switching language meant writing `localStorage['portfolio-lang']` and reloading. The build now writes its own redirect to `/en/` into `dist/`, so the file at the root is neither copied nor served.
+
+Both were tracked until 2026-08-04 and remain in history up to commit `ecf145c`.
 
 ## Pre-rendering (`outils/construire.js`)
 
@@ -127,9 +132,10 @@ data-s="field"            → textContent (literal value)
 data-s-i18n="field"       → sets data-i18n  (the value is a key)
 data-s-i18n-html="field"  → sets data-i18n-html
 data-s-attr="attr:field"  → setAttribute (comma-separated pairs allowed)
+data-s-i18n-attr="a:f"    → sets data-i18n-attr (the value is a key)
 ```
 
-**i18n** (`js/i18n.js` + `i18n/{fr,en}.json`, 239 keys each): the DOM is rewritten after load rather than serving separate pages.
+**i18n** (`js/i18n.js` + `i18n/{fr,en}.json`, 190 keys each): the DOM is rewritten after load — which the build then freezes into one file per language.
 
 ```
 data-i18n="key"            → textContent
@@ -142,9 +148,21 @@ data-i18n-href="key"       → href (the CV links differ per language)
 
 New visible text means a new key in **both** locale files.
 
+**Project keys carry the project id**, and are grouped per project in display order:
+
+```
+projet.<id>.carte.titre          projet.<id>.fiche.titre
+projet.<id>.carte.description    projet.<id>.fiche.description
+projet.<id>.tag1, tag2…          projet.<id>.lien1, lien2…
+```
+
+They used to be `card9.*` / `modal9.*`, where the number was an insertion counter unrelated to the grid position — `card9` was card 01. Adding a project meant guessing the next free number, and reading `i18n/*.json` told you nothing about which project a line belonged to. Keep the id form; a shared label used by several projects (`tag.communication`) stays outside this scheme, since it belongs to none of them.
+
+Because ids contain hyphens, the key recogniser in `outils/verifier.py` matches `[\w.-]`, not `\w`. Narrow it back and the check silently stops seeing every project key.
+
 ## Data files
 
-**`data/projets.json`** — 9 projects, in display order; the card number is the array index, so reordering renumbers the grid. Numbers describe a position, not an identity — that is a deliberate choice, so never add a `numero` field to pin them.
+**`data/projets.json`** — 10 projects, in display order; the card number is the array index, so reordering renumbers the grid. Numbers describe a position, not an identity — that is a deliberate choice, so never add a `numero` field to pin them.
 
 **The order is editorial**, not chronological: most demonstrative first (the CBA internship, then this portfolio), oldest coursework last. **Ask the owner where a new project goes — never append by default.** Inserting mid-list renumbers everything after it, which is expected and fine.
 
@@ -155,13 +173,19 @@ New visible text means a new key in **both** locale files.
   "annee": "projet.annee.2",
   "technos": ["Java", "JavaFX", "Cryptographie", "MVC", "Design Patterns"],
   "carte":  { "titre": "…", "description": "…", "image": "…", "alt": "…" },
-  "tags":   ["card8.badge1", { "libelle": "Dijkstra" }],
-  "detail": { "titre": "…", "description": "…", "html": true,
-              "images": [ … ], "liens": [ … ] }
+  "tags":   ["projet.keyp.tag1", { "libelle": "Dijkstra" }],
+  "detail": { "titre": "…", "html": true, "liens": [ … ],
+              "blocs": [
+                { "texte": "projet.keyp.fiche.p1" },
+                { "image": "assets/…/menu.webp", "alt": "projet.keyp.fiche.alt1",
+                  "titre": "projet.keyp.fiche.titre1" }
+              ] }
 }
 ```
 
-- `technos` are **literal names**, shown as-is on the card and used by the filter panel. `carte.*` and `detail.*` are **i18n keys**.
+**`detail.blocs` is an ordered sequence**, rendered into `.fiche-contenu` in that order. A `texte` block becomes a paragraph (read as HTML when `detail.html`), an `image` block an `<img>` — wrapped in a `<figure>` with a `<figcaption>` when it carries a `titre`. That is what lets an illustration sit right after the sentence it illustrates rather than being dumped at the end; FoxCorrector alternates six paragraphs and four images this way. A `titre` is optional and should be left out when the image already carries its own caption, as the two performance charts do. Blocks replaced the former `description` + `images` pair — there is no fallback, a fiche without `blocs` renders empty.
+
+- `technos` are **literal names**, shown as-is on the card and used by the filter panel. `carte.*` and `detail.*` are **i18n keys** — **including every `alt`** (`projet.<id>.carte.alt`, `projet.<id>.fiche.alt1…`). They used to be literal French strings, which left the English pages with French alternative text; the card template now uses `data-s-i18n-attr` and `rendreFiches()` sets `data-i18n-attr` on each image. An `alt` written literally will render as an empty attribute, not as itself.
 - `tags` are the fiche's competency labels and accept two forms: a string is an i18n key, `{ "libelle": "…" }` is a literal (proper nouns such as Dijkstra have no place in a translation file).
 - A project shows the "public repository" marker when any `detail.liens` entry has `"externe": true` — it is derived, not stored twice. Link icons are derived from the same flag; the entry carries no `icone` field.
 

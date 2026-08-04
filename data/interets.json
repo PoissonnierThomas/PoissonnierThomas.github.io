@@ -5,7 +5,7 @@
     "titre": "interest.sports.title",
     "description": "interest.sports.description",
     "image": "assets/img/interets/asi-basket.webp",
-    "alt": "Logo de l'ASI Basket",
+    "alt": "interest.sports.alt",
     "legende": "ASI Basket",
     "role": "interest.sports.club.role"
   },

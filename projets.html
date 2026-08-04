@@ -93,7 +93,8 @@
         </span>
         <svg class="ico projet-icone" aria-hidden="true"><use href="assets/icons.svg#ico-file"></use></svg>
       </span>
-      <img class="projet-vignette" data-s-attr="src:image,alt:alt" loading="lazy" decoding="async" />
+      <img class="projet-vignette" data-s-attr="src:image" data-s-i18n-attr="alt:alt"
+           loading="lazy" decoding="async" />
       <span class="projet-titre" data-s-i18n="titre"></span>
       <span class="projet-desc" data-s-i18n="description"></span>
       <span class="projet-code">
@@ -114,9 +115,9 @@
         </button>
       </div>
       <div class="fiche-corps">
-        <p class="fiche-desc" data-s-i18n="description"></p>
+        <!-- textes et illustrations s'y succèdent dans l'ordre des blocs -->
+        <div class="fiche-contenu"></div>
         <div class="tags fiche-competences"></div>
-        <div class="fiche-images"></div>
         <div class="fiche-liens"></div>
       </div>
     </dialog>

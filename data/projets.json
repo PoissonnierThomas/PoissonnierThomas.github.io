@@ -3,26 +3,28 @@
     "id": "stage-cba",
     "icone": "server",
     "carte": {
-      "titre": "card9.title",
-      "description": "card9.description",
+      "titre": "projet.stage-cba.carte.titre",
+      "description": "projet.stage-cba.carte.description",
       "image": "assets/img/portfolio/CBA/logo-cba.webp",
-      "alt": "CBA Informatique Libérale"
+      "alt": "projet.stage-cba.carte.alt"
     },
     "tags": [
-      "card9.badge1",
+      "projet.stage-cba.tag1",
       { "libelle": "FHIR" },
       "tag.communication"
     ],
     "detail": {
-      "titre": "modal9.title",
-      "description": "modal9.description",
-      "html": true,
-      "images": [
+      "titre": "projet.stage-cba.fiche.titre",
+      "blocs": [
         {
-          "src": "assets/img/portfolio/CBA/logo-cba.webp",
-          "alt": "CBA Informatique Libérale"
+          "texte": "projet.stage-cba.fiche.description"
+        },
+        {
+          "image": "assets/img/portfolio/CBA/logo-cba.webp",
+          "alt": "projet.stage-cba.fiche.alt1"
         }
       ],
+      "html": true,
       "liens": []
     },
     "annee": "projet.annee.2",
@@ -33,33 +35,100 @@
       "FHIR",
       "Docker",
       "Base de données",
-      "API web",
-      "Gestion de projet"
+      "API web"
+    ]
+  },
+  {
+    "id": "foxcorrector",
+    "icone": "tools",
+    "carte": {
+      "titre": "projet.foxcorrector.carte.titre",
+      "description": "projet.foxcorrector.carte.description",
+      "image": "assets/img/portfolio/FoxCorrector/logo.webp",
+      "alt": "projet.foxcorrector.carte.alt"
+    },
+    "tags": [
+      "projet.foxcorrector.tag1",
+      { "libelle": "Scrum" },
+      "projet.foxcorrector.tag2"
+    ],
+    "detail": {
+      "titre": "projet.foxcorrector.fiche.titre",
+      "blocs": [
+        {
+          "texte": "projet.foxcorrector.fiche.p1"
+        },
+        {
+          "image": "assets/img/portfolio/FoxCorrector/correction.webp",
+          "alt": "projet.foxcorrector.fiche.alt1",
+          "titre": "projet.foxcorrector.fiche.titre1"
+        },
+        {
+          "texte": "projet.foxcorrector.fiche.p2"
+        },
+        {
+          "texte": "projet.foxcorrector.fiche.p3"
+        },
+        {
+          "texte": "projet.foxcorrector.fiche.p4"
+        },
+        {
+          "image": "assets/img/portfolio/FoxCorrector/comparaison.webp",
+          "alt": "projet.foxcorrector.fiche.alt2",
+          "titre": "projet.foxcorrector.fiche.titre2"
+        },
+        {
+          "texte": "projet.foxcorrector.fiche.p5"
+        },
+        {
+          "image": "assets/img/portfolio/FoxCorrector/scalabilite.webp",
+          "alt": "projet.foxcorrector.fiche.alt3"
+        },
+        {
+          "image": "assets/img/portfolio/FoxCorrector/gain.webp",
+          "alt": "projet.foxcorrector.fiche.alt4"
+        },
+        {
+          "texte": "projet.foxcorrector.fiche.p6"
+        }
+      ],
+      "html": true,
+      "liens": []
+    },
+    "annee": "projet.annee.2",
+    "technos": [
+      "Python",
+      "Docker",
+      "Cryptographie",
+      "Gestion de projet",
+      "Tests"
     ]
   },
   {
     "id": "portfolio",
     "icone": "code",
     "carte": {
-      "titre": "card10.title",
-      "description": "card10.description",
+      "titre": "projet.portfolio.carte.titre",
+      "description": "projet.portfolio.carte.description",
       "image": "assets/img/portfolio/Portfolio/apercu.svg",
-      "alt": "Aperçu du portfolio"
+      "alt": "projet.portfolio.carte.alt"
     },
     "tags": [
-      "card10.badge1",
+      "projet.portfolio.tag1",
       { "libelle": "i18n" }
     ],
     "detail": {
-      "titre": "modal10.title",
-      "description": "modal10.description",
-      "html": true,
-      "images": [
+      "titre": "projet.portfolio.fiche.titre",
+      "blocs": [
         {
-          "src": "assets/img/portfolio/Portfolio/apercu.svg",
-          "alt": "Aperçu du portfolio"
+          "texte": "projet.portfolio.fiche.description"
+        },
+        {
+          "image": "assets/img/portfolio/Portfolio/apercu.svg",
+          "alt": "projet.portfolio.fiche.alt1"
         }
       ],
+      "html": true,
       "liens": [
         {
           "href": "https://github.com/PoissonnierThomas/PoissonnierThomas.github.io",
@@ -80,28 +149,30 @@
     "id": "weather-rugby",
     "icone": "globe",
     "carte": {
-      "titre": "card7.title",
-      "description": "card7.description",
+      "titre": "projet.weather-rugby.carte.titre",
+      "description": "projet.weather-rugby.carte.description",
       "image": "assets/img/portfolio/Weather_Rugby/Screenshot1.webp",
-      "alt": "Weather Rugby"
+      "alt": "projet.weather-rugby.carte.alt"
     },
     "tags": [
-      "card7.badge1"
+      "projet.weather-rugby.tag1"
     ],
     "detail": {
-      "titre": "modal7.title",
-      "description": "modal7.description",
-      "html": true,
-      "images": [
+      "titre": "projet.weather-rugby.fiche.titre",
+      "blocs": [
         {
-          "src": "assets/img/portfolio/Weather_Rugby/Screenshot1.webp",
-          "alt": "Carte des terrains de rugby de France avec la météo associée"
+          "texte": "projet.weather-rugby.fiche.description"
         },
         {
-          "src": "assets/img/portfolio/Weather_Rugby/Screenshot2.webp",
-          "alt": "Fiche détaillée d'un terrain avec ses prévisions météo"
+          "image": "assets/img/portfolio/Weather_Rugby/Screenshot1.webp",
+          "alt": "projet.weather-rugby.fiche.alt1"
+        },
+        {
+          "image": "assets/img/portfolio/Weather_Rugby/Screenshot2.webp",
+          "alt": "projet.weather-rugby.fiche.alt2"
         }
       ],
+      "html": true,
       "liens": [
         {
           "href": "https://github.com/PoissonnierThomas/Weather_Rugby",
@@ -123,26 +194,28 @@
     "id": "keyp",
     "icone": "shield",
     "carte": {
-      "titre": "card8.title",
-      "description": "card8.description",
+      "titre": "projet.keyp.carte.titre",
+      "description": "projet.keyp.carte.description",
       "image": "assets/img/portfolio/Keyp/Menu.webp",
-      "alt": "Keyp Image"
+      "alt": "projet.keyp.carte.alt"
     },
     "tags": [],
     "detail": {
-      "titre": "modal8.title",
-      "description": "modal8.description",
-      "html": true,
-      "images": [
+      "titre": "projet.keyp.fiche.titre",
+      "blocs": [
         {
-          "src": "assets/img/portfolio/Keyp/Menu.webp",
-          "alt": "Menu de l'application"
+          "texte": "projet.keyp.fiche.description"
         },
         {
-          "src": "assets/img/portfolio/Keyp/Connexion.webp",
-          "alt": "Page de connexion de l'application"
+          "image": "assets/img/portfolio/Keyp/Menu.webp",
+          "alt": "projet.keyp.fiche.alt1"
+        },
+        {
+          "image": "assets/img/portfolio/Keyp/Connexion.webp",
+          "alt": "projet.keyp.fiche.alt2"
         }
       ],
+      "html": true,
       "liens": [
         {
           "href": "https://github.com/PoissonnierThomas/Keyp",
@@ -165,41 +238,43 @@
     "id": "comparaison-algorithmes",
     "icone": "cogs",
     "carte": {
-      "titre": "card2.title",
-      "description": "card2.description",
+      "titre": "projet.comparaison-algorithmes.carte.titre",
+      "description": "projet.comparaison-algorithmes.carte.description",
       "image": "assets/img/portfolio/SAE1.02 Poissonnier Thomas/Une.webp",
-      "alt": "Étude comparative d'algorithmes"
+      "alt": "projet.comparaison-algorithmes.carte.alt"
     },
     "tags": [
-      "card2.badge1",
-      "card2.badge2"
+      "projet.comparaison-algorithmes.tag1",
+      "projet.comparaison-algorithmes.tag2"
     ],
     "detail": {
-      "titre": "modal2.title",
-      "description": "modal2.description",
-      "html": true,
-      "images": [
+      "titre": "projet.comparaison-algorithmes.fiche.titre",
+      "blocs": [
         {
-          "src": "assets/img/portfolio/SAE1.02 Poissonnier Thomas/SAE1.02 Poissonnier Thomas-1.webp",
-          "alt": "Synthèse comparative des algorithmes de tri, page 1"
+          "texte": "projet.comparaison-algorithmes.fiche.description"
         },
         {
-          "src": "assets/img/portfolio/SAE1.02 Poissonnier Thomas/SAE1.02 Poissonnier Thomas-2.webp",
-          "alt": "Synthèse comparative des algorithmes de tri, page 2"
+          "image": "assets/img/portfolio/SAE1.02 Poissonnier Thomas/SAE1.02 Poissonnier Thomas-1.webp",
+          "alt": "projet.comparaison-algorithmes.fiche.alt1"
         },
         {
-          "src": "assets/img/portfolio/SAE1.02 Poissonnier Thomas/SAE1.02 Poissonnier Thomas-3.webp",
-          "alt": "Synthèse comparative des algorithmes de tri, page 3"
+          "image": "assets/img/portfolio/SAE1.02 Poissonnier Thomas/SAE1.02 Poissonnier Thomas-2.webp",
+          "alt": "projet.comparaison-algorithmes.fiche.alt2"
         },
         {
-          "src": "assets/img/portfolio/SAE1.02 Poissonnier Thomas/SAE1.02 Poissonnier Thomas-4.webp",
-          "alt": "Synthèse comparative des algorithmes de tri, page 4"
+          "image": "assets/img/portfolio/SAE1.02 Poissonnier Thomas/SAE1.02 Poissonnier Thomas-3.webp",
+          "alt": "projet.comparaison-algorithmes.fiche.alt3"
         },
         {
-          "src": "assets/img/portfolio/SAE1.02 Poissonnier Thomas/SAE1.02 Poissonnier Thomas-5.webp",
-          "alt": "Synthèse comparative des algorithmes de tri, page 5"
+          "image": "assets/img/portfolio/SAE1.02 Poissonnier Thomas/SAE1.02 Poissonnier Thomas-4.webp",
+          "alt": "projet.comparaison-algorithmes.fiche.alt4"
+        },
+        {
+          "image": "assets/img/portfolio/SAE1.02 Poissonnier Thomas/SAE1.02 Poissonnier Thomas-5.webp",
+          "alt": "projet.comparaison-algorithmes.fiche.alt5"
         }
       ],
+      "html": true,
       "liens": []
     },
     "annee": "projet.annee.1",
@@ -214,44 +289,46 @@
     "id": "bibliotheque-recettes",
     "icone": "book",
     "carte": {
-      "titre": "card6.title",
-      "description": "card6.description",
+      "titre": "projet.bibliotheque-recettes.carte.titre",
+      "description": "projet.bibliotheque-recettes.carte.description",
       "image": "assets/img/portfolio/Bibliothèque_de_recette/Homepage.webp",
-      "alt": "Bibliothèque de recettes"
+      "alt": "projet.bibliotheque-recettes.carte.alt"
     },
     "tags": [
-      "card6.badge1"
+      "projet.bibliotheque-recettes.tag1"
     ],
     "detail": {
-      "titre": "modal6.title",
-      "description": "modal6.description",
-      "html": true,
-      "images": [
+      "titre": "projet.bibliotheque-recettes.fiche.titre",
+      "blocs": [
         {
-          "src": "assets/img/portfolio/Bibliothèque_de_recette/Homepage.webp",
-          "alt": "Page d'accueil de la bibliothèque de recettes"
+          "texte": "projet.bibliotheque-recettes.fiche.description"
         },
         {
-          "src": "assets/img/portfolio/Bibliothèque_de_recette/UML.webp",
-          "alt": "Diagramme de classes UML de la bibliothèque de recettes"
+          "image": "assets/img/portfolio/Bibliothèque_de_recette/Homepage.webp",
+          "alt": "projet.bibliotheque-recettes.fiche.alt1"
         },
         {
-          "src": "assets/img/portfolio/Bibliothèque_de_recette/Qt.webp",
-          "alt": "Interface Qt de consultation d'une recette"
+          "image": "assets/img/portfolio/Bibliothèque_de_recette/UML.webp",
+          "alt": "projet.bibliotheque-recettes.fiche.alt2"
         },
         {
-          "src": "assets/img/portfolio/Bibliothèque_de_recette/répartition_horaire.webp",
-          "alt": "Graphique de répartition du temps de travail sur le projet"
+          "image": "assets/img/portfolio/Bibliothèque_de_recette/Qt.webp",
+          "alt": "projet.bibliotheque-recettes.fiche.alt3"
         },
         {
-          "src": "assets/img/portfolio/Bibliothèque_de_recette/répartition_par_session.webp",
-          "alt": "Graphique de répartition du travail par session"
+          "image": "assets/img/portfolio/Bibliothèque_de_recette/répartition_horaire.webp",
+          "alt": "projet.bibliotheque-recettes.fiche.alt4"
+        },
+        {
+          "image": "assets/img/portfolio/Bibliothèque_de_recette/répartition_par_session.webp",
+          "alt": "projet.bibliotheque-recettes.fiche.alt5"
         }
       ],
+      "html": true,
       "liens": [
         {
           "href": "assets/img/portfolio/Bibliothèque_de_recette/README.md",
-          "cle": "modal6.btn1",
+          "cle": "projet.bibliotheque-recettes.lien1",
           "libelle": null,
           "externe": false
         },
@@ -274,37 +351,39 @@
     "id": "calculateur-trajet",
     "icone": "pin",
     "carte": {
-      "titre": "card4.title",
-      "description": "card4.description",
+      "titre": "projet.calculateur-trajet.carte.titre",
+      "description": "projet.calculateur-trajet.carte.description",
       "image": "assets/img/portfolio/Calculatrice/Affichage_Trajet.webp",
-      "alt": "Calculateur de trajet"
+      "alt": "projet.calculateur-trajet.carte.alt"
     },
     "tags": [
-      "card4.badge1",
+      "projet.calculateur-trajet.tag1",
       { "libelle": "Dijkstra" }
     ],
     "detail": {
-      "titre": "modal4.title",
-      "description": "modal4.description",
-      "html": true,
-      "images": [
+      "titre": "projet.calculateur-trajet.fiche.titre",
+      "blocs": [
         {
-          "src": "assets/img/portfolio/Calculatrice/Ouverture.webp",
-          "alt": "Écran d'ouverture du calculateur de trajet"
+          "texte": "projet.calculateur-trajet.fiche.description"
         },
         {
-          "src": "assets/img/portfolio/Calculatrice/Affichage_Trajet.webp",
-          "alt": "Affichage d'un itinéraire calculé entre deux points"
+          "image": "assets/img/portfolio/Calculatrice/Ouverture.webp",
+          "alt": "projet.calculateur-trajet.fiche.alt1"
         },
         {
-          "src": "assets/img/portfolio/Calculatrice/Matrice.webp",
-          "alt": "Matrice des distances entre les sommets du graphe"
+          "image": "assets/img/portfolio/Calculatrice/Affichage_Trajet.webp",
+          "alt": "projet.calculateur-trajet.fiche.alt2"
         },
         {
-          "src": "assets/img/portfolio/Calculatrice/Historique.webp",
-          "alt": "Historique des trajets calculés"
+          "image": "assets/img/portfolio/Calculatrice/Matrice.webp",
+          "alt": "projet.calculateur-trajet.fiche.alt3"
+        },
+        {
+          "image": "assets/img/portfolio/Calculatrice/Historique.webp",
+          "alt": "projet.calculateur-trajet.fiche.alt4"
         }
       ],
+      "html": true,
       "liens": [
         {
           "href": "https://github.com/PoissonnierThomas/Calculateur_Trajets",
@@ -326,38 +405,40 @@
     "id": "cahier-des-charges",
     "icone": "file",
     "carte": {
-      "titre": "card5.title",
-      "description": "card5.description",
+      "titre": "projet.cahier-des-charges.carte.titre",
+      "description": "projet.cahier-des-charges.carte.description",
       "image": "assets/img/portfolio/Etablissement cahier des charges/Cahier_des_charges.webp",
-      "alt": "Cahier des charges"
+      "alt": "projet.cahier-des-charges.carte.alt"
     },
     "tags": [
-      "card5.badge1",
-      "card5.badge2",
-      "card5.badge3"
+      "projet.cahier-des-charges.tag1",
+      "projet.cahier-des-charges.tag2",
+      "projet.cahier-des-charges.tag3"
     ],
     "detail": {
-      "titre": "modal5.title",
-      "description": "modal5.description",
-      "html": true,
-      "images": [
+      "titre": "projet.cahier-des-charges.fiche.titre",
+      "blocs": [
         {
-          "src": "assets/img/portfolio/Etablissement cahier des charges/Cahier_des_charges.webp",
-          "alt": "Première page du cahier des charges rédigé"
+          "texte": "projet.cahier-des-charges.fiche.description"
         },
         {
-          "src": "assets/img/portfolio/Etablissement cahier des charges/Sequence_Case.webp",
-          "alt": "Diagramme de séquence UML de l'application"
+          "image": "assets/img/portfolio/Etablissement cahier des charges/Cahier_des_charges.webp",
+          "alt": "projet.cahier-des-charges.fiche.alt1"
         },
         {
-          "src": "assets/img/portfolio/Etablissement cahier des charges/User_Case.webp",
-          "alt": "Diagramme de cas d'utilisation UML de l'application"
+          "image": "assets/img/portfolio/Etablissement cahier des charges/Sequence_Case.webp",
+          "alt": "projet.cahier-des-charges.fiche.alt2"
+        },
+        {
+          "image": "assets/img/portfolio/Etablissement cahier des charges/User_Case.webp",
+          "alt": "projet.cahier-des-charges.fiche.alt3"
         }
       ],
+      "html": true,
       "liens": [
         {
           "href": "assets/img/portfolio/Etablissement cahier des charges/Cahier_des_Charges_S2.05.pdf",
-          "cle": "modal5.btn",
+          "cle": "projet.cahier-des-charges.lien1",
           "libelle": null,
           "externe": false
         }
@@ -374,36 +455,38 @@
     "id": "analyse-organisation",
     "icone": "users",
     "carte": {
-      "titre": "card3.title",
-      "description": "card3.description",
+      "titre": "projet.analyse-organisation.carte.titre",
+      "description": "projet.analyse-organisation.carte.description",
       "image": "assets/img/portfolio/Analyse_orga/Une.webp",
-      "alt": "Analyse organisationnelle de LeBonCoin"
+      "alt": "projet.analyse-organisation.carte.alt"
     },
     "tags": [
-      "card3.badge1",
-      "card3.badge2",
+      "projet.analyse-organisation.tag1",
+      "projet.analyse-organisation.tag2",
       "tag.communication"
     ],
     "detail": {
-      "titre": "modal3.title",
-      "description": "modal3.description",
-      "html": false,
-      "images": [
+      "titre": "projet.analyse-organisation.fiche.titre",
+      "blocs": [
         {
-          "src": "assets/img/portfolio/Analyse_orga/Une.webp",
-          "alt": "Page de garde du rapport d'analyse organisationnelle de LeBonCoin"
+          "texte": "projet.analyse-organisation.fiche.description"
+        },
+        {
+          "image": "assets/img/portfolio/Analyse_orga/Une.webp",
+          "alt": "projet.analyse-organisation.fiche.alt1"
         }
       ],
+      "html": false,
       "liens": [
         {
           "href": "assets/img/portfolio/Analyse_orga/R108_AO_Leboncoin.pdf",
-          "cle": "modal3.btn1",
+          "cle": "projet.analyse-organisation.lien1",
           "libelle": null,
           "externe": false
         },
         {
           "href": "assets/img/portfolio/Analyse_orga/Saé.S1.06.R1.08_DT_Leboncoin.pdf",
-          "cle": "modal3.btn2",
+          "cle": "projet.analyse-organisation.lien2",
           "libelle": null,
           "externe": false
         }

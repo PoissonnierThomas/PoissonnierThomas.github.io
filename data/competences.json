@@ -99,7 +99,8 @@
             "bibliotheque-recettes",
             "calculateur-trajet"
           ],
-          "description": "skill.git.description"
+          "description": "skill.git.description",
+          "texte": "skill.git.projets"
         },
         {
           "nom": "UML",
@@ -192,6 +193,7 @@
       "applique": {
         "prefixe": "expertise.appliedIn.prefix",
         "projets": [
+          "foxcorrector",
           "stage-cba",
           "bibliotheque-recettes",
           "calculateur-trajet"
@@ -222,6 +224,7 @@
       "applique": {
         "prefixe": "expertise.appliedIn.prefix",
         "projets": [
+          "foxcorrector",
           "bibliotheque-recettes",
           "calculateur-trajet",
           "weather-rugby",
@@ -238,6 +241,7 @@
       "applique": {
         "prefixe": "expertise.appliedIn.prefix",
         "projets": [
+          "foxcorrector",
           "calculateur-trajet",
           "comparaison-algorithmes",
           "keyp"
