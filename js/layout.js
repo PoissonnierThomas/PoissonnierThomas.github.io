@@ -43,6 +43,13 @@ function cablerDefilement() {
   window.addEventListener('scroll', majEtat, { passive: true });
 }
 
+/* Les seules interactions de l'en-tête. Séparé de monterLayout() parce qu'après
+   pré-rendu le balisage est déjà là et qu'il n'y a plus rien à injecter. */
+export function cablerLayout() {
+  cablerMenu();
+  cablerDefilement();
+}
+
 export async function monterLayout(page) {
   const haut = document.getElementById('zone-entete');
   const bas = document.getElementById('zone-pied');
@@ -53,6 +60,5 @@ export async function monterLayout(page) {
   ]);
 
   marquerPageActive(page);
-  cablerMenu();
-  cablerDefilement();
+  cablerLayout();
 }

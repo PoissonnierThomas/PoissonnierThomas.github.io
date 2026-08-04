@@ -1,0 +1,15 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portfolio de Thomas Poissonnier — site statique, pré-rendu au build",
+  "type": "module",
+  "scripts": {
+    "build": "node outils/construire.js",
+    "verifier": "python3 outils/verifier.py",
+    "servir": "python3 -m http.server 8000"
+  },
+  "devDependencies": {
+    "puppeteer": "^24.0.0"
+  }
+}

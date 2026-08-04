@@ -1,8 +1,13 @@
-import { monterLayout } from './layout.js';
-import { rendre } from './render.js';
+import { monterLayout, cablerLayout } from './layout.js';
+import { rendre, cabler } from './render.js';
 import { charger, definirLangue, langueCourante } from './i18n.js';
 
 const page = document.body.dataset.page || 'index';
+
+/* Posé par outils/construire.js : en-tête, contenu et traductions sont déjà
+   dans le HTML livré. Reconstruire par-dessus dupliquerait tout ; il ne reste
+   qu'à câbler les interactions. */
+const prerendu = document.body.dataset.prerendu === 'true';
 
 function cablerFiches() {
   document.querySelectorAll('[data-fiche]').forEach((declencheur) => {
@@ -28,21 +33,28 @@ function cablerLangues() {
 }
 
 async function demarrer() {
-  // Les trois chargements sont indépendants : le layout vise #zone-entete et
-  // #zone-pied, le rendu vise des conteneurs déjà présents dans la page, et les
-  // traductions ne visent rien tant qu'on ne les applique pas. On les lance
-  // donc ensemble, en une vague au lieu de trois.
-  // Seule l'APPLICATION des traductions doit suivre le rendu, faute de quoi
-  // tout bloc construit à partir des données resterait en français.
-  await Promise.all([
-    monterLayout(page),
-    rendre(page),
-    charger(langueCourante()),   // rempli le cache ; definirLangue le relira
-  ]);
+  if (prerendu) {
+    // rien à charger : le sélecteur de langue est devenu un jeu de liens, et
+    // la locale est portée par l'URL et non plus par localStorage
+    cablerLayout();
+  } else {
+    // Les trois chargements sont indépendants : le layout vise #zone-entete et
+    // #zone-pied, le rendu vise des conteneurs déjà présents dans la page, et
+    // les traductions ne visent rien tant qu'on ne les applique pas. On les
+    // lance donc ensemble, en une vague au lieu de trois.
+    // Seule l'APPLICATION des traductions doit suivre le rendu, faute de quoi
+    // tout bloc construit à partir des données resterait en français.
+    await Promise.all([
+      monterLayout(page),
+      rendre(page),
+      charger(langueCourante()),   // remplit le cache ; definirLangue le relira
+    ]);
 
-  await definirLangue(langueCourante());
+    await definirLangue(langueCourante());
+    cablerLangues();
+  }
 
-  cablerLangues();
+  cabler(page);
   cablerFiches();
 
   devoiler('true');

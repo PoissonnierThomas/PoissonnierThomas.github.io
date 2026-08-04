@@ -198,10 +198,17 @@ async function rendreProjets() {
     else grille.append(carte);
   });
 
-  await rendreFiltres(projets, cartesParId, appel);
+  await construireFiltres(projets, cartesParId);
 }
 
-/* --- Filtres --- */
+/* --- Filtres ---
+   Deux temps volontairement séparés. construireFiltres() bâtit le panneau et
+   inscrit sur chaque carte les valeurs qui la caractérisent ; cablerFiltres()
+   ne lit plus que le DOM. Après pré-rendu la construction a déjà eu lieu et
+   n'est pas rejouée, si bien que le filtrage fonctionne sans retélécharger
+   projets.json ni facettes.json — d'où le passage par des attributs. */
+
+const attrFacette = (id) => `data-f-${id}`;
 
 const SOURCES = {
   techno: {
@@ -223,25 +230,30 @@ const SOURCES = {
   },
 };
 
-async function rendreFiltres(projets, cartesParId, appel) {
+async function construireFiltres(projets, cartesParId) {
   const panneau = $('#filtres-panneau');
-  const declencheur = $('#filtres-ouvrir');
-  if (!panneau || !declencheur) return;
+  if (!panneau) return;
 
   const config = await donnees('facettes');
   const facettes = config.facettes.filter((f) => SOURCES[f.source]);
   const valeursDe = (projet, facette) =>
     SOURCES[facette.source].valeurs(projet, facette, config);
 
-  const selection = new Map();
+  // ce que chaque carte porte décide de son sort au filtrage
+  projets.forEach((projet) => {
+    const carte = cartesParId.get(projet.id);
+    if (!carte) return;
+    facettes.forEach((facette) => {
+      const valeurs = valeursDe(projet, facette);
+      if (valeurs.length) carte.setAttribute(attrFacette(facette.id), valeurs.join('|'));
+    });
+  });
 
   facettes.forEach((facette) => {
     const compte = new Map();
     projets.forEach((p) => valeursDe(p, facette)
       .forEach((v) => compte.set(v, (compte.get(v) || 0) + 1)));
     if (!compte.size) return;   // aucune valeur : la facette ne s'affiche pas
-
-    selection.set(facette.id, new Set());
 
     const ordre = [...compte.entries()].sort(
       facette.source === 'techno'
@@ -286,13 +298,33 @@ async function rendreFiltres(projets, cartesParId, appel) {
     bloc.append(options);
     panneau.append(bloc);
   });
+}
+
+export function cablerFiltres() {
+  const panneau = $('#filtres-panneau');
+  const declencheur = $('#filtres-ouvrir');
+  if (!panneau || !declencheur) return;
+
+  const cartes = [...document.querySelectorAll('#projets .projet')];
+  const appel = $('#projet-appel');
+
+  // les facettes en jeu sont celles que le panneau expose, pas celles des JSON
+  const selection = new Map();
+  panneau.querySelectorAll('input[type="checkbox"][data-facette]').forEach((boite) => {
+    if (!selection.has(boite.dataset.facette)) selection.set(boite.dataset.facette, new Set());
+  });
+
+  const valeursDe = (carte, idFacette) => {
+    const brut = carte.getAttribute(attrFacette(idFacette));
+    return brut ? brut.split('|') : [];
+  };
 
   const badgeActifs = $('#filtres-actifs');
   const boutonEffacer = $('#filtres-effacer');
   const resultat = $('#filtres-resultat');
   const vide = $('#filtre-vide');
 
-  let dernierCompte = projets.length;
+  let dernierCompte = cartes.length;
 
   function ajusterAppel(visibles) {
     if (!appel) return;
@@ -318,13 +350,10 @@ async function rendreFiltres(projets, cartesParId, appel) {
 
   function appliquerFiltres() {
     let visibles = 0;
-    projets.forEach((projet) => {
-      const carte = cartesParId.get(projet.id);
-      if (!carte) return;
-      const garde = facettes.every((facette) => {
-        const choisies = selection.get(facette.id);
-        if (!choisies || !choisies.size) return true;   // facette au repos
-        return valeursDe(projet, facette).some((v) => choisies.has(v));
+    cartes.forEach((carte) => {
+      const garde = [...selection.entries()].every(([idFacette, choisies]) => {
+        if (!choisies.size) return true;   // facette au repos
+        return valeursDe(carte, idFacette).some((v) => choisies.has(v));
       });
       carte.hidden = !garde;
       visibles += garde ? 1 : 0;
@@ -336,7 +365,7 @@ async function rendreFiltres(projets, cartesParId, appel) {
       badgeActifs.hidden = actifs === 0;
     }
     if (boutonEffacer) boutonEffacer.hidden = actifs === 0;
-    if (resultat) resultat.textContent = actifs ? `${visibles} / ${projets.length}` : '';
+    if (resultat) resultat.textContent = actifs ? `${visibles} / ${cartes.length}` : '';
     if (vide) vide.hidden = visibles > 0;
     ajusterAppel(visibles);
   }
@@ -521,6 +550,13 @@ async function rendreInterets() {
     else noeud.querySelector('.interet-club')?.remove();
     cible.append(noeud);
   });
+}
+
+/* Câblage des interactions, sur un DOM déjà construit — que celui-ci vienne du
+   rendu client ou du pré-rendu. Contrairement à rendre(), ne touche à aucune
+   donnée : tout ce dont il a besoin est dans la page. */
+export function cabler(page) {
+  if (page === 'projets') cablerFiltres();
 }
 
 export async function rendre(page) {

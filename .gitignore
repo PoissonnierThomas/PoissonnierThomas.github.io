@@ -1,2 +1,7 @@
 # Archives — disponibles sur GitHub, inutiles dans le repo
 *.zip
+
+# Sortie du pré-rendu : régénérée par `npm run build`, publiée par l'Action.
+# Ce qui fait foi reste les pages sources, data/*.json et i18n/*.json.
+dist/
+node_modules/

@@ -1,10 +1,11 @@
 name: Vérification
 
-# Le site est publié tel quel par GitHub Pages : aucun build ne s'interpose
-# pour attraper une incohérence. Ce contrôle est le seul filet.
+# Filet posé en amont, pour voir une incohérence avant qu'elle n'atteigne main.
+# Sur main, c'est publication.yml qui lance ce même contrôle avant le pré-rendu,
+# d'où l'exclusion ici : le faire tourner deux fois n'apprendrait rien.
 on:
   push:
-    branches: [main]
+    branches-ignore: [main]
   pull_request:
   workflow_dispatch:
 

@@ -12,17 +12,29 @@ Deleting a file the user asked you to delete is done with `rm`, not `git rm`: th
 
 ## What this is
 
-Thomas Poissonnier's personal portfolio, published with GitHub Pages at `poissonnierthomas.github.io`. Static site, no build step, no package manager, no framework — plain HTML/CSS/JS served as-is.
+Thomas Poissonnier's personal portfolio, published with GitHub Pages at `poissonnierthomas.github.io`. Plain HTML/CSS/JS, no framework.
+
+**What is published is not what is in the repository.** The source pages carry no content — `js/render.js` injects it at load time — so a crawler that does not run JavaScript would see an empty site. `npm run build` therefore pre-renders every page into `dist/`, which is what Pages serves. Read the *Pre-rendering* section below before touching `js/app.js`, `js/render.js` or `partials/`.
 
 The site was rebuilt from scratch in 2026. The previous Bootstrap "Freelancer" version (`index-v1.html`, `css/styles.css`, `js/scripts.js`, `js/i18n-v1.js`) was kept as a rollback for a while, then deleted — git history holds it if it is ever needed again. Nothing constrains `i18n/*.json` any more: keys may be renamed or removed, as long as every reference is updated with them.
 
 ## Running locally
 
-No dev server, no build command. Serve the directory over HTTP:
+Two ways, and they show different things.
+
+**Sources, rendered client-side** — what you want while editing. No build, immediate reload:
 
 ```bash
 python3 -m http.server 8000
 ```
+
+**The published site** — what visitors and crawlers actually get. Slower loop (a build per change), but the only way to check the pre-rendered output, the `/en/` pages or the SEO tags:
+
+```bash
+npm run build && (cd dist && python3 -m http.server 8001)
+```
+
+Both must work. A change that only works in one of the two is a bug: the sources have to stay renderable on their own, since the build itself relies on that.
 
 HTTP rather than `file://` is mandatory, not a preference: `js/layout.js` fetches `partials/*.html`, `js/render.js` fetches `data/*.json`, `js/i18n.js` fetches `i18n/*.json`, and `<use href="assets/icons.svg#…">` resolves an external document. All four are blocked from a `file://` origin.
 
@@ -47,6 +59,24 @@ Adding a check means editing `outils/verifier.py`; keep it dependency-free.
 ## The English stub
 
 `index-en.html` is a 9-line stub: it writes `localStorage['portfolio-lang'] = 'en'` and redirects to `index.html`. It still works with the current version, which reads the same storage key. Never add content there.
+
+## Pre-rendering (`outils/construire.js`)
+
+The build **drives a real browser** rather than reimplementing the rendering. It serves the repository on a scratch port, opens each page in Chromium, lets `render.js` do its job exactly as it would for a visitor, waits for `data-pret="true"`, rewrites what has to change, and serialises the DOM. There is therefore no second implementation to keep in sync — what ships *is*, by construction, what the browser produces. The cost is a Chromium download in CI, cached on `package-lock.json`.
+
+Output: `dist/` — French at the root, English under `/en/`, eight pages, plus `assets/`, `css/`, `js/`, `robots.txt` and a generated `sitemap.xml`. **`data/` and `i18n/` are not copied**: the pre-rendered HTML has already consumed them and no fetch survives in the shipped page. `dist/` is gitignored; the sources are what is committed.
+
+**The shipped JavaScript wires, it does not render.** Replaying the render over already-filled HTML would duplicate everything, so:
+
+- the build sets `data-prerendu="true"` on `<body>`;
+- `js/app.js` reads it and skips `monterLayout()`, `rendre()` and the translation pass, keeping only `cablerLayout()`, `cabler(page)` and `cablerFiches()`;
+- `render.js` is split accordingly — `rendre()` builds, `cabler()` only listens.
+
+That split is why **`construireFiltres()` stamps each card with `data-f-<facet>="value|value"`** and `cablerFiltres()` reads those attributes rather than the JSON: the filter panel keeps working with `data/` absent from the deployed site. Add a facet source to `SOURCES` and it flows through automatically; read `projets.json` from wiring code and you break the deployed build while local development still looks fine.
+
+The build also, in this order: drops every `<template>` (spent, and their contents are invisible to `querySelectorAll`, so later path rewrites would miss them); removes the anti-flicker `<head>` script (pointless once the HTML ships translated, and it would only delay paint); rewrites relative paths with `../` for `/en/` pages; repoints navigation at the current language; turns the language buttons into real links (so switching language works without JavaScript); and adds `canonical`, the three `hreflang` alternates and `og:locale`.
+
+Adding a page means adding it to `PAGES` in `construire.js` — the sitemap and the alternates follow from that one list.
 
 ## Architecture
 
@@ -166,9 +196,13 @@ Comments were deliberately stripped to a minimum. The five that remain flag rule
 
 ## Deployment
 
-`origin` **is** the GitHub Pages repository (`github.com/PoissonnierThomas/PoissonnierThomas.github.io.git`). Pushing `main` publishes the site directly — there is no separate build or publish step. (Which is also why pushing is never done on your own initiative; see the rule at the top of this file.)
+`origin` **is** the GitHub Pages repository (`github.com/PoissonnierThomas/PoissonnierThomas.github.io.git`). Pushing `main` triggers `.github/workflows/publication.yml`, which runs `outils/verifier.py`, pre-renders, and deploys `dist/`. (Which is also why pushing is never done on your own initiative; see the rule at the top of this file.)
 
-`robots.txt` allows everything except `index-en.html` (a redirect, nothing to index) and points at `sitemap.xml`. The sitemap lists the four real pages and is maintained by hand — `outils/verifier.py` fails if a page of the site is missing from it, or if it names a page that no longer exists, so it cannot drift silently. Its `lastmod` dates are not checked; update them when content changes.
+**This requires Settings → Pages → Source to be set to "GitHub Actions".** While it still reads "Deploy from a branch", the workflow runs green and nothing changes online — Pages keeps serving the raw, contentless source pages.
+
+`.github/workflows/verification.yml` runs the same check on branches and pull requests, and deliberately skips `main` so it does not duplicate what publication already does.
+
+`robots.txt` allows everything except `index-en.html` — now a plain redirect to `/en/`, generated by the build — and points at `sitemap.xml`, itself generated from `PAGES` × `LANGUES` with hreflang alternates. Neither is maintained by hand any more.
 
 The nested `PoissonnierThomas.github.io/` directory is not a publishing target: it is an abandoned clone of that same remote, with an empty working tree and no local commits. Ignore it.
 

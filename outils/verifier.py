@@ -16,7 +16,6 @@ import json
 import re
 import sys
 from pathlib import Path
-from urllib.parse import urlparse
 
 RACINE = Path(__file__).resolve().parent.parent
 anomalies = []
@@ -137,33 +136,10 @@ def verifier_assets():
     signaler('fichiers référencés mais absents', manquants)
 
 
-# --- 4. Sitemap ------------------------------------------------------------
-
-def verifier_sitemap():
-    print('\nSitemap')
-    sitemap = (RACINE / 'sitemap.xml').read_text(encoding='utf-8')
-    declarees = set(re.findall(r'<loc>\s*([^<\s]+)\s*</loc>', sitemap))
-
-    # on compare des chemins, pas des URLs : « / » désigne index.html
-    fichiers = {urlparse(url).path.lstrip('/') or 'index.html'
-                for url in declarees}
-
-    servies = {p.name for p in RACINE.glob('*.html')
-               if p.name != 'index-en.html' and not p.name.startswith('mockup')}
-
-    signaler('pages du site absentes du sitemap', servies - fichiers)
-    signaler('URLs du sitemap sans page correspondante', fichiers - servies)
-
-    hors_domaine = {u for u in declarees
-                    if not u.startswith('https://poissonnierthomas.github.io/')}
-    signaler('URLs hors du domaine publié', hors_domaine)
-
-
 if __name__ == '__main__':
     verifier_i18n()
     verifier_donnees()
     verifier_assets()
-    verifier_sitemap()
 
     if anomalies:
         print(f"\n{len(anomalies)} contrôle(s) en échec.")
