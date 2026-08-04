@@ -12,7 +12,16 @@ const prerendu = document.body.dataset.prerendu === 'true';
 function cablerFiches() {
   document.querySelectorAll('[data-fiche]').forEach((declencheur) => {
     declencheur.addEventListener('click', () => {
-      document.getElementById(declencheur.dataset.fiche)?.showModal();
+      const fiche = document.getElementById(declencheur.dataset.fiche);
+      if (!fiche) return;
+
+      fiche.showModal();
+      // fige le fond : un <dialog> modal bloque les clics derrière lui, jamais
+      // la molette. Connu et non résolu : showModal() déplace au passage la
+      // position de défilement du fond, qu'on retrouve donc ailleurs en
+      // fermant — ni requestAnimationFrame ni la neutralisation de
+      // `scroll-behavior` n'ont suffi à la rétablir.
+      document.body.classList.add('fiche-ouverte');
     });
   });
 
@@ -22,6 +31,11 @@ function cablerFiches() {
 
     fiche.addEventListener('click', (e) => {
       if (e.target === fiche) fiche.close();
+    });
+
+    // `close` couvre les trois sorties : bouton, clic sur le fond, touche Échap
+    fiche.addEventListener('close', () => {
+      document.body.classList.remove('fiche-ouverte');
     });
   });
 }

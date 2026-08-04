@@ -54,7 +54,9 @@
     "Gestion de projet": "sujet",
     "MVC": "hors-filtre",
     "Rédaction": "sujet",
-    "Tests": "hors-filtre"
+    "Tests": "hors-filtre",
+    "React": "outil",
+    "Vite": "outil"
   },
   "alias": {
     "Qt": "Qt / JavaFX",

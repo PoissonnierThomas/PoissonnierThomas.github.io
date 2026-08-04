@@ -24,14 +24,14 @@ const RACINE = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DIST = path.join(RACINE, 'dist');
 const DOMAINE = 'https://poissonnierthomas.github.io';
 
-/* Comptes tirés de data/*.json : 10 projets, 6 étapes de parcours, 3 intérêts,
+/* Comptes tirés de data/*.json : 11 projets, 6 étapes de parcours, 3 intérêts,
    14 compétences (6 langages + 8 outils), 5 expertises, 4 savoir-être. Codés
    en dur volontairement — les recalculer depuis les JSON reviendrait à tester
    le rendu contre lui-même. À corriger lorsqu'on ajoute une entrée. */
 const ATTENDU = {
   'index.html': { parcours: 6, interets: 3 },
-  'projets.html': { cartes: 10, fiches: 10 },
-  'competences.html': { fiches: 10, competences: 14, expertises: 5, savoirEtre: 4 },
+  'projets.html': { cartes: 11, fiches: 11 },
+  'competences.html': { fiches: 11, competences: 14, expertises: 5, savoirEtre: 4 },
   'contact.html': { coordonnees: 5 },
 };
 

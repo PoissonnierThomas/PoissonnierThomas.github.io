@@ -235,6 +235,66 @@
     ]
   },
   {
+    "id": "dactylotest",
+    "icone": "monitor",
+    "carte": {
+      "titre": "projet.dactylotest.carte.titre",
+      "description": "projet.dactylotest.carte.description",
+      "image": "assets/img/portfolio/Dactylotest/frappe.webp",
+      "alt": "projet.dactylotest.carte.alt"
+    },
+    "tags": [
+      "projet.dactylotest.tag1",
+      "projet.dactylotest.tag2"
+    ],
+    "detail": {
+      "titre": "projet.dactylotest.fiche.titre",
+      "html": true,
+      "blocs": [
+        {
+          "texte": "projet.dactylotest.fiche.p1"
+        },
+        {
+          "image": "assets/img/portfolio/Dactylotest/frappe.webp",
+          "alt": "projet.dactylotest.fiche.alt1",
+          "titre": "projet.dactylotest.fiche.titre1"
+        },
+        {
+          "texte": "projet.dactylotest.fiche.p2"
+        },
+        {
+          "texte": "projet.dactylotest.fiche.p3"
+        },
+        {
+          "image": "assets/img/portfolio/Dactylotest/resultats.webp",
+          "alt": "projet.dactylotest.fiche.alt2",
+          "titre": "projet.dactylotest.fiche.titre2"
+        },
+        {
+          "texte": "projet.dactylotest.fiche.p4"
+        },
+        {
+          "texte": "projet.dactylotest.fiche.p5"
+        }
+      ],
+      "liens": [
+        {
+          "href": "https://github.com/PoissonnierThomas/Dactylotest",
+          "cle": null,
+          "libelle": "GitHub",
+          "externe": true
+        }
+      ]
+    },
+    "annee": "projet.annee.2",
+    "technos": [
+      "JavaScript",
+      "React",
+      "Vite",
+      "HTML/CSS"
+    ]
+  },
+  {
     "id": "comparaison-algorithmes",
     "icone": "cogs",
     "carte": {

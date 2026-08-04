@@ -103,6 +103,7 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--hauteur-entete) + 1rem);
   -webkit-text-size-adjust: 100%;
+  scrollbar-gutter: stable;   /* voir le blocage du défilement sous une fiche */
 }
 
 body {
@@ -1038,6 +1039,14 @@ a:hover > .cv-apercu { border-color: var(--accent); transform: translateY(-3px);
 
 /* [open] obligatoire : sinon écrase le display:none des fiches fermées */
 .fiche[open] { display: flex; flex-direction: column; }
+
+/* Un <dialog> modal bloque les clics derrière lui, mais pas la molette : sans
+   ceci la page défile sous la fiche. La classe est posée par js/app.js plutôt
+   que déduite de `:has(.fiche[open])`, car le verrou doit arriver APRÈS que le
+   script ait rétabli la position de défilement — sinon il l'y empêcherait.
+   `scrollbar-gutter` sur html réserve la place de l'ascenseur en permanence,
+   sinon sa disparition élargirait la page et décalerait tout à l'ouverture. */
+body.fiche-ouverte { overflow: hidden; }
 
 .fiche::backdrop { background: rgba(0, 0, 0, 0.72); backdrop-filter: blur(3px); }
 

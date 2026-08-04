@@ -61,7 +61,7 @@ Run it after touching `i18n/*.json`, `data/*.json`, or anything under `assets/`.
 
 Adding a check means editing `outils/verifier.py`; keep it dependency-free. Behaviour goes in `outils/tester.js` instead — it may use Puppeteer, which the build needs anyway.
 
-`tester.js` holds hard-coded counts (10 projects, 6 timeline steps, 3 interests, 14 skills, 5 expertises, 4 soft skills). **Adding an entry to `data/` makes the tests fail until you update them**, which is the point: deriving the counts from the same JSON would test the renderer against itself and catch nothing.
+`tester.js` holds hard-coded counts (11 projects, 6 timeline steps, 3 interests, 14 skills, 5 expertises, 4 soft skills). **Adding an entry to `data/` makes the tests fail until you update them**, which is the point: deriving the counts from the same JSON would test the renderer against itself and catch nothing.
 
 ## What is deliberately not tracked
 
@@ -162,7 +162,7 @@ Because ids contain hyphens, the key recogniser in `outils/verifier.py` matches 
 
 ## Data files
 
-**`data/projets.json`** — 10 projects, in display order; the card number is the array index, so reordering renumbers the grid. Numbers describe a position, not an identity — that is a deliberate choice, so never add a `numero` field to pin them.
+**`data/projets.json`** — 11 projects, in display order; the card number is the array index, so reordering renumbers the grid. Numbers describe a position, not an identity — that is a deliberate choice, so never add a `numero` field to pin them.
 
 **The order is editorial**, not chronological: most demonstrative first (the CBA internship, then this portfolio), oldest coursework last. **Ask the owner where a new project goes — never append by default.** Inserting mid-list renumbers everything after it, which is expected and fine.
 
