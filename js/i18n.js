@@ -9,13 +9,22 @@ export function langueCourante() {
   return localStorage.getItem(CLE_STOCKAGE) || DEFAUT;
 }
 
-export async function charger(lang) {
+/* Le cache retient la *promesse*, pas le résultat : deux appels concurrents
+   partagent alors un seul fetch. Un échec est retiré du cache pour qu'un appel
+   ultérieur puisse retenter. */
+export function charger(lang) {
   if (cache.has(lang)) return cache.get(lang);
-  const reponse = await fetch(`i18n/${lang}.json`);
-  if (!reponse.ok) throw new Error(`i18n/${lang}.json : ${reponse.status}`);
-  const traductions = await reponse.json();
-  cache.set(lang, traductions);
-  return traductions;
+
+  const promesse = fetch(`i18n/${lang}.json`).then((reponse) => {
+    if (!reponse.ok) throw new Error(`i18n/${lang}.json : ${reponse.status}`);
+    return reponse.json();
+  }).catch((err) => {
+    cache.delete(lang);
+    throw err;
+  });
+
+  cache.set(lang, promesse);
+  return promesse;
 }
 
 export function appliquer(t, racine = document) {

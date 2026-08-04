@@ -4,7 +4,7 @@
     "icone": "basketball",
     "titre": "interest.sports.title",
     "description": "interest.sports.description",
-    "image": "assets/img/interets/asi-basket.png",
+    "image": "assets/img/interets/asi-basket.webp",
     "alt": "Logo de l'ASI Basket",
     "legende": "ASI Basket",
     "role": "interest.sports.club.role"

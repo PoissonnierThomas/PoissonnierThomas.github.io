@@ -15,10 +15,22 @@
   <meta name="twitter:description" content="Product Builder — développement logiciel, gestion de projets, bases de données." />
 
   <link rel="icon" href="assets/favicon.ico" sizes="any" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="preload" href="assets/fonts/dm-sans-var-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/instrument-serif-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="css/main.css" />
+
+  <script>
+    /* Masque le contenu jusqu'à ce que js/app.js l'ait rendu et traduit.
+       Doit rester synchrone et en <head> : différé, il masquerait après un
+       premier rendu, soit exactement le clignotement qu'il doit éviter.
+       Le délai de sécurité réaffiche la page si le module ne démarre jamais
+       (404, réseau coupé, erreur de parsing) — mieux vaut du français non
+       traduit qu'une page blanche. */
+    document.documentElement.dataset.chargement = '';
+    setTimeout(function () {
+      delete document.documentElement.dataset.chargement;
+    }, 3000);
+  </script>
 </head>
 
 <body data-page="index">
@@ -73,7 +85,7 @@
       </div>
 
       <div class="profil-grille">
-        <img class="portrait" src="assets/Photo_CV.jpg" width="480" height="640"
+        <img class="portrait" src="assets/Photo_CV.webp" width="960" height="1099"
              alt="Photo de Thomas Poissonnier"
              data-i18n-attr="alt:masthead.photo.alt" />
 
@@ -142,8 +154,11 @@
       <div class="cv-grille">
         <a href="assets/img/CV_POISSONNIER_Thomas.pdf" target="_blank" rel="noopener"
            data-i18n-href="cv.href.pdf">
-          <img class="cv-apercu" src="assets/img/CV_POISSONNIER_Thomas.png"
-               data-i18n-attr="src:cv.href.png,alt:cv.apercu.alt"
+          <!-- aperçu léger ; le PNG pleine résolution reste servi par le bouton
+               de téléchargement ci-dessous (cv.href.png) -->
+          <img class="cv-apercu" src="assets/img/CV_POISSONNIER_Thomas_apercu.webp"
+               width="900" height="1273"
+               data-i18n-attr="src:cv.apercu.src,alt:cv.apercu.alt"
                alt="Aperçu du CV de Thomas Poissonnier" loading="lazy" />
         </a>
 

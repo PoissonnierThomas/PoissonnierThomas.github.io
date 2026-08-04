@@ -3,10 +3,23 @@
 
 const $ = (sel, racine = document) => racine.querySelector(sel);
 
-async function donnees(nom) {
-  const reponse = await fetch(`data/${nom}.json`);
-  if (!reponse.ok) throw new Error(`data/${nom}.json : ${reponse.status}`);
-  return reponse.json();
+/* Même cache de promesses que js/i18n.js : sur competences.html, deux rendus
+   concurrents réclament projets.json, et un seul fetch part. */
+const enCache = new Map();
+
+function donnees(nom) {
+  if (enCache.has(nom)) return enCache.get(nom);
+
+  const promesse = fetch(`data/${nom}.json`).then((reponse) => {
+    if (!reponse.ok) throw new Error(`data/${nom}.json : ${reponse.status}`);
+    return reponse.json();
+  }).catch((err) => {
+    enCache.delete(nom);
+    throw err;
+  });
+
+  enCache.set(nom, promesse);
+  return promesse;
 }
 
 function remplir(gabarit, valeurs) {

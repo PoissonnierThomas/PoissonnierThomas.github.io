@@ -2,11 +2,19 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Git is off limits without an explicit request
+
+**Never run a git command that changes state unless the user has formally asked for it in that message.** This covers `commit`, `add`, `rm`, `mv`, `restore`, `checkout`, `switch`, `branch`, `reset`, `stash`, `merge`, `rebase`, `push`, `tag` — anything touching the index, the working tree or a remote. "Do the work" is never implicit permission to stage or commit it.
+
+Read-only inspection (`status`, `log`, `diff`, `show`) is fine at any time.
+
+Deleting a file the user asked you to delete is done with `rm`, not `git rm`: the removal belongs in the working tree, and staging it is the user's decision. Leave the changes there and say what is pending — the user reviews and commits.
+
 ## What this is
 
 Thomas Poissonnier's personal portfolio, published with GitHub Pages at `poissonnierthomas.github.io`. Static site, no build step, no package manager, no framework — plain HTML/CSS/JS served as-is.
 
-The site was rebuilt from scratch in 2026. The previous Bootstrap "Freelancer" version is kept intact as a rollback (`index-v1.html`) — see the constraint below, it governs what you may do to `i18n/*.json`.
+The site was rebuilt from scratch in 2026. The previous Bootstrap "Freelancer" version (`index-v1.html`, `css/styles.css`, `js/scripts.js`, `js/i18n-v1.js`) was kept as a rollback for a while, then deleted — git history holds it if it is ever needed again. Nothing constrains `i18n/*.json` any more: keys may be renamed or removed, as long as every reference is updated with them.
 
 ## Running locally
 
@@ -20,78 +28,23 @@ HTTP rather than `file://` is mandatory, not a preference: `js/layout.js` fetche
 
 `python3 -m http.server` answers `304 Not Modified`, so an edited ES module can be served from cache and a page silently keeps running old code. If a change appears to have no effect, force-reload before debugging.
 
-There is no test suite, linter or CI. Two checks are worth running after touching translations or data.
-
-**Translation keys** — the two locales must declare the same key set, and every key referenced by the pages or the data files must exist:
+There is no test suite or linter. There is one check, and it covers translations, data cross-references and asset paths:
 
 ```bash
-python3 - <<'EOF'
-import json, re, glob
-pages = [p for p in glob.glob('*.html') + glob.glob('partials/*.html')
-         if p not in ('index-v1.html', 'index-en.html') and not p.startswith('mockup')]
-used = set()
-for p in pages:
-    h = open(p, encoding='utf-8').read()
-    used |= set(re.findall(r'data-i18n(?:-html|-href)?="([^"]+)"', h))
-    used |= {a.split(':', 1)[1].strip()
-             for attr in re.findall(r'data-i18n-attr="([^"]+)"', h)
-             for a in attr.split(',')}
-for f in glob.glob('data/*.json'):
-    used |= set(re.findall(r'"([a-z][\w.]*\.[\w.]+)"',
-                           json.dumps(json.load(open(f, encoding='utf-8')), ensure_ascii=False)))
-fr = json.load(open('i18n/fr.json', encoding='utf-8'))
-en = json.load(open('i18n/en.json', encoding='utf-8'))
-print('fr only  :', sorted(set(fr) - set(en)) or 'none')
-print('en only  :', sorted(set(en) - set(fr)) or 'none')
-print('missing  :', sorted(k for k in used if k not in fr) or 'none')
-EOF
+python3 outils/verifier.py
 ```
 
-`fr only` and `en only` must stay empty. Keys present in the JSON but unused are normal: `index-v1.html` still needs its own, and several are leftovers from earlier redesigns.
+It exits non-zero on the first inconsistency and runs in CI on every push and pull request (`.github/workflows/verification.yml`). Standard library only, no venv, no dependency to install — so it stays runnable by hand.
 
-**Data coherence** — the data files cross-reference each other by string; nothing enforces it at runtime:
+Run it after touching `i18n/*.json`, `data/*.json`, or anything under `assets/`. What it catches:
 
-```bash
-python3 - <<'EOF'
-import json, re, glob
-projets = json.load(open('data/projets.json', encoding='utf-8'))
-facettes = json.load(open('data/facettes.json', encoding='utf-8'))
-comp = json.load(open('data/competences.json', encoding='utf-8'))
-technos = {t for p in projets for t in p['technos']}
-print('unclassified technos :', sorted(technos - set(facettes['technos'])) or 'none')
-print('orphan classification:', sorted(set(facettes['technos']) - technos) or 'none')
-alias = facettes.get('alias', {})
-print('unknown alias keys   :', sorted(set(alias) - set(facettes['technos'])) or 'none')
-print('alias across cats    :', sorted({v for v in set(alias.values())
-                                        if len({facettes['technos'][k]
-                                                for k in alias if alias[k] == v}) > 1}) or 'none')
-print('unknown contexts     :', sorted({c for g in comp['groupes'] for i in g['items']
-                                        for c in i['contextes']}
-                                       - {c['id'] for c in comp['contextes']}) or 'none')
-print('unknown skill technos:', sorted({t for g in comp['groupes'] for i in g['items']
-                                        for t in i['technos']} - technos) or 'none')
-print('unknown project refs :', sorted({r for e in comp['expertises']
-                                        for r in (e.get('applique') or {}).get('projets', [])}
-                                       | {r for g in comp['groupes'] for i in g['items']
-                                          for r in i.get('projets', [])}
-                                       - {p['id'] for p in projets}) or 'none')
-sprite = {i.split('"')[0] for i in open('assets/icons.svg', encoding='utf-8').read().split('id="ico-')[1:]}
-used = set()
-for f in glob.glob('data/*.json'):
-    used |= set(re.findall(r'"icone":\s*"([^"]+)"', open(f, encoding='utf-8').read()))
-for f in glob.glob('*.html') + glob.glob('partials/*.html'):
-    used |= set(re.findall(r'#ico-([a-z-]+)', open(f, encoding='utf-8').read()))
-print('missing icons        :', sorted(used - sprite) or 'none')
-EOF
-```
+- **Translation keys** — the two locales must declare the same key set, and every key referenced by a page or a data file must exist. Keys present in the JSON but referenced nowhere are not reported: they are harmless leftovers from earlier redesigns, and now safe to prune.
+- **Data cross-references** — the data files cite each other by string and nothing enforces it at runtime. An unclassified techno still shows on the project card but never appears in the filter panel; it fails silently, which is the whole reason this check exists. Also covers unknown contexts, unknown skill technos, project ids cited but absent, and aliases straddling two categories.
+- **Files** — every icon must exist in the sprite, and every `assets/…` path quoted anywhere must resolve on disk. Several asset paths contain spaces and accents, so the check bounds paths at the quote, never at whitespace.
 
-An unclassified techno still shows on the project card but never appears in the filter panel — it fails silently, which is why this check exists.
+Adding a check means editing `outils/verifier.py`; keep it dependency-free.
 
-## The rollback constraint
-
-`index-v1.html` + `js/i18n-v1.js` + `css/styles.css` + `js/scripts.js` are the frozen previous version, kept so the site can be reverted by renaming one file. It reads the same `i18n/fr.json` and `i18n/en.json`.
-
-**Never delete or rename an i18n key.** Adding is free; removing breaks the rollback. Changing a *value* is acceptable when it fixes a factual error, since both versions then display the correction — but check first whether `index-v1.html` uses the key (`grep -c '"the.key"' index-v1.html`) and say so.
+## The English stub
 
 `index-en.html` is a 9-line stub: it writes `localStorage['portfolio-lang'] = 'en'` and redirects to `index.html`. It still works with the current version, which reads the same storage key. Never add content there.
 
@@ -119,10 +72,16 @@ A move to PHP means replacing the loops in `render.js` with `foreach` over the s
 **Boot order is load-bearing** (`js/app.js`):
 
 ```
-monterLayout(page)  →  rendre(page)  →  definirLangue(langueCourante())
+Promise.all([ monterLayout(page), rendre(page), charger(langueCourante()) ])
+                              ↓
+                definirLangue(langueCourante())
 ```
 
-Translating before rendering would leave every data-driven block in French. This is the only temporal coupling in the site.
+The three loads are independent — the layout targets `#zone-entete` / `#zone-pied`, the render targets containers already in the page, and translations target nothing until applied — so they run as one wave rather than three. What is *not* negotiable is the arrow: applying translations before rendering would leave every data-driven block in French. This is the only temporal coupling in the site.
+
+`charger()` inside the `Promise.all` only warms the cache; `definirLangue()` reads it back with no second fetch. Both `charger()` in `i18n.js` and `donnees()` in `render.js` cache the *promise*, not the result, so concurrent callers share one request — that is what stops `competences.html` from fetching `projets.json` twice. A rejected promise is evicted so a later call can retry. Consequence to keep in mind: every caller receives **the same parsed object**, so no rendering code may mutate what `donnees()` returns.
+
+**The page is hidden while all this runs.** A synchronous script in each `<head>` sets `data-chargement` on `<html>`, and `css/main.css` hides the body while it is there; `js/app.js` removes it once rendered and translated, whether it succeeded or failed. Without it an English-language visitor sees French for a beat, then a visible swap. Two things must stay true: the script stays **synchronous and in `<head>`** (deferred, it would hide *after* a first paint — the very flicker it exists to prevent), and the masking is done **by the script, never by the stylesheet alone**, so a visitor without JavaScript still sees the page. A 3-second `setTimeout` unhides regardless, so a module that never boots cannot leave a blank page behind. On failure `js/app.js` sets `data-pret="erreur"`, which draws a bilingual banner from CSS alone — no markup needed, since the failure may well be that nothing was injected.
 
 **Template filling convention**, read by `remplir()` in `render.js`:
 
@@ -182,9 +141,9 @@ Filtering semantics: **OR within a facet, AND across facets**.
 
 **`data/interets.json`** — three entries. An entry may carry `image`, `alt`, `legende` (a literal — a club name is a proper noun) and `role` (an i18n key), which render as a logo block at the bottom of the card. That block drives the layout: `render.js` tags an entry that has an `image` with `interet--large`, which spans two rows of the two-column grid, so the long entry gets a wide column and the short ones stack beside it instead of inheriting its height. **The layout assumes exactly one entry with an image** — give a second one an image and the grid loses its balance. Entries without an image have the whole block removed, so they are unaffected.
 
-## Styling (`css/main.css`, ~1070 lines)
+## Styling (`css/main.css`, ~1190 lines)
 
-Dark theme declared once as custom properties in `:root`, alongside a small typographic scale. Change the palette there, not at the call site. The file is a sequence of 17 numbered `/* --- n. Title --- */` blocks in page order; locate the right block before adding rules.
+Dark theme declared once as custom properties in `:root`, alongside a small typographic scale. Change the palette there, not at the call site. The file opens with block `0. Polices` — six `@font-face` — then continues as a sequence of 17 numbered `/* --- n. Title --- */` blocks in page order; locate the right block before adding rules.
 
 Comments were deliberately stripped to a minimum. The five that remain flag rules that look removable and are not — remove one and something breaks:
 
@@ -201,6 +160,8 @@ Comments were deliberately stripped to a minimum. The five that remain flag rule
 - Section ids: `#accueil`, `#profil`, `#interets-section`, `#cv`, `#competences`, `#contact`.
 - Assets live under `assets/img/portfolio/<project-name>/`. Several directory names contain accents or spaces and are referenced unencoded; keep that convention rather than mixing in percent-encoded paths. `.gitignore` excludes `*.zip`.
 - `assets/icons.svg` is a sprite of 26 stroke symbols, viewBox 24×24, `stroke="currentColor"`.
+- **Every displayed image is WebP**, sized to its real use (card thumbnails 900px wide, fiche illustrations 1600px, portrait 960px, interest logos 400px) — roughly twice the CSS width, for high-density screens. A new image goes through the same treatment; dropping in a 2 MB PNG undoes the work. The two CV files are the exception: `cv.href.png` and `cv.href.pdf` point at the full-resolution originals because the buttons *download* them, and `cv.apercu.src` points at a separate lightweight WebP used only for the on-page preview. Do not merge the two back together.
+- **No external requests.** Fonts are self-hosted under `assets/fonts/` and declared in block 0 of `css/main.css` — DM Sans as a variable font covering weights 300-500, Instrument Serif in roman and italic, each split latin / latin-ext. `index.html` and its three siblings preload the two `latin` files. Keep it that way: a CDN link costs a third-party round trip before first paint and sends the visitor's IP to that host.
 
 ## Deployment
 

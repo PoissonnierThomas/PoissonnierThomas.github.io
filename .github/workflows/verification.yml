@@ -1,0 +1,24 @@
+name: Vérification
+
+# Le site est publié tel quel par GitHub Pages : aucun build ne s'interpose
+# pour attraper une incohérence. Ce contrôle est le seul filet.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  coherence:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # Aucune dépendance à installer : le script n'utilise que la bibliothèque
+      # standard, volontairement, pour rester lançable à la main sans venv.
+      - name: Cohérence des traductions, des données et des fichiers
+        run: python3 outils/verifier.py

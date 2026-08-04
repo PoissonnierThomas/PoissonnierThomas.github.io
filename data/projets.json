@@ -5,7 +5,7 @@
     "carte": {
       "titre": "card2.title",
       "description": "card2.description",
-      "image": "assets/img/portfolio/SAE1.02 Poissonnier Thomas/Une.png",
+      "image": "assets/img/portfolio/SAE1.02 Poissonnier Thomas/Une.webp",
       "alt": "Étude comparative d'algorithmes"
     },
     "tags": [
@@ -18,23 +18,23 @@
       "html": true,
       "images": [
         {
-          "src": "assets/img/portfolio/SAE1.02 Poissonnier Thomas/SAE1.02 Poissonnier Thomas-1.png",
+          "src": "assets/img/portfolio/SAE1.02 Poissonnier Thomas/SAE1.02 Poissonnier Thomas-1.webp",
           "alt": "Synthèse comparative des algorithmes de tri, page 1"
         },
         {
-          "src": "assets/img/portfolio/SAE1.02 Poissonnier Thomas/SAE1.02 Poissonnier Thomas-2.png",
+          "src": "assets/img/portfolio/SAE1.02 Poissonnier Thomas/SAE1.02 Poissonnier Thomas-2.webp",
           "alt": "Synthèse comparative des algorithmes de tri, page 2"
         },
         {
-          "src": "assets/img/portfolio/SAE1.02 Poissonnier Thomas/SAE1.02 Poissonnier Thomas-3.png",
+          "src": "assets/img/portfolio/SAE1.02 Poissonnier Thomas/SAE1.02 Poissonnier Thomas-3.webp",
           "alt": "Synthèse comparative des algorithmes de tri, page 3"
         },
         {
-          "src": "assets/img/portfolio/SAE1.02 Poissonnier Thomas/SAE1.02 Poissonnier Thomas-4.png",
+          "src": "assets/img/portfolio/SAE1.02 Poissonnier Thomas/SAE1.02 Poissonnier Thomas-4.webp",
           "alt": "Synthèse comparative des algorithmes de tri, page 4"
         },
         {
-          "src": "assets/img/portfolio/SAE1.02 Poissonnier Thomas/SAE1.02 Poissonnier Thomas-5.png",
+          "src": "assets/img/portfolio/SAE1.02 Poissonnier Thomas/SAE1.02 Poissonnier Thomas-5.webp",
           "alt": "Synthèse comparative des algorithmes de tri, page 5"
         }
       ],
@@ -54,7 +54,7 @@
     "carte": {
       "titre": "card3.title",
       "description": "card3.description",
-      "image": "assets/img/portfolio/Analyse_orga/Une.png",
+      "image": "assets/img/portfolio/Analyse_orga/Une.webp",
       "alt": "Analyse organisationnelle de LeBonCoin"
     },
     "tags": [
@@ -68,7 +68,7 @@
       "html": false,
       "images": [
         {
-          "src": "assets/img/portfolio/Analyse_orga/Une.png",
+          "src": "assets/img/portfolio/Analyse_orga/Une.webp",
           "alt": "Page de garde du rapport d'analyse organisationnelle de LeBonCoin"
         }
       ],
@@ -99,7 +99,7 @@
     "carte": {
       "titre": "card4.title",
       "description": "card4.description",
-      "image": "assets/img/portfolio/Calculatrice/Affichage_Trajet.png",
+      "image": "assets/img/portfolio/Calculatrice/Affichage_Trajet.webp",
       "alt": "Calculateur de trajet"
     },
     "tags": [
@@ -114,19 +114,19 @@
       "html": true,
       "images": [
         {
-          "src": "assets/img/portfolio/Calculatrice/Ouverture.png",
+          "src": "assets/img/portfolio/Calculatrice/Ouverture.webp",
           "alt": "Écran d'ouverture du calculateur de trajet"
         },
         {
-          "src": "assets/img/portfolio/Calculatrice/Affichage_Trajet.png",
+          "src": "assets/img/portfolio/Calculatrice/Affichage_Trajet.webp",
           "alt": "Affichage d'un itinéraire calculé entre deux points"
         },
         {
-          "src": "assets/img/portfolio/Calculatrice/Matrice.png",
+          "src": "assets/img/portfolio/Calculatrice/Matrice.webp",
           "alt": "Matrice des distances entre les sommets du graphe"
         },
         {
-          "src": "assets/img/portfolio/Calculatrice/Historique.png",
+          "src": "assets/img/portfolio/Calculatrice/Historique.webp",
           "alt": "Historique des trajets calculés"
         }
       ],
@@ -153,7 +153,7 @@
     "carte": {
       "titre": "card5.title",
       "description": "card5.description",
-      "image": "assets/img/portfolio/Etablissement cahier des charges/Cahier_des_charges.png",
+      "image": "assets/img/portfolio/Etablissement cahier des charges/Cahier_des_charges.webp",
       "alt": "Cahier des charges"
     },
     "tags": [
@@ -167,15 +167,15 @@
       "html": true,
       "images": [
         {
-          "src": "assets/img/portfolio/Etablissement cahier des charges/Cahier_des_charges.png",
+          "src": "assets/img/portfolio/Etablissement cahier des charges/Cahier_des_charges.webp",
           "alt": "Première page du cahier des charges rédigé"
         },
         {
-          "src": "assets/img/portfolio/Etablissement cahier des charges/Sequence_Case.png",
+          "src": "assets/img/portfolio/Etablissement cahier des charges/Sequence_Case.webp",
           "alt": "Diagramme de séquence UML de l'application"
         },
         {
-          "src": "assets/img/portfolio/Etablissement cahier des charges/User_Case.png",
+          "src": "assets/img/portfolio/Etablissement cahier des charges/User_Case.webp",
           "alt": "Diagramme de cas d'utilisation UML de l'application"
         }
       ],
@@ -201,7 +201,7 @@
     "carte": {
       "titre": "card6.title",
       "description": "card6.description",
-      "image": "assets/img/portfolio/Bibliothèque_de_recette/Homepage.png",
+      "image": "assets/img/portfolio/Bibliothèque_de_recette/Homepage.webp",
       "alt": "Bibliothèque de recettes"
     },
     "tags": [
@@ -213,23 +213,23 @@
       "html": true,
       "images": [
         {
-          "src": "assets/img/portfolio/Bibliothèque_de_recette/Homepage.png",
+          "src": "assets/img/portfolio/Bibliothèque_de_recette/Homepage.webp",
           "alt": "Page d'accueil de la bibliothèque de recettes"
         },
         {
-          "src": "assets/img/portfolio/Bibliothèque_de_recette/UML.png",
+          "src": "assets/img/portfolio/Bibliothèque_de_recette/UML.webp",
           "alt": "Diagramme de classes UML de la bibliothèque de recettes"
         },
         {
-          "src": "assets/img/portfolio/Bibliothèque_de_recette/Qt.png",
+          "src": "assets/img/portfolio/Bibliothèque_de_recette/Qt.webp",
           "alt": "Interface Qt de consultation d'une recette"
         },
         {
-          "src": "assets/img/portfolio/Bibliothèque_de_recette/répartition_horaire.png",
+          "src": "assets/img/portfolio/Bibliothèque_de_recette/répartition_horaire.webp",
           "alt": "Graphique de répartition du temps de travail sur le projet"
         },
         {
-          "src": "assets/img/portfolio/Bibliothèque_de_recette/répartition_par_session.png",
+          "src": "assets/img/portfolio/Bibliothèque_de_recette/répartition_par_session.webp",
           "alt": "Graphique de répartition du travail par session"
         }
       ],
@@ -261,7 +261,7 @@
     "carte": {
       "titre": "card7.title",
       "description": "card7.description",
-      "image": "assets/img/portfolio/Weather_Rugby/Screenshot1.jpg",
+      "image": "assets/img/portfolio/Weather_Rugby/Screenshot1.webp",
       "alt": "Weather Rugby"
     },
     "tags": [
@@ -273,11 +273,11 @@
       "html": true,
       "images": [
         {
-          "src": "assets/img/portfolio/Weather_Rugby/Screenshot1.jpg",
+          "src": "assets/img/portfolio/Weather_Rugby/Screenshot1.webp",
           "alt": "Carte des terrains de rugby de France avec la météo associée"
         },
         {
-          "src": "assets/img/portfolio/Weather_Rugby/Screenshot2.jpg",
+          "src": "assets/img/portfolio/Weather_Rugby/Screenshot2.webp",
           "alt": "Fiche détaillée d'un terrain avec ses prévisions météo"
         }
       ],
@@ -304,7 +304,7 @@
     "carte": {
       "titre": "card8.title",
       "description": "card8.description",
-      "image": "assets/img/portfolio/Keyp/Menu.png",
+      "image": "assets/img/portfolio/Keyp/Menu.webp",
       "alt": "Keyp Image"
     },
     "tags": [],
@@ -314,11 +314,11 @@
       "html": true,
       "images": [
         {
-          "src": "assets/img/portfolio/Keyp/Menu.png",
+          "src": "assets/img/portfolio/Keyp/Menu.webp",
           "alt": "Menu de l'application"
         },
         {
-          "src": "assets/img/portfolio/Keyp/Connexion.png",
+          "src": "assets/img/portfolio/Keyp/Connexion.webp",
           "alt": "Page de connexion de l'application"
         }
       ],
@@ -346,7 +346,7 @@
     "carte": {
       "titre": "card9.title",
       "description": "card9.description",
-      "image": "assets/img/portfolio/CBA/logo-cba.png",
+      "image": "assets/img/portfolio/CBA/logo-cba.webp",
       "alt": "CBA Informatique Libérale"
     },
     "tags": [
@@ -360,7 +360,7 @@
       "html": true,
       "images": [
         {
-          "src": "assets/img/portfolio/CBA/logo-cba.png",
+          "src": "assets/img/portfolio/CBA/logo-cba.webp",
           "alt": "CBA Informatique Libérale"
         }
       ],
